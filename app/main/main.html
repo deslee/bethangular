@@ -1,17 +1,15 @@
 <h2>Featured Work</h2>
 
 <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-    <li>
+    <!-- <li>
         <img class="th" data-interchange="[http://placehold.it/500x600, (default)], [http://placehold.it/500x800, (large)]" data-uuid="VqL02hWQInXp-vLlGN0-z9Lwqx-68ZTb4-PI2szGOFPThPfoUjIS" src="http://placehold.it/500x600">
-    </li>
-    <li>
-        <img class="th" data-interchange="[http://placehold.it/500x600, (default)], [http://placehold.it/500x800, (large)]" data-uuid="VqL02hWQInXp-vLlGN0-z9Lwqx-68ZTb4-PI2szGOFPThPfoUjIS" src="http://placehold.it/500x600">
-    </li>
-    <li>
-        <img class="th" data-interchange="[http://placehold.it/500x600, (default)], [http://placehold.it/500x800, (large)]" data-uuid="VqL02hWQInXp-vLlGN0-z9Lwqx-68ZTb4-PI2szGOFPThPfoUjIS" src="http://placehold.it/500x600">
-    </li>
-    <li>
-        <img class="th" data-interchange="[http://placehold.it/500x600, (default)], [http://placehold.it/500x800, (large)]" data-uuid="VqL02hWQInXp-vLlGN0-z9Lwqx-68ZTb4-PI2szGOFPThPfoUjIS" src="http://placehold.it/500x600">
+    </li> -->
+
+    <li ng-repeat="image in featuredItems">
+        <a ng-click="detail(image)"><span class="th" picture-fill>
+            <span pf-src="{{image.url}}"></span>
+            <span ng-if="image.largeUrl" pf-src="{{image.largeUrl}}" data-media="only screen and (min-width: 40.063em)"></span>
+        </span></a>
     </li>
 </ul>
 <h2>Scrapbook</h2>

@@ -32,7 +32,10 @@ gulp.task('vendorJS', function(){
         './bower_components/jquery-placeholder/*.js',
         './bower_components/angular/*.js',
         './bower_components/angular-route/*.js',
-        './bower_components/foundation/**/*.js',])
+        './bower_components/foundation/**/*.js',
+        './bower_components/angular-foundation/*.js',
+        './bower_components/picturefill/*.js',
+        './bower_components/angular-picturefill/*.js'])
         .pipe(plugins.concat('lib.js'))
         .pipe(gulp.dest('./build'));
 });
