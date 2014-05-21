@@ -33,3 +33,41 @@ h1 {
     filter: alpha(opacity=50);
     opacity: .5;
 }
+
+.container {
+    margin: 1em;
+}
+
+.row {
+    max-width: 1920px;
+}
+
+.content {
+    position: relative;
+}
+
+.content.ng-enter {
+    -webkit-transition:0.5s ease-out all;
+    transition:0.25s ease-out all;
+    position: relative;
+    opacity: 0;
+    top: 25px;
+}
+
+.content.ng-enter.ng-enter-active {
+    top: 0;
+    opacity: 1;
+}
+
+.content.ng-leave  {
+    -webkit-transition:0.5s ease-out all;
+    transition:0.25s ease-out all;
+    position: relative;
+    opacity: 1;
+    top: 0;
+}
+
+.content.ng-leave.ng-leave-active {
+    top: -25px;
+    opacity: 0;
+}

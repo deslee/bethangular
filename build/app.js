@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('beth-gulp-ng', [ 'ngRoute',
+angular.module('beth-gulp-ng', [ 'ngRoute', 'ngAnimate',
     'beth-gulp-ng-main',
     'beth-gulp-ng-directives',
     'ng.picturefill',
@@ -14,15 +14,7 @@ angular.module('beth-gulp-ng', [ 'ngRoute',
     });
 'app controller goes here';
 'common service goes here';
-angular.module('beth-gulp-ng-directives', [])
-    .directive('dataInterchange', function() {
-        alert("AAAH");
-       return {
-           link: function(scope, element, attrs, ctrl) {
-               alert('boo!')
-           }
-       }
-    });
+angular.module('beth-gulp-ng-directives', []);
 angular.module('beth-gulp-ng-entityservice', []).
     factory('entries', function() {
         return [
@@ -73,22 +65,7 @@ angular.module('beth-gulp-ng-main', ['ngRoute', 'beth-gulp-ng-entityservice',
     })
     .controller('MainCtrl', function ($scope, $modal, entries) {
         $scope.featuredItems = entries;
-        $scope.detail = function (image) {
-            var modalInstance = $modal.open({
-                templateUrl: 'main/entry.html',
-                controller: 'EntryCtrl',
-                backdrop: true,
-                resolve: {
-                    image: function () {
-                        return image;
-                    }
-                }
-            })
-        }
     })
-    .controller('EntryCtrl', function ($scope, $routeParams, $modalInstance, image) {
-        $scope.entry = image;
-        $scope.close = function () {
-            $modalInstance.close();
-        };
+    .controller('EntryCtrl', function ($scope, $routeParams, entries) {
+        $scope.entry = _.findWhere(entries, {slug: $routeParams['slug']})
     });

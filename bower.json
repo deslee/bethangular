@@ -19,6 +19,8 @@
     "angular-route": "~1.2.14"
   },
   "dependencies": {
-    "angular-picturefill": "*"
+    "angular-picturefill": "*",
+    "underscore": "~1.6.0",
+    "angular-animate": "~1.2.16"
   }
 }

@@ -15,22 +15,7 @@ angular.module('beth-gulp-ng-main', ['ngRoute', 'beth-gulp-ng-entityservice',
     })
     .controller('MainCtrl', function ($scope, $modal, entries) {
         $scope.featuredItems = entries;
-        $scope.detail = function (image) {
-            var modalInstance = $modal.open({
-                templateUrl: 'main/entry.html',
-                controller: 'EntryCtrl',
-                backdrop: true,
-                resolve: {
-                    image: function () {
-                        return image;
-                    }
-                }
-            })
-        }
     })
-    .controller('EntryCtrl', function ($scope, $routeParams, $modalInstance, image) {
-        $scope.entry = image;
-        $scope.close = function () {
-            $modalInstance.close();
-        };
+    .controller('EntryCtrl', function ($scope, $routeParams, entries) {
+        $scope.entry = _.findWhere(entries, {slug: $routeParams['slug']})
     });

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('beth-gulp-ng', [ 'ngRoute',
+angular.module('beth-gulp-ng', [ 'ngRoute', 'ngAnimate',
     'beth-gulp-ng-main',
     'beth-gulp-ng-directives',
     'ng.picturefill',

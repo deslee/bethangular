@@ -27,11 +27,13 @@ gulp.task('css', function(){
 gulp.task('vendorJS', function(){
     //concatenate vendor JS files
     gulp.src(['!./bower_components/**/*.min.js',
+        './bower_components/underscore/underscore.js',
         './bower_components/jquery/dist/*.js',
         './bower_components/jquery.cookie/*.js',
         './bower_components/jquery-placeholder/*.js',
         './bower_components/angular/*.js',
         './bower_components/angular-route/*.js',
+        './bower_components/angular-animate/*.js',
         './bower_components/foundation/**/*.js',
         './bower_components/angular-foundation/*.js',
         './bower_components/picturefill/*.js',

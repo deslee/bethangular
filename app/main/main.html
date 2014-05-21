@@ -1,4 +1,4 @@
-<h2>Featured Work</h2>
+<h2>Featured Artwork</h2>
 
 <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
     <!-- <li>
@@ -6,7 +6,7 @@
     </li> -->
 
     <li ng-repeat="image in featuredItems">
-        <a ng-click="detail(image)"><span class="th" picture-fill>
+        <a href="#entry/{{image.slug}}"><span class="th" picture-fill>
             <span pf-src="{{image.url}}"></span>
             <span ng-if="image.largeUrl" pf-src="{{image.largeUrl}}" data-media="only screen and (min-width: 40.063em)"></span>
         </span></a>
