@@ -1,0 +1,85 @@
+h1 {
+    font-size: 2em;
+}
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+.fade.in {
+    opacity: 1;
+}
+
+.reveal-modal.fade {
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -moz-transition:    -moz-transform .3s ease-out;
+    -o-transition:      -o-transform .3s ease-out;
+    transition:         transform .3s ease-out;
+    -webkit-transform: translate(0, -25%);
+    -ms-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+}
+.reveal-modal.in {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.reveal-modal-bg.fade {
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+.reveal-modal-bg.in {
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+
+.container {
+    margin: 1em;
+}
+
+.row {
+    max-width: 1920px;
+}
+
+.content {
+    position: relative;
+}
+
+.content.ng-enter {
+    -webkit-transition:0.5s ease-out all;
+    transition:0.25s ease-out all;
+    position: relative;
+    opacity: 0;
+    top: 25px;
+}
+
+.content.ng-enter.ng-enter-active {
+    top: 0;
+    opacity: 1;
+}
+
+.content.ng-leave  {
+    -webkit-transition:0.5s ease-out all;
+    transition:0.25s ease-out all;
+    position: relative;
+    opacity: 1;
+    top: 0;
+}
+
+.content.ng-leave.ng-leave-active {
+    top: -25px;
+    opacity: 0;
+}
+
+html {
+    font-size: 24px;
+}
+
+footer p{
+    font-size: .8rem;
+}
+
+html, body, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans Condensed', sans-serif;
+}

@@ -1,0 +1,1 @@
+angular.module('beth-gulp-ng-directives', []);
