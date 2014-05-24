@@ -7,9 +7,9 @@
 
     <li ng-repeat="image in featuredItems">
         <a href="#entry/{{image.slug}}"><span class="th" picture-fill>
-            <span pf-src="{{image.url}}"></span>
+            <span pf-src="{{image.urls[0]}}"></span>
             <span ng-if="image.largeUrl" pf-src="{{image.largeUrl}}" data-media="only screen and (min-width: 40.063em)"></span>
-        </span></a>
+        </span></a><p>{{image.title}}</p>
     </li>
 </ul>
 <h2>Scrapbook</h2>
