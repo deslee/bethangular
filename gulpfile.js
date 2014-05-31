@@ -4,8 +4,8 @@ var plugins = require("gulp-load-plugins")({lazy:false});
 gulp.task('scripts', function(){
     //combine all js files of the app
     gulp.src(['!./app/**/*_test.js','./app/**/*.js'])
-        .pipe(plugins.jshint())
-        .pipe(plugins.jshint.reporter('default'))
+//        .pipe(plugins.jshint())
+//        .pipe(plugins.jshint.reporter('default'))
         .pipe(plugins.concat('app.js'))
         .pipe(gulp.dest('./build'));
 });
@@ -32,10 +32,12 @@ gulp.task('vendorJS', function(){
         './bower_components/jquery.cookie/*.js',
         './bower_components/jquery-placeholder/*.js',
         './bower_components/angular/*.js',
+        './bower_components/bootstrap/js/tooltip.js',
+        './bower_components/bootstrap/js/*.js',
         './bower_components/angular-route/*.js',
         './bower_components/angular-animate/*.js',
-        './bower_components/foundation/**/*.js',
-        './bower_components/angular-foundation/*.js',
+        './bower_components/angular-resource/*.js',
+        './bower_components/angular-bootstrap/*.js',
         './bower_components/picturefill/*.js',
         './bower_components/angular-picturefill/*.js'])
         .pipe(plugins.concat('lib.js'))

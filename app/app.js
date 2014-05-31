@@ -1,11 +1,9 @@
 'use strict';
 
-angular.module('beth-gulp-ng', [ 'ngRoute', 'ngAnimate',
+angular.module('beth-gulp-ng', [
     'beth-gulp-ng-main',
-    'beth-gulp-ng-directives',
-    'ng.picturefill',
-    'mm.foundation',
-    'templates' ])
+    'beth-gulp-ng-models',
+    'testTodo'])
     .config(function ($routeProvider) {
         $routeProvider
             .otherwise({

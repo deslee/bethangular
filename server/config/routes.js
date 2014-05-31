@@ -27,11 +27,16 @@ module.exports = function(app) {
 
     for(var name in models) {
         var model = models[name];
-        if (model.excludeFromApi) {
-            continue;
-        }
-        restify.serve(app, model.odm, {
+        var options = {
             version: ''
-        });
+        };
+
+        if (model.options && model.options.restify) {
+            for(var key in model.options.restify) {
+                options[key] = model.options.restify[key];
+            }
+        }
+
+        restify.serve(app, model.odm, options);
     }
 };

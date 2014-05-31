@@ -38,4 +38,4 @@ module.exports = function(app) {
 	app.use(config.routes.secure_api, expressJwt({secret: secret.key}));
 
     app.use(express.static('../build'));
-}
+};

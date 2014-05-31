@@ -42,11 +42,12 @@ h1 {
     max-width: 1920px;
 }
 
-.content {
+main {
     position: relative;
+    margin: 0 1em;
 }
 
-.content.ng-enter {
+main.ng-enter {
     -webkit-transition:0.5s ease-out all;
     transition:0.25s ease-out all;
     position: relative;
@@ -54,12 +55,12 @@ h1 {
     top: 25px;
 }
 
-.content.ng-enter.ng-enter-active {
+main.ng-enter.ng-enter-active {
     top: 0;
     opacity: 1;
 }
 
-.content.ng-leave  {
+main.ng-leave  {
     -webkit-transition:0.5s ease-out all;
     transition:0.25s ease-out all;
     position: relative;
@@ -67,7 +68,7 @@ h1 {
     top: 0;
 }
 
-.content.ng-leave.ng-leave-active {
+main.ng-leave.ng-leave-active {
     top: -25px;
     opacity: 0;
 }

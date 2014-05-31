@@ -1,75 +1,61 @@
 <!DOCTYPE html>
-<html class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths crsa-stop-animations js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"
-      lang="en" style="">
+<html lang="en">
 <head>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>beth-gulp-ng</title>
     <link href="lib.css" rel="stylesheet">
     <link href="app.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body ng-app="beth-gulp-ng">
 
-<nav class="top-bar" data-topbar="">
-    <ul class="title-area">
-        <li class="name">
-            <h1><a href="#">Elizabeth's work</a></h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#">Menu</a>
-        </li>
-    </ul>
-
-
-    <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right">
-
-            <li class="has-dropdown not-click"><a href="#">Contact</a>
-                <ul class="dropdown">
-                    <li class="title back js-generated">
-                        <h5><a href="javascript:void(0)">Back</a></h5>
-                    </li>
-                    <li><a href="#">Email</a>
-                    </li>
-                    <li><a href="#">LinkedIn</a>
-                    </li>
-                    <li><a href="#">Facebook</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <!-- Left Nav Section -->
-        <ul class="left">
-            <li><a href="#">Featured</a>
-            </li>
-            <li><a href="#">Scrapbook</a>
-            </li>
-            <li><a href="#">About Elizabeth</a>
-            </li>
-        </ul>
-    </section>
-</nav>
-
-<div class="content container" ng-view=""></div>
-
-<footer class="row">
-    <div class="large-12 columns">
-        <hr/>
-        <div class="row">
-            <div class="large-6 columns">
-                <p>© 2014 Elizabeth Del Rosario.</p>
-            </div>
-            <div class="large-6 columns">
-                <p class="right">Design by Elizabeth Del Rosario. Implemented in AngularJS by <a href="http://deslee.me">Desmond Lee</a></p>
-            </div>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Elizabeth Del Rosario</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Featured</a>
+                </li>
+                <li><a href="#admin">Admin</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact<b
+                        class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Message me</a>
+                        </li>
+                        <li></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Facebook</a>
+                        </li>
+                        <li><a href="#">LinkedIn</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
-</footer>
-
+</nav>
+<main ng-view></main>
 <script src="lib.js"></script>
-<script src="templates.js"></script>
 <script src="app.js"></script>
-<script>$(document).foundation()</script>
+<script src="templates.js"></script>
 </body>
 </html>
