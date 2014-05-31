@@ -1,0 +1,46 @@
+<form role="form" class="form">
+    <div class="row">
+        <div class="col-xs-8">
+
+            <div class="form-group">
+                <label for="{{image['_id']}}-description">Description</label>
+                <textarea class="form-control" type="text" placeholder="description" ng-model="image.description"
+                          id="{{image['_id']}}-description" tabindex="3"></textarea>
+            </div>
+
+            <label>Image urls
+                <button class="btn btn-xs btn-default" ng-click="addImage()">Add Image</button>
+            </label>
+
+            <div class="form-group" ng-repeat="url in image.urls track by $index">
+                <input type="text" placeholder="image #{{$index+1}}"
+                       ng-model="image.urls[$index]" class="form-control">
+            </div>
+
+
+        </div>
+
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label for="{{image['_id']}}-title">Title</label>
+                <input class="form-control input-lg" type="text" placeholder="title" ng-model="image.title"
+                       id="{{image['_id']}}-title" tabindex="1">
+            </div>
+
+
+            <div class="form-group">
+                <label for="{{image['_id']}}-slug">Url Slug</label>
+                <input class="form-control" type="text" placeholder="url slug" ng-model="image.slug"
+                       id="{{image['_id']}}-slug" tabindex="2">
+            </div>
+
+            <div class="form-group">
+                <div class="btn-group">
+                    <label class="btn btn-primary btn-sm" ng-model="image.featured" btn-radio="false">Not Featured</label>
+                    <label class="btn btn-primary btn-sm" ng-model="image.featured" btn-radio="true">Featured</label>
+                </div>
+                <button class="btn btn-default" ng-click="save()">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>

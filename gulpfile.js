@@ -32,6 +32,7 @@ gulp.task('vendorJS', function(){
         './bower_components/jquery.cookie/*.js',
         './bower_components/jquery-placeholder/*.js',
         './bower_components/angular/*.js',
+        './bower_components/bootstrap/dist/js/*.js',
         './bower_components/bootstrap/js/tooltip.js',
         './bower_components/bootstrap/js/*.js',
         './bower_components/angular-route/*.js',
@@ -53,8 +54,13 @@ gulp.task('vendorCSS', function(){
 });
 
 gulp.task('copy-index', function() {
-    gulp.src('./app/index.html')    
+    gulp.src('./app/index.html')
         .pipe(gulp.dest('./build'));
+});
+
+gulp.task('copy-bootstrap-fonts', function() {
+    gulp.src('./bower_components/bootstrap/dist/fonts/*')
+        .pipe(gulp.dest('./build/fonts/'));
 });
 
 gulp.task('watch',function(){
@@ -79,4 +85,4 @@ gulp.task('connect', plugins.connect.server({
     livereload: true
 }));
 
-gulp.task('default',['connect','scripts','templates','css','copy-index','vendorJS','vendorCSS','watch']);
+gulp.task('default',['connect','scripts','templates','css','copy-index','copy-bootstrap-fonts','vendorJS','vendorCSS','watch']);

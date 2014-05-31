@@ -1,0 +1,8 @@
+.featuredImage {
+    height: 600px;
+    overflow: hidden;
+}
+
+.imageEntry {
+    max-width: 100%;
+}

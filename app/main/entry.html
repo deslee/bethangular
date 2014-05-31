@@ -1,4 +1,4 @@
-<img src="{{image.urls[0]}}" />
 <h2>{{image.title}}</h2>
 <p>{{image.description}}</p>
-<a class="button" href="#/">Back</a>
+<img class="imageEntry" ng-if="image.urls && image.urls.length > 0" ng-repeat="url in image.urls" src="{{url}}" />
+<a class="btn btn-default" href="#/">Back</a>

@@ -4,7 +4,7 @@
     angular.module('beth-gulp-ng-main', [
         'ngRoute', 'ngAnimate', 'beth-gulp-ng-admin',
         'templates',
-        'ng.picturefill'])
+        'ng.picturefill', 'ui.bootstrap'])
         .config(function ($routeProvider) {
             $routeProvider
                 .when('/', {

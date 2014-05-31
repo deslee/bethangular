@@ -1,1 +1,18 @@
-<admin-image ng-repeat="image in images" image="image"></admin-image>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="admin-image-button" ng-repeat="image in images">
+            <div class="btn-group">
+                <button class="btn btn-default" btn-checkbox ng-model="selected[image._id]" >{{image.title}}</button>
+                <button class="btn btn-primary" ng-click="edit(image)"><span class="glyphicon glyphicon-edit"></span></button>
+            </div>
+        </div>
+        <hr>
+            <button ng-click="newImage()" class="btn btn-primary btn-sm">New Image</button>
+            <button ng-click="deleteSelected()" class="btn btn-danger btn-sm">Delete selected</button>
+    </div>
+
+    <div class="col-lg-8" ng-if="editImage">
+        <h2>Image<span ng-if="editImage.title != null && editImage.title != ''"> ({{editImage.title}})</span></h2>
+        <admin-image image="editImage"></admin-image>
+    </div>
+</div>

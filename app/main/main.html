@@ -5,7 +5,7 @@
         <img class="th" data-interchange="[http://placehold.it/500x600, (default)], [http://placehold.it/500x800, (large)]" data-uuid="VqL02hWQInXp-vLlGN0-z9Lwqx-68ZTb4-PI2szGOFPThPfoUjIS" src="http://placehold.it/500x600">
     </li> -->
 
-    <div class="col-xs-6 col-md-3" ng-repeat="image in featuredImages">
+    <div class="featuredImage col-xs-6 col-md-3" ng-repeat="image in featuredImages">
         <a href="#entry/{{image.slug}}"><span class="th" picture-fill>
             <span pf-src="{{image.urls[0]}}"></span>
             <span ng-if="image.largeUrl" pf-src="{{image.largeUrl}}"

@@ -1,0 +1,8 @@
+.admin-image-button {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.admin-image-button:last-of-type {
+    margin-right: 0;
+}
