@@ -38,6 +38,7 @@ gulp.task('vendorJS', function(){
         './bower_components/angular-route/*.js',
         './bower_components/angular-animate/*.js',
         './bower_components/angular-resource/*.js',
+        './bower_components/restangular/dist/*.js',
         './bower_components/angular-bootstrap/*.js',
         './bower_components/picturefill/*.js',
         './bower_components/angular-picturefill/*.js'])

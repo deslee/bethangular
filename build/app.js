@@ -77,10 +77,14 @@ angular.module('beth-gulp-ng-admin', [
 /**
  * Created by desmond on 5/31/2014.
  */
-angular.module('beth-gulp-ng-models', ['ngResource']).factory('Image', function ($resource) {
-    var Image = $resource('/api/images/:id', { id: '@_id'});
-    return Image
-});
+angular.module('beth-gulp-ng-models', ['restangular'])
+    .config(function(RestangularProvider) {
+        RestangularProvider.setBaseUrl('/api');
+    })
+    .factory('Image', function (Restangular) {
+        var images = Restangular.all('images');
+        return images
+    });
 'use strict';
 
 (function () {
@@ -100,14 +104,12 @@ angular.module('beth-gulp-ng-models', ['ngResource']).factory('Image', function 
                 });
         })
         .controller('MainCtrl', ['$scope', 'Image', function ($scope, Image) {
-            $scope.featuredImages = Image.query(function () {
-                console.log($scope.featuredImages);
-            });
+            $scope.featuredImages = Image.getList().$object;
         }])
         .controller('EntryCtrl', function ($scope, $routeParams, Image) {
             var slug = $routeParams.slug;
-            $scope.image = Image.get({slug: slug}, function () {
-                console.log($scope.image);
+            Image.query({slug: slug}, function (result) {
+                $scope.image = result[0];
             });
         });
 })();

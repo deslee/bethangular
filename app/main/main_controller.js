@@ -17,14 +17,12 @@
                 });
         })
         .controller('MainCtrl', ['$scope', 'Image', function ($scope, Image) {
-            $scope.featuredImages = Image.query(function () {
-                console.log($scope.featuredImages);
-            });
+            $scope.featuredImages = Image.getList().$object;
         }])
         .controller('EntryCtrl', function ($scope, $routeParams, Image) {
             var slug = $routeParams.slug;
-            $scope.image = Image.get({slug: slug}, function () {
-                console.log($scope.image);
+            Image.query({slug: slug}, function (result) {
+                $scope.image = result[0];
             });
         });
 })();
