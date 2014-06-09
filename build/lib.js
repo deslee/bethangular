@@ -10534,7 +10534,7 @@ return jQuery;
 }));
 
 /**
- * @license AngularJS v1.2.16
+ * @license AngularJS v1.2.17
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -10603,7 +10603,7 @@ function minErr(module) {
       return match;
     });
 
-    message = message + '\nhttp://errors.angularjs.org/1.2.16/' +
+    message = message + '\nhttp://errors.angularjs.org/1.2.17/' +
       (module ? module + '/' : '') + code;
     for (i = 2; i < arguments.length; i++) {
       message = message + (i == 2 ? '?' : '&') + 'p' + (i-2) + '=' +
@@ -10624,7 +10624,6 @@ function minErr(module) {
     -push,
     -toString,
     -ngMinErr,
-    -_angular,
     -angularModule,
     -nodeName_,
     -uid,
@@ -10721,7 +10720,7 @@ function minErr(module) {
  * @ngdoc function
  * @name angular.lowercase
  * @module ng
- * @function
+ * @kind function
  *
  * @description Converts the specified string to lowercase.
  * @param {string} string String to be converted to lowercase.
@@ -10734,7 +10733,7 @@ var hasOwnProperty = Object.prototype.hasOwnProperty;
  * @ngdoc function
  * @name angular.uppercase
  * @module ng
- * @function
+ * @kind function
  *
  * @description Converts the specified string to uppercase.
  * @param {string} string String to be converted to uppercase.
@@ -10775,8 +10774,6 @@ var /** holds major version number for IE or NaN for real browsers */
     toString          = Object.prototype.toString,
     ngMinErr          = minErr('ng'),
 
-
-    _angular          = window.angular,
     /** @name angular */
     angular           = window.angular || (window.angular = {}),
     angularModule,
@@ -10818,7 +10815,7 @@ function isArrayLike(obj) {
  * @ngdoc function
  * @name angular.forEach
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Invokes the `iterator` function once for each item in `obj` collection, which can be either an
@@ -10832,7 +10829,7 @@ function isArrayLike(obj) {
    ```js
      var values = {name: 'misko', gender: 'male'};
      var log = [];
-     angular.forEach(values, function(value, key){
+     angular.forEach(values, function(value, key) {
        this.push(key + ': ' + value);
      }, log);
      expect(log).toEqual(['name: misko', 'gender: male']);
@@ -10846,7 +10843,7 @@ function isArrayLike(obj) {
 function forEach(obj, iterator, context) {
   var key;
   if (obj) {
-    if (isFunction(obj)){
+    if (isFunction(obj)) {
       for (key in obj) {
         // Need to check if hasOwnProperty exists,
         // as on IE8 the result of querySelectorAll is an object without a hasOwnProperty function
@@ -10947,7 +10944,7 @@ function setHashKey(obj, h) {
  * @ngdoc function
  * @name angular.extend
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Extends the destination object `dst` by copying all of the properties from the `src` object(s)
@@ -10959,9 +10956,9 @@ function setHashKey(obj, h) {
  */
 function extend(dst) {
   var h = dst.$$hashKey;
-  forEach(arguments, function(obj){
+  forEach(arguments, function(obj) {
     if (obj !== dst) {
-      forEach(obj, function(value, key){
+      forEach(obj, function(value, key) {
         dst[key] = value;
       });
     }
@@ -10984,7 +10981,7 @@ function inherit(parent, extra) {
  * @ngdoc function
  * @name angular.noop
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * A function that performs no operations. This function can be useful when writing code in the
@@ -11004,7 +11001,7 @@ noop.$inject = [];
  * @ngdoc function
  * @name angular.identity
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * A function that returns its first argument. This function is useful when writing code in the
@@ -11026,7 +11023,7 @@ function valueFn(value) {return function() {return value;};}
  * @ngdoc function
  * @name angular.isUndefined
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Determines if a reference is undefined.
@@ -11041,7 +11038,7 @@ function isUndefined(value){return typeof value === 'undefined';}
  * @ngdoc function
  * @name angular.isDefined
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Determines if a reference is defined.
@@ -11056,7 +11053,7 @@ function isDefined(value){return typeof value !== 'undefined';}
  * @ngdoc function
  * @name angular.isObject
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Determines if a reference is an `Object`. Unlike `typeof` in JavaScript, `null`s are not
@@ -11072,7 +11069,7 @@ function isObject(value){return value != null && typeof value === 'object';}
  * @ngdoc function
  * @name angular.isString
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Determines if a reference is a `String`.
@@ -11087,7 +11084,7 @@ function isString(value){return typeof value === 'string';}
  * @ngdoc function
  * @name angular.isNumber
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Determines if a reference is a `Number`.
@@ -11102,7 +11099,7 @@ function isNumber(value){return typeof value === 'number';}
  * @ngdoc function
  * @name angular.isDate
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Determines if a value is a date.
@@ -11110,7 +11107,7 @@ function isNumber(value){return typeof value === 'number';}
  * @param {*} value Reference to check.
  * @returns {boolean} True if `value` is a `Date`.
  */
-function isDate(value){
+function isDate(value) {
   return toString.call(value) === '[object Date]';
 }
 
@@ -11119,7 +11116,7 @@ function isDate(value){
  * @ngdoc function
  * @name angular.isArray
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Determines if a reference is an `Array`.
@@ -11136,7 +11133,7 @@ function isArray(value) {
  * @ngdoc function
  * @name angular.isFunction
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Determines if a reference is a `Function`.
@@ -11210,7 +11207,7 @@ var trim = (function() {
  * @ngdoc function
  * @name angular.isElement
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Determines if a reference is a DOM element (or wrapped jQuery element).
@@ -11228,7 +11225,7 @@ function isElement(node) {
  * @param str 'key1,key2,...'
  * @returns {object} in the form of {key1:true, key2:true, ...}
  */
-function makeMap(str){
+function makeMap(str) {
   var obj = {}, items = str.split(","), i;
   for ( i = 0; i < items.length; i++ )
     obj[ items[i] ] = true;
@@ -11275,7 +11272,7 @@ function size(obj, ownPropsOnly) {
 
   if (isArray(obj) || isString(obj)) {
     return obj.length;
-  } else if (isObject(obj)){
+  } else if (isObject(obj)) {
     for (key in obj)
       if (!ownPropsOnly || obj.hasOwnProperty(key))
         count++;
@@ -11321,7 +11318,7 @@ function isLeafNode (node) {
  * @ngdoc function
  * @name angular.copy
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Creates a deep copy of `source`, which should be an object or an array.
@@ -11374,7 +11371,7 @@ function isLeafNode (node) {
  </file>
  </example>
  */
-function copy(source, destination){
+function copy(source, destination, stackSource, stackDest) {
   if (isWindow(source) || isScope(source)) {
     throw ngMinErr('cpws',
       "Can't copy! Making copies of Window or Scope instances is not supported.");
@@ -11384,52 +11381,82 @@ function copy(source, destination){
     destination = source;
     if (source) {
       if (isArray(source)) {
-        destination = copy(source, []);
+        destination = copy(source, [], stackSource, stackDest);
       } else if (isDate(source)) {
         destination = new Date(source.getTime());
       } else if (isRegExp(source)) {
         destination = new RegExp(source.source);
       } else if (isObject(source)) {
-        destination = copy(source, {});
+        destination = copy(source, {}, stackSource, stackDest);
       }
     }
   } else {
     if (source === destination) throw ngMinErr('cpi',
       "Can't copy! Source and destination are identical.");
+
+    stackSource = stackSource || [];
+    stackDest = stackDest || [];
+
+    if (isObject(source)) {
+      var index = indexOf(stackSource, source);
+      if (index !== -1) return stackDest[index];
+
+      stackSource.push(source);
+      stackDest.push(destination);
+    }
+
+    var result;
     if (isArray(source)) {
       destination.length = 0;
       for ( var i = 0; i < source.length; i++) {
-        destination.push(copy(source[i]));
+        result = copy(source[i], null, stackSource, stackDest);
+        if (isObject(source[i])) {
+          stackSource.push(source[i]);
+          stackDest.push(result);
+        }
+        destination.push(result);
       }
     } else {
       var h = destination.$$hashKey;
-      forEach(destination, function(value, key){
+      forEach(destination, function(value, key) {
         delete destination[key];
       });
       for ( var key in source) {
-        destination[key] = copy(source[key]);
+        result = copy(source[key], null, stackSource, stackDest);
+        if (isObject(source[key])) {
+          stackSource.push(source[key]);
+          stackDest.push(result);
+        }
+        destination[key] = result;
       }
       setHashKey(destination,h);
     }
+
   }
   return destination;
 }
 
 /**
- * Create a shallow copy of an object
+ * Creates a shallow copy of an object, an array or a primitive
  */
 function shallowCopy(src, dst) {
-  dst = dst || {};
+  if (isArray(src)) {
+    dst = dst || [];
 
-  for(var key in src) {
-    // shallowCopy is only ever called by $compile nodeLinkFn, which has control over src
-    // so we don't need to worry about using our custom hasOwnProperty here
-    if (src.hasOwnProperty(key) && !(key.charAt(0) === '$' && key.charAt(1) === '$')) {
-      dst[key] = src[key];
+    for ( var i = 0; i < src.length; i++) {
+      dst[i] = src[i];
+    }
+  } else if (isObject(src)) {
+    dst = dst || {};
+
+    for (var key in src) {
+      if (hasOwnProperty.call(src, key) && !(key.charAt(0) === '$' && key.charAt(1) === '$')) {
+        dst[key] = src[key];
+      }
     }
   }
 
-  return dst;
+  return dst || src;
 }
 
 
@@ -11437,7 +11464,7 @@ function shallowCopy(src, dst) {
  * @ngdoc function
  * @name angular.equals
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Determines if two objects or two values are equivalent. Supports value types, regular
@@ -11449,7 +11476,7 @@ function shallowCopy(src, dst) {
  * * Both objects or values are of the same type and all of their properties are equal by
  *   comparing them with `angular.equals`.
  * * Both values are NaN. (In JavaScript, NaN == NaN => false. But we consider two NaN as equal)
- * * Both values represent the same regular expression (In JavasScript,
+ * * Both values represent the same regular expression (In JavaScript,
  *   /abc/ == /abc/ => false. But we consider two regular expressions as equal when their textual
  *   representation matches).
  *
@@ -11524,7 +11551,7 @@ function sliceArgs(args, startIndex) {
  * @ngdoc function
  * @name angular.bind
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Returns a function which calls function `fn` bound to `self` (`self` becomes the `this` for
@@ -11580,7 +11607,7 @@ function toJsonReplacer(key, value) {
  * @ngdoc function
  * @name angular.toJson
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Serializes input into a JSON-formatted string. Properties with leading $ characters will be
@@ -11600,7 +11627,7 @@ function toJson(obj, pretty) {
  * @ngdoc function
  * @name angular.fromJson
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Deserializes a JSON string.
@@ -11677,7 +11704,7 @@ function tryDecodeURIComponent(value) {
  */
 function parseKeyValue(/**string*/keyValue) {
   var obj = {}, key_value, key;
-  forEach((keyValue || "").split('&'), function(keyValue){
+  forEach((keyValue || "").split('&'), function(keyValue) {
     if ( keyValue ) {
       key_value = keyValue.split('=');
       key = tryDecodeURIComponent(key_value[0]);
@@ -11939,7 +11966,7 @@ function bootstrap(element, modules) {
 }
 
 var SNAKE_CASE_REGEXP = /[A-Z]/g;
-function snake_case(name, separator){
+function snake_case(name, separator) {
   separator = separator || '_';
   return name.replace(SNAKE_CASE_REGEXP, function(letter, pos) {
     return (pos ? separator : '') + letter.toLowerCase();
@@ -11949,8 +11976,9 @@ function snake_case(name, separator){
 function bindJQuery() {
   // bind to jQuery if present;
   jQuery = window.jQuery;
-  // reset to jQuery or default to us.
-  if (jQuery) {
+  // Use jQuery if it exists with proper functionality, otherwise default to us.
+  // Angular 1.2+ requires jQuery 1.7.1+ for on()/off() support.
+  if (jQuery && jQuery.fn.on) {
     jqLite = jQuery;
     extend(jQuery.fn, {
       scope: JQLitePrototype.scope,
@@ -12318,6 +12346,8 @@ function setupModuleLoader(window) {
            *    configuration.
            * @description
            * Use this method to register work which needs to be performed on module loading.
+           * For more about how to configure services, see
+           * {@link providers#providers_provider-recipe Provider Recipe}.
            */
           config: config,
 
@@ -12454,11 +12484,11 @@ function setupModuleLoader(window) {
  * - `codeName` – `{string}` – Code name of the release, such as "jiggling-armfat".
  */
 var version = {
-  full: '1.2.16',    // all of these placeholder strings will be replaced by grunt's
+  full: '1.2.17',    // all of these placeholder strings will be replaced by grunt's
   major: 1,    // package task
   minor: 2,
-  dot: 16,
-  codeName: 'badger-enumeration'
+  dot: 17,
+  codeName: 'quantum-disentanglement'
 };
 
 
@@ -12598,7 +12628,7 @@ function publishExternalAPI(angular){
  * @ngdoc function
  * @name angular.element
  * @module ng
- * @function
+ * @kind function
  *
  * @description
  * Wraps a raw DOM element or HTML string as a [jQuery](http://jquery.com) element.
@@ -12681,7 +12711,7 @@ function publishExternalAPI(angular){
  */
 
 var jqCache = JQLite.cache = {},
-    jqName = JQLite.expando = 'ng-' + new Date().getTime(),
+    jqName = JQLite.expando = 'ng' + new Date().getTime(),
     jqId = 1,
     addEventListenerFn = (window.document.addEventListener
       ? function(element, type, fn) {element.addEventListener(type, fn, false);}
@@ -13637,7 +13667,7 @@ HashMap.prototype = {
  * @ngdoc function
  * @module ng
  * @name angular.injector
- * @function
+ * @kind function
  *
  * @description
  * Creates an injector function that can be used for retrieving services as well as for
@@ -13664,7 +13694,7 @@ HashMap.prototype = {
  *
  * Sometimes you want to get access to the injector of a currently running Angular app
  * from outside Angular. Perhaps, you want to inject and compile some markup after the
- * application has been bootstrapped. You can do this using extra `injector()` added
+ * application has been bootstrapped. You can do this using the extra `injector()` added
  * to JQuery/jqLite elements. See {@link angular.element}.
  *
  * *This is fairly rare but could be the case if a third party library is injecting the
@@ -13734,7 +13764,7 @@ function annotate(fn) {
 /**
  * @ngdoc service
  * @name $injector
- * @function
+ * @kind function
  *
  * @description
  *
@@ -13777,7 +13807,7 @@ function annotate(fn) {
  * minification, and obfuscation tools since these tools change the argument names.
  *
  * ## `$inject` Annotation
- * By adding a `$inject` property onto a function the injection parameters can be specified.
+ * By adding an `$inject` property onto a function the injection parameters can be specified.
  *
  * ## Inline
  * As an array of injection names, where the last item in the array is the function to call.
@@ -13814,7 +13844,7 @@ function annotate(fn) {
  * @name $injector#has
  *
  * @description
- * Allows the user to query if the particular service exist.
+ * Allows the user to query if the particular service exists.
  *
  * @param {string} Name of the service to query.
  * @returns {boolean} returns true if injector has given service.
@@ -13824,8 +13854,8 @@ function annotate(fn) {
  * @ngdoc method
  * @name $injector#instantiate
  * @description
- * Create a new instance of JS type. The method takes a constructor function invokes the new
- * operator and supplies all of the arguments to the constructor function as specified by the
+ * Create a new instance of JS type. The method takes a constructor function, invokes the new
+ * operator, and supplies all of the arguments to the constructor function as specified by the
  * constructor annotation.
  *
  * @param {Function} Type Annotated constructor function.
@@ -14438,7 +14468,7 @@ function createInjector(modulesToLoad) {
  * @requires $rootScope
  *
  * @description
- * When called, it checks current value of `$location.hash()` and scroll to related element,
+ * When called, it checks current value of `$location.hash()` and scrolls to the related element,
  * according to rules specified in
  * [Html5 spec](http://dev.w3.org/html5/spec/Overview.html#the-indicated-part-of-the-document).
  *
@@ -14640,7 +14670,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *
        * @ngdoc method
        * @name $animate#enter
-       * @function
+       * @kind function
        * @description Inserts the element into the DOM either after the `after` element or within
        *   the `parent` element. Once complete, the done() callback will be fired (if provided).
        * @param {DOMElement} element the element which will be inserted into the DOM
@@ -14667,7 +14697,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *
        * @ngdoc method
        * @name $animate#leave
-       * @function
+       * @kind function
        * @description Removes the element from the DOM. Once complete, the done() callback will be
        *   fired (if provided).
        * @param {DOMElement} element the element which will be removed from the DOM
@@ -14683,7 +14713,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *
        * @ngdoc method
        * @name $animate#move
-       * @function
+       * @kind function
        * @description Moves the position of the provided element within the DOM to be placed
        * either after the `after` element or inside of the `parent` element. Once complete, the
        * done() callback will be fired (if provided).
@@ -14707,7 +14737,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *
        * @ngdoc method
        * @name $animate#addClass
-       * @function
+       * @kind function
        * @description Adds the provided className CSS class value to the provided element. Once
        * complete, the done() callback will be fired (if provided).
        * @param {DOMElement} element the element which will have the className value
@@ -14730,7 +14760,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *
        * @ngdoc method
        * @name $animate#removeClass
-       * @function
+       * @kind function
        * @description Removes the provided className CSS class value from the provided element.
        * Once complete, the done() callback will be fired (if provided).
        * @param {DOMElement} element the element which will have the className value
@@ -14753,10 +14783,10 @@ var $AnimateProvider = ['$provide', function($provide) {
        *
        * @ngdoc method
        * @name $animate#setClass
-       * @function
+       * @kind function
        * @description Adds and/or removes the given CSS classes to and from the element.
        * Once complete, the done() callback will be fired (if provided).
-       * @param {DOMElement} element the element which will it's CSS classes changed
+       * @param {DOMElement} element the element which will have its CSS classes changed
        *   removed from it
        * @param {string} add the CSS classes which will be added to the element
        * @param {string} remove the CSS class which will be removed from the element
@@ -15310,7 +15340,7 @@ function $CacheFactoryProvider() {
         /**
          * @ngdoc method
          * @name $cacheFactory.Cache#put
-         * @function
+         * @kind function
          *
          * @description
          * Inserts a named entry into the {@link $cacheFactory.Cache Cache} object to be
@@ -15346,7 +15376,7 @@ function $CacheFactoryProvider() {
         /**
          * @ngdoc method
          * @name $cacheFactory.Cache#get
-         * @function
+         * @kind function
          *
          * @description
          * Retrieves named data stored in the {@link $cacheFactory.Cache Cache} object.
@@ -15370,7 +15400,7 @@ function $CacheFactoryProvider() {
         /**
          * @ngdoc method
          * @name $cacheFactory.Cache#remove
-         * @function
+         * @kind function
          *
          * @description
          * Removes an entry from the {@link $cacheFactory.Cache Cache} object.
@@ -15398,7 +15428,7 @@ function $CacheFactoryProvider() {
         /**
          * @ngdoc method
          * @name $cacheFactory.Cache#removeAll
-         * @function
+         * @kind function
          *
          * @description
          * Clears the cache object of any entries.
@@ -15414,7 +15444,7 @@ function $CacheFactoryProvider() {
         /**
          * @ngdoc method
          * @name $cacheFactory.Cache#destroy
-         * @function
+         * @kind function
          *
          * @description
          * Destroys the {@link $cacheFactory.Cache Cache} object entirely,
@@ -15431,7 +15461,7 @@ function $CacheFactoryProvider() {
         /**
          * @ngdoc method
          * @name $cacheFactory.Cache#info
-         * @function
+         * @kind function
          *
          * @description
          * Retrieve information regarding a particular {@link $cacheFactory.Cache Cache}.
@@ -15486,7 +15516,7 @@ function $CacheFactoryProvider() {
    * @name $cacheFactory#info
    *
    * @description
-   * Get information about all the of the caches that have been created
+   * Get information about all the caches that have been created
    *
    * @returns {Object} - key-value map of `cacheId` to the result of calling `cache#info`
    */
@@ -15587,7 +15617,7 @@ function $TemplateCacheProvider() {
 /**
  * @ngdoc service
  * @name $compile
- * @function
+ * @kind function
  *
  * @description
  * Compiles an HTML string or DOM into a template and produces a template function, which
@@ -15625,7 +15655,6 @@ function $TemplateCacheProvider() {
  *       template: '<div></div>', // or // function(tElement, tAttrs) { ... },
  *       // or
  *       // templateUrl: 'directive.html', // or // function(tElement, tAttrs) { ... },
- *       replace: false,
  *       transclude: false,
  *       restrict: 'A',
  *       scope: false,
@@ -15801,7 +15830,7 @@ function $TemplateCacheProvider() {
  * api/ng.$sce#getTrustedResourceUrl $sce.getTrustedResourceUrl}.
  *
  *
- * #### `replace`
+ * #### `replace` ([*DEPRECATED*!], will be removed in next major release)
  * specify where the template should be inserted. Defaults to `false`.
  *
  * * `true` - the template will replace the current element.
@@ -15828,11 +15857,7 @@ function $TemplateCacheProvider() {
  * ```
  *
  * The compile function deals with transforming the template DOM. Since most directives do not do
- * template transformation, it is not used often. Examples that require compile functions are
- * directives that transform template DOM, such as {@link
- * api/ng.directive:ngRepeat ngRepeat}, or load the contents
- * asynchronously, such as {@link ngRoute.directive:ngView ngView}. The
- * compile function takes the following arguments.
+ * template transformation, it is not used often. The compile function takes the following arguments:
  *
  *   * `tElement` - template element - The element where the directive has been declared. It is
  *     safe to do template transformation on the element and child elements only.
@@ -16070,7 +16095,7 @@ var $compileMinErr = minErr('$compile');
 /**
  * @ngdoc provider
  * @name $compileProvider
- * @function
+ * @kind function
  *
  * @description
  */
@@ -16078,8 +16103,8 @@ $CompileProvider.$inject = ['$provide', '$$sanitizeUriProvider'];
 function $CompileProvider($provide, $$sanitizeUriProvider) {
   var hasDirectives = {},
       Suffix = 'Directive',
-      COMMENT_DIRECTIVE_REGEXP = /^\s*directive\:\s*([\d\w\-_]+)\s+(.*)$/,
-      CLASS_DIRECTIVE_REGEXP = /(([\d\w\-_]+)(?:\:([^;]+))?;?)/;
+      COMMENT_DIRECTIVE_REGEXP = /^\s*directive\:\s*([\d\w_\-]+)\s+(.*)$/,
+      CLASS_DIRECTIVE_REGEXP = /(([\d\w_\-]+)(?:\:([^;]+))?;?)/;
 
   // Ref: http://developers.whatwg.org/webappapis.html#event-handler-idl-attributes
   // The assumption is that future DOM event attribute names will begin with
@@ -16089,7 +16114,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
   /**
    * @ngdoc method
    * @name $compileProvider#directive
-   * @function
+   * @kind function
    *
    * @description
    * Register a new directive with the compiler.
@@ -16142,7 +16167,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
   /**
    * @ngdoc method
    * @name $compileProvider#aHrefSanitizationWhitelist
-   * @function
+   * @kind function
    *
    * @description
    * Retrieves or overrides the default regular expression that is used for whitelisting of safe
@@ -16172,7 +16197,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
   /**
    * @ngdoc method
    * @name $compileProvider#imgSrcSanitizationWhitelist
-   * @function
+   * @kind function
    *
    * @description
    * Retrieves or overrides the default regular expression that is used for whitelisting of safe
@@ -16216,7 +16241,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       /**
        * @ngdoc method
        * @name $compile.directive.Attributes#$addClass
-       * @function
+       * @kind function
        *
        * @description
        * Adds the CSS class value specified by the classVal parameter to the element. If animations
@@ -16233,7 +16258,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       /**
        * @ngdoc method
        * @name $compile.directive.Attributes#$removeClass
-       * @function
+       * @kind function
        *
        * @description
        * Removes the CSS class value specified by the classVal parameter from the element. If
@@ -16250,7 +16275,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       /**
        * @ngdoc method
        * @name $compile.directive.Attributes#$updateClass
-       * @function
+       * @kind function
        *
        * @description
        * Adds and removes the appropriate CSS class values to the element based on the difference
@@ -16338,7 +16363,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       /**
        * @ngdoc method
        * @name $compile.directive.Attributes#$observe
-       * @function
+       * @kind function
        *
        * @description
        * Observes an interpolated attribute.
@@ -16824,7 +16849,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
             if (jqLiteIsTextNode(directiveValue)) {
               $template = [];
             } else {
-              $template = jqLite(directiveValue);
+              $template = jqLite(trim(directiveValue));
             }
             compileNode = $template[0];
 
@@ -16907,6 +16932,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
         if (pre) {
           if (attrStart) pre = groupElementsLinkFnWrapper(pre, attrStart, attrEnd);
           pre.require = directive.require;
+          pre.directiveName = directiveName;
           if (newIsolateScopeDirective === directive || directive.$$isolateScope) {
             pre = cloneAndAnnotateFn(pre, {isolateScope: true});
           }
@@ -16915,6 +16941,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
         if (post) {
           if (attrStart) post = groupElementsLinkFnWrapper(post, attrStart, attrEnd);
           post.require = directive.require;
+          post.directiveName = directiveName;
           if (newIsolateScopeDirective === directive || directive.$$isolateScope) {
             post = cloneAndAnnotateFn(post, {isolateScope: true});
           }
@@ -16923,7 +16950,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       }
 
 
-      function getControllers(require, $element, elementControllers) {
+      function getControllers(directiveName, require, $element, elementControllers) {
         var value, retrievalMethod = 'data', optional = false;
         if (isString(require)) {
           while((value = require.charAt(0)) == '^' || value == '?') {
@@ -16949,7 +16976,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
         } else if (isArray(require)) {
           value = [];
           forEach(require, function(require) {
-            value.push(getControllers(require, $element, elementControllers));
+            value.push(getControllers(directiveName, require, $element, elementControllers));
           });
         }
         return value;
@@ -16972,7 +16999,8 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
           isolateScope = scope.$new(true);
 
-          if (templateDirective && (templateDirective === newIsolateScopeDirective.$$originalDirective)) {
+          if (templateDirective && (templateDirective === newIsolateScopeDirective ||
+              templateDirective === newIsolateScopeDirective.$$originalDirective)) {
             $linkNode.data('$isolateScope', isolateScope) ;
           } else {
             $linkNode.data('$isolateScopeNoTemplate', isolateScope);
@@ -17092,7 +17120,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
           try {
             linkFn = preLinkFns[i];
             linkFn(linkFn.isolateScope ? isolateScope : scope, $element, attrs,
-                linkFn.require && getControllers(linkFn.require, $element, elementControllers), transcludeFn);
+                linkFn.require && getControllers(linkFn.directiveName, linkFn.require, $element, elementControllers), transcludeFn);
           } catch (e) {
             $exceptionHandler(e, startingTag($element));
           }
@@ -17112,7 +17140,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
           try {
             linkFn = postLinkFns[i];
             linkFn(linkFn.isolateScope ? isolateScope : scope, $element, attrs,
-                linkFn.require && getControllers(linkFn.require, $element, elementControllers), transcludeFn);
+                linkFn.require && getControllers(linkFn.directiveName, linkFn.require, $element, elementControllers), transcludeFn);
           } catch (e) {
             $exceptionHandler(e, startingTag($element));
           }
@@ -17198,7 +17226,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       // reapply the old attributes to the new element
       forEach(dst, function(value, key) {
         if (key.charAt(0) != '$') {
-          if (src[key]) {
+          if (src[key] && src[key] !== value) {
             value += (key === 'style' ? ';' : ' ') + src[key];
           }
           dst.$set(key, value, true, srcAttr[key]);
@@ -17251,7 +17279,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
             if (jqLiteIsTextNode(content)) {
               $template = [];
             } else {
-              $template = jqLite(content);
+              $template = jqLite(trim(content));
             }
             compileNode = $template[0];
 
@@ -17532,7 +17560,9 @@ function directiveNormalize(name) {
  * element attributes. The values reflect current binding state `{{ }}`. The normalization is
  * needed since all of these are treated as equivalent in Angular:
  *
+ * ```
  *    <span ng:bind="a" ng-bind="a" data-ng-bind="a" x-ng-bind="a">
+ * ```
  */
 
 /**
@@ -17546,7 +17576,7 @@ function directiveNormalize(name) {
 /**
  * @ngdoc method
  * @name $compile.directive.Attributes#$set
- * @function
+ * @kind function
  *
  * @description
  * Set DOM element attribute value.
@@ -17864,9 +17894,9 @@ function $HttpProvider() {
       common: {
         'Accept': 'application/json, text/plain, */*'
       },
-      post:   copy(CONTENT_TYPE_APPLICATION_JSON),
-      put:    copy(CONTENT_TYPE_APPLICATION_JSON),
-      patch:  copy(CONTENT_TYPE_APPLICATION_JSON)
+      post:   shallowCopy(CONTENT_TYPE_APPLICATION_JSON),
+      put:    shallowCopy(CONTENT_TYPE_APPLICATION_JSON),
+      patch:  shallowCopy(CONTENT_TYPE_APPLICATION_JSON)
     },
 
     xsrfCookieName: 'XSRF-TOKEN',
@@ -18108,14 +18138,14 @@ function $HttpProvider() {
      *
      * There are two kinds of interceptors (and two kinds of rejection interceptors):
      *
-     *   * `request`: interceptors get called with http `config` object. The function is free to
-     *     modify the `config` or create a new one. The function needs to return the `config`
-     *     directly or as a promise.
+     *   * `request`: interceptors get called with a http `config` object. The function is free to
+     *     modify the `config` object or create a new one. The function needs to return the `config`
+     *     object directly, or a promise containing the `config` or a new `config` object.
      *   * `requestError`: interceptor gets called when a previous interceptor threw an error or
      *     resolved with a rejection.
      *   * `response`: interceptors get called with http `response` object. The function is free to
-     *     modify the `response` or create a new one. The function needs to return the `response`
-     *     directly or as a promise.
+     *     modify the `response` object or create a new one. The function needs to return the `response`
+     *     object directly, or as a promise containing the `response` or a new `response` object.
      *   * `responseError`: interceptor gets called when a previous interceptor threw an error or
      *     resolved with a rejection.
      *
@@ -18127,7 +18157,7 @@ function $HttpProvider() {
      *       // optional method
      *       'request': function(config) {
      *         // do something on success
-     *         return config || $q.when(config);
+     *         return config;
      *       },
      *
      *       // optional method
@@ -18144,7 +18174,7 @@ function $HttpProvider() {
      *       // optional method
      *       'response': function(response) {
      *         // do something on success
-     *         return response || $q.when(response);
+     *         return response;
      *       },
      *
      *       // optional method
@@ -18305,7 +18335,7 @@ function $HttpProvider() {
      *      caching.
      *    - **timeout** – `{number|Promise}` – timeout in milliseconds, or {@link ng.$q promise}
      *      that should abort the request when resolved.
-     *    - **withCredentials** - `{boolean}` - whether to to set the `withCredentials` flag on the
+     *    - **withCredentials** - `{boolean}` - whether to set the `withCredentials` flag on the
      *      XHR object. See [requests with credentials]https://developer.mozilla.org/en/http_access_control#section_5
      *      for more information.
      *    - **responseType** - `{string}` - see
@@ -18343,11 +18373,11 @@ function $HttpProvider() {
     <button id="samplegetbtn" ng-click="updateModel('GET', 'http-hello.html')">Sample GET</button>
     <button id="samplejsonpbtn"
       ng-click="updateModel('JSONP',
-                    'http://angularjs.org/greet.php?callback=JSON_CALLBACK&name=Super%20Hero')">
+                    'https://angularjs.org/greet.php?callback=JSON_CALLBACK&name=Super%20Hero')">
       Sample JSONP
     </button>
     <button id="invalidjsonpbtn"
-      ng-click="updateModel('JSONP', 'http://angularjs.org/doesntexist&callback=JSON_CALLBACK')">
+      ng-click="updateModel('JSONP', 'https://angularjs.org/doesntexist&callback=JSON_CALLBACK')">
         Invalid JSONP
       </button>
     <pre>http status code: {{status}}</pre>
@@ -18699,7 +18729,7 @@ function $HttpProvider() {
           } else {
             // serving from cache
             if (isArray(cachedResp)) {
-              resolvePromise(cachedResp[1], cachedResp[0], copy(cachedResp[2]), cachedResp[3]);
+              resolvePromise(cachedResp[1], cachedResp[0], shallowCopy(cachedResp[2]), cachedResp[3]);
             } else {
               resolvePromise(cachedResp, 200, {}, 'OK');
             }
@@ -18838,16 +18868,13 @@ function createHttpBackend($browser, createXhr, $browserDefer, callbacks, rawDoc
       var callbackId = '_' + (callbacks.counter++).toString(36);
       callbacks[callbackId] = function(data) {
         callbacks[callbackId].data = data;
+        callbacks[callbackId].called = true;
       };
 
       var jsonpDone = jsonpReq(url.replace('JSON_CALLBACK', 'angular.callbacks.' + callbackId),
-          function() {
-        if (callbacks[callbackId].data) {
-          completeRequest(callback, 200, callbacks[callbackId].data);
-        } else {
-          completeRequest(callback, status || -2);
-        }
-        callbacks[callbackId] = angular.noop;
+          callbackId, function(status, text) {
+        completeRequest(callback, status, callbacks[callbackId].data, "", text);
+        callbacks[callbackId] = noop;
       });
     } else {
 
@@ -18949,34 +18976,52 @@ function createHttpBackend($browser, createXhr, $browserDefer, callbacks, rawDoc
     }
   };
 
-  function jsonpReq(url, done) {
+  function jsonpReq(url, callbackId, done) {
     // we can't use jQuery/jqLite here because jQuery does crazy shit with script elements, e.g.:
     // - fetches local scripts via XHR and evals them
     // - adds and immediately removes script elements from the document
-    var script = rawDocument.createElement('script'),
-        doneWrapper = function() {
-          script.onreadystatechange = script.onload = script.onerror = null;
-          rawDocument.body.removeChild(script);
-          if (done) done();
-        };
-
-    script.type = 'text/javascript';
+    var script = rawDocument.createElement('script'), callback = null;
+    script.type = "text/javascript";
     script.src = url;
+    script.async = true;
 
-    if (msie && msie <= 8) {
-      script.onreadystatechange = function() {
-        if (/loaded|complete/.test(script.readyState)) {
-          doneWrapper();
+    callback = function(event) {
+      removeEventListenerFn(script, "load", callback);
+      removeEventListenerFn(script, "error", callback);
+      rawDocument.body.removeChild(script);
+      script = null;
+      var status = -1;
+      var text = "unknown";
+
+      if (event) {
+        if (event.type === "load" && !callbacks[callbackId].called) {
+          event = { type: "error" };
         }
-      };
-    } else {
-      script.onload = script.onerror = function() {
-        doneWrapper();
+        text = event.type;
+        status = event.type === "error" ? 404 : 200;
+      }
+
+      if (done) {
+        done(status, text);
+      }
+    };
+
+    addEventListenerFn(script, "load", callback);
+    addEventListenerFn(script, "error", callback);
+
+    if (msie <= 8) {
+      script.onreadystatechange = function() {
+        if (isString(script.readyState) && /loaded|complete/.test(script.readyState)) {
+          script.onreadystatechange = null;
+          callback({
+            type: 'load'
+          });
+        }
       };
     }
 
     rawDocument.body.appendChild(script);
-    return doneWrapper;
+    return callback;
   }
 }
 
@@ -18985,7 +19030,7 @@ var $interpolateMinErr = minErr('$interpolate');
 /**
  * @ngdoc provider
  * @name $interpolateProvider
- * @function
+ * @kind function
  *
  * @description
  *
@@ -19003,7 +19048,7 @@ var $interpolateMinErr = minErr('$interpolate');
   });
 
 
-  customInterpolationApp.controller('DemoController', function DemoController() {
+  customInterpolationApp.controller('DemoController', function() {
       this.label = "This binding is brought you by // interpolation symbols.";
   });
 </script>
@@ -19066,7 +19111,7 @@ function $InterpolateProvider() {
     /**
      * @ngdoc service
      * @name $interpolate
-     * @function
+     * @kind function
      *
      * @requires $parse
      * @requires $sce
@@ -19158,10 +19203,24 @@ function $InterpolateProvider() {
                 } else {
                   part = $sce.valueOf(part);
                 }
-                if (part === null || isUndefined(part)) {
+                if (part == null) { // null || undefined
                   part = '';
-                } else if (typeof part != 'string') {
-                  part = toJson(part);
+                } else {
+                  switch (typeof part) {
+                    case 'string':
+                    {
+                      break;
+                    }
+                    case 'number':
+                    {
+                      part = '' + part;
+                      break;
+                    }
+                    default:
+                    {
+                      part = toJson(part);
+                    }
+                  }
                 }
               }
               concat[i] = part;
@@ -19672,7 +19731,7 @@ function LocationHashbangUrl(appBase, hashPrefix) {
       Matches paths for file protocol on windows,
       such as /C:/foo/bar, and captures only /foo/bar.
       */
-      var windowsFilePathExp = /^\/?.*?:(\/.*)/;
+      var windowsFilePathExp = /^\/[A-Z]:(\/.*)/;
 
       var firstPathSegmentMatch;
 
@@ -19681,10 +19740,7 @@ function LocationHashbangUrl(appBase, hashPrefix) {
         url = url.replace(base, '');
       }
 
-      /*
-       * The input URL intentionally contains a
-       * first path segment that ends with a colon.
-       */
+      // The input URL intentionally contains a first path segment that ends with a colon.
       if (windowsFilePathExp.exec(url)) {
         return path;
       }
@@ -19740,6 +19796,16 @@ function LocationHashbangInHtml5Url(appBase, hashPrefix) {
       return appBaseNoFile;
     }
   };
+
+  this.$$compose = function() {
+    var search = toKeyValue(this.$$search),
+        hash = this.$$hash ? '#' + encodeUriSegment(this.$$hash) : '';
+
+    this.$$url = encodePath(this.$$path) + (search ? '?' + search : '') + hash;
+    // include hashPrefix in $$absUrl when $$url is empty so IE8 & 9 do not reload page because of removal of '#'
+    this.$$absUrl = appBase + hashPrefix + this.$$url;
+  };
+
 }
 
 
@@ -19871,15 +19937,37 @@ LocationHashbangInHtml5Url.prototype =
    *
    * Change search part when called with parameter and return `$location`.
    *
+   *
+   * ```js
+   * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
+   * var searchObject = $location.search();
+   * // => {foo: 'bar', baz: 'xoxo'}
+   *
+   *
+   * // set foo to 'yipee'
+   * $location.search('foo', 'yipee');
+   * // => $location
+   * ```
+   *
    * @param {string|Object.<string>|Object.<Array.<string>>} search New search params - string or
-   * hash object. Hash object may contain an array of values, which will be decoded as duplicates in
-   * the url.
+   * hash object.
    *
-   * @param {(string|Array<string>)=} paramValue If `search` is a string, then `paramValue` will override only a
-   * single search parameter. If `paramValue` is an array, it will set the parameter as a
-   * comma-separated value. If `paramValue` is `null`, the parameter will be deleted.
+   * When called with a single argument the method acts as a setter, setting the `search` component
+   * of `$location` to the specified value.
    *
-   * @return {string} search
+   * If the argument is a hash object containing an array of values, these values will be encoded
+   * as duplicate search parameters in the url.
+   *
+   * @param {(string|Array<string>)=} paramValue If `search` is a string, then `paramValue` will
+   * override only a single search property.
+   *
+   * If `paramValue` is an array, it will override the property of the `search` component of
+   * `$location` specified via the first argument.
+   *
+   * If `paramValue` is `null`, the property specified via the first argument will be deleted.
+   *
+   * @return {Object} If called with no arguments returns the parsed `search` object. If called with
+   * one or more arguments returns `$location` object itself.
    */
   search: function(search, paramValue) {
     switch (arguments.length) {
@@ -20090,6 +20178,39 @@ function $LocationProvider(){
         // SVGAnimatedString.animVal should be identical to SVGAnimatedString.baseVal, unless during
         // an animation.
         absHref = urlResolve(absHref.animVal).href;
+      }
+
+      // Make relative links work in HTML5 mode for legacy browsers (or at least IE8 & 9)
+      // The href should be a regular url e.g. /link/somewhere or link/somewhere or ../somewhere or
+      // somewhere#anchor or http://example.com/somewhere
+      if (LocationMode === LocationHashbangInHtml5Url) {
+        // get the actual href attribute - see
+        // http://msdn.microsoft.com/en-us/library/ie/dd347148(v=vs.85).aspx
+        var href = elm.attr('href') || elm.attr('xlink:href');
+
+        if (href.indexOf('://') < 0) {         // Ignore absolute URLs
+          var prefix = '#' + hashPrefix;
+          if (href[0] == '/') {
+            // absolute path - replace old path
+            absHref = appBase + prefix + href;
+          } else if (href[0] == '#') {
+            // local anchor
+            absHref = appBase + prefix + ($location.path() || '/') + href;
+          } else {
+            // relative path - join with current path
+            var stack = $location.path().split("/"),
+              parts = href.split("/");
+            for (var i=0; i<parts.length; i++) {
+              if (parts[i] == ".")
+                continue;
+              else if (parts[i] == "..")
+                stack.pop();
+              else if (parts[i].length)
+                stack.push(parts[i]);
+            }
+            absHref = appBase + prefix + stack.join('/');
+          }
+        }
       }
 
       var rewrittenUrl = $location.$$rewrite(absHref);
@@ -20452,9 +20573,6 @@ Lexer.prototype = {
 
     this.tokens = [];
 
-    var token;
-    var json = [];
-
     while (this.index < this.text.length) {
       this.ch = this.text.charAt(this.index);
       if (this.is('"\'')) {
@@ -20463,19 +20581,11 @@ Lexer.prototype = {
         this.readNumber();
       } else if (this.isIdent(this.ch)) {
         this.readIdent();
-        // identifiers can only be if the preceding char was a { or ,
-        if (this.was('{,') && json[0] === '{' &&
-            (token = this.tokens[this.tokens.length - 1])) {
-          token.json = token.text.indexOf('.') === -1;
-        }
       } else if (this.is('(){}[].,;:?')) {
         this.tokens.push({
           index: this.index,
-          text: this.ch,
-          json: (this.was(':[,') && this.is('{[')) || this.is('}]:,')
+          text: this.ch
         });
-        if (this.is('{[')) json.unshift(this.ch);
-        if (this.is('}]')) json.shift();
         this.index++;
       } else if (this.isWhitespace(this.ch)) {
         this.index++;
@@ -20496,8 +20606,7 @@ Lexer.prototype = {
           this.tokens.push({
             index: this.index,
             text: this.ch,
-            fn: fn,
-            json: (this.was('[,:') && this.is('+-'))
+            fn: fn
           });
           this.index += 1;
         } else {
@@ -20580,7 +20689,8 @@ Lexer.prototype = {
     this.tokens.push({
       index: start,
       text: number,
-      json: true,
+      literal: true,
+      constant: true,
       fn: function() { return number; }
     });
   },
@@ -20632,7 +20742,8 @@ Lexer.prototype = {
     // OPERATORS is our own object so we don't need to use special hasOwnPropertyFn
     if (OPERATORS.hasOwnProperty(ident)) {
       token.fn = OPERATORS[ident];
-      token.json = OPERATORS[ident];
+      token.literal = true;
+      token.constant = true;
     } else {
       var getter = getterFn(ident, this.options, this.text);
       token.fn = extend(function(self, locals) {
@@ -20649,13 +20760,11 @@ Lexer.prototype = {
     if (methodName) {
       this.tokens.push({
         index:lastDot,
-        text: '.',
-        json: false
+        text: '.'
       });
       this.tokens.push({
         index: lastDot + 1,
-        text: methodName,
-        json: false
+        text: methodName
       });
     }
   },
@@ -20693,7 +20802,8 @@ Lexer.prototype = {
           index: start,
           text: rawString,
           string: string,
-          json: true,
+          literal: true,
+          constant: true,
           fn: function() { return string; }
         });
         return;
@@ -20725,28 +20835,12 @@ Parser.ZERO = extend(function () {
 Parser.prototype = {
   constructor: Parser,
 
-  parse: function (text, json) {
+  parse: function (text) {
     this.text = text;
-
-    //TODO(i): strip all the obsolte json stuff from this file
-    this.json = json;
 
     this.tokens = this.lexer.lex(text);
 
-    if (json) {
-      // The extra level of aliasing is here, just in case the lexer misses something, so that
-      // we prevent any accidental execution in JSON.
-      this.assignment = this.logicalOR;
-
-      this.functionCall =
-      this.fieldAccess =
-      this.objectIndex =
-      this.filterChain = function() {
-        this.throwError('is not valid json', {text: text, index: 0});
-      };
-    }
-
-    var value = json ? this.primary() : this.statements();
+    var value = this.statements();
 
     if (this.tokens.length !== 0) {
       this.throwError('is an unexpected token', this.tokens[0]);
@@ -20773,10 +20867,8 @@ Parser.prototype = {
       if (!primary) {
         this.throwError('not a primary expression', token);
       }
-      if (token.json) {
-        primary.constant = true;
-        primary.literal = true;
-      }
+      primary.literal = !!token.literal;
+      primary.constant = !!token.constant;
     }
 
     var next, context;
@@ -20824,9 +20916,6 @@ Parser.prototype = {
   expect: function(e1, e2, e3, e4){
     var token = this.peek(e1, e2, e3, e4);
     if (token) {
-      if (this.json && !token.json) {
-        this.throwError('is not valid json', token);
-      }
       this.tokens.shift();
       return token;
     }
@@ -21461,7 +21550,7 @@ function getterFn(path, options, fullExp) {
 /**
  * @ngdoc provider
  * @name $parseProvider
- * @function
+ * @kind function
  *
  * @description
  * `$parseProvider` can be used for configuring the default behavior of the {@link ng.$parse $parse}
@@ -21580,7 +21669,7 @@ function $ParseProvider() {
 
           var lexer = new Lexer($parseOptions);
           var parser = new Parser(lexer, $filter, $parseOptions);
-          parsedExpression = parser.parse(exp, false);
+          parsedExpression = parser.parse(exp);
 
           if (exp !== 'hasOwnProperty') {
             // Only cache the value if it's not going to mess up the cache object
@@ -21791,7 +21880,7 @@ function qFactory(nextTick, exceptionHandler) {
   /**
    * @ngdoc method
    * @name $q#defer
-   * @function
+   * @kind function
    *
    * @description
    * Creates a `Deferred` object which represents a task which will finish in the future.
@@ -21948,7 +22037,7 @@ function qFactory(nextTick, exceptionHandler) {
   /**
    * @ngdoc method
    * @name $q#reject
-   * @function
+   * @kind function
    *
    * @description
    * Creates a promise that is resolved as rejected with the specified `reason`. This api should be
@@ -22008,7 +22097,7 @@ function qFactory(nextTick, exceptionHandler) {
   /**
    * @ngdoc method
    * @name $q#when
-   * @function
+   * @kind function
    *
    * @description
    * Wraps an object that might be a value or a (3rd party) then-able promise into a $q promise.
@@ -22080,7 +22169,7 @@ function qFactory(nextTick, exceptionHandler) {
   /**
    * @ngdoc method
    * @name $q#all
-   * @function
+   * @kind function
    *
    * @description
    * Combines multiple promises into a single promise that is resolved when all of the input
@@ -22171,7 +22260,7 @@ function $$RAFProvider(){ //rAF
  *
  * Loop operations are optimized by using while(count--) { ... }
  *   - this means that in order to keep the same order of execution as addition we have to add
- *     items to the array at the beginning (shift) instead of at the end (push)
+ *     items to the array at the beginning (unshift) instead of at the end (push)
  *
  * Child scopes are created and removed often
  *   - Using an array would be slow since inserts in middle are expensive so we use linked list
@@ -22305,7 +22394,7 @@ function $RootScopeProvider(){
       /**
        * @ngdoc method
        * @name $rootScope.Scope#$new
-       * @function
+       * @kind function
        *
        * @description
        * Creates a new child {@link ng.$rootScope.Scope scope}.
@@ -22337,18 +22426,23 @@ function $RootScopeProvider(){
           child.$$asyncQueue = this.$$asyncQueue;
           child.$$postDigestQueue = this.$$postDigestQueue;
         } else {
-          ChildScope = function() {}; // should be anonymous; This is so that when the minifier munges
-            // the name it does not become random set of chars. This will then show up as class
-            // name in the web inspector.
-          ChildScope.prototype = this;
-          child = new ChildScope();
-          child.$id = nextUid();
+          // Only create a child scope class if somebody asks for one,
+          // but cache it to allow the VM to optimize lookups.
+          if (!this.$$childScopeClass) {
+            this.$$childScopeClass = function() {
+              this.$$watchers = this.$$nextSibling =
+                  this.$$childHead = this.$$childTail = null;
+              this.$$listeners = {};
+              this.$$listenerCount = {};
+              this.$id = nextUid();
+              this.$$childScopeClass = null;
+            };
+            this.$$childScopeClass.prototype = this;
+          }
+          child = new this.$$childScopeClass();
         }
         child['this'] = child;
-        child.$$listeners = {};
-        child.$$listenerCount = {};
         child.$parent = this;
-        child.$$watchers = child.$$nextSibling = child.$$childHead = child.$$childTail = null;
         child.$$prevSibling = this.$$childTail;
         if (this.$$childHead) {
           this.$$childTail.$$nextSibling = child;
@@ -22362,7 +22456,7 @@ function $RootScopeProvider(){
       /**
        * @ngdoc method
        * @name $rootScope.Scope#$watch
-       * @function
+       * @kind function
        *
        * @description
        * Registers a `listener` callback to be executed whenever the `watchExpression` changes.
@@ -22374,10 +22468,14 @@ function $RootScopeProvider(){
        *   {@link ng.$rootScope.Scope#$digest $digest()} and should be idempotent.)
        * - The `listener` is called only when the value from the current `watchExpression` and the
        *   previous call to `watchExpression` are not equal (with the exception of the initial run,
-       *   see below). The inequality is determined according to
-       *   {@link angular.equals} function. To save the value of the object for later comparison,
-       *   the {@link angular.copy} function is used. It also means that watching complex options
-       *   will have adverse memory and performance implications.
+       *   see below). Inequality is determined according to reference inequality,
+       *   [strict comparison](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators)
+       *    via the `!==` Javascript operator, unless `objectEquality == true`
+       *   (see next point)
+       * - When `objectEquality == true`, inequality of the `watchExpression` is determined
+       *   according to the {@link angular.equals} function. To save the value of the object for
+       *   later comparison, the {@link angular.copy} function is used. This therefore means that
+       *   watching complex objects will have adverse memory and performance implications.
        * - The watch `listener` may change the model, which may trigger other `listener`s to fire.
        *   This is achieved by rerunning the watchers until no changes are detected. The rerun
        *   iteration limit is 10 to prevent an infinite loop deadlock.
@@ -22412,12 +22510,16 @@ function $RootScopeProvider(){
            expect(scope.counter).toEqual(0);
 
            scope.$digest();
-           // no variable change
-           expect(scope.counter).toEqual(0);
+           // the listener is always called during the first $digest loop after it was registered
+           expect(scope.counter).toEqual(1);
+
+           scope.$digest();
+           // but now it will not be called unless the value changes
+           expect(scope.counter).toEqual(1);
 
            scope.name = 'adam';
            scope.$digest();
-           expect(scope.counter).toEqual(1);
+           expect(scope.counter).toEqual(2);
 
 
 
@@ -22504,7 +22606,7 @@ function $RootScopeProvider(){
         // the while loop reads in reverse order.
         array.unshift(watcher);
 
-        return function() {
+        return function deregisterWatch() {
           arrayRemove(array, watcher);
           lastDirtyWatch = null;
         };
@@ -22514,7 +22616,7 @@ function $RootScopeProvider(){
       /**
        * @ngdoc method
        * @name $rootScope.Scope#$watchCollection
-       * @function
+       * @kind function
        *
        * @description
        * Shallow watches the properties of an object and fires whenever any of the properties change
@@ -22690,7 +22792,7 @@ function $RootScopeProvider(){
       /**
        * @ngdoc method
        * @name $rootScope.Scope#$digest
-       * @function
+       * @kind function
        *
        * @description
        * Processes all of the {@link ng.$rootScope.Scope#$watch watchers} of the current scope and
@@ -22725,12 +22827,16 @@ function $RootScopeProvider(){
            expect(scope.counter).toEqual(0);
 
            scope.$digest();
-           // no variable change
-           expect(scope.counter).toEqual(0);
+           // the listener is always called during the first $digest loop after it was registered
+           expect(scope.counter).toEqual(1);
+
+           scope.$digest();
+           // but now it will not be called unless the value changes
+           expect(scope.counter).toEqual(1);
 
            scope.name = 'adam';
            scope.$digest();
-           expect(scope.counter).toEqual(1);
+           expect(scope.counter).toEqual(2);
        * ```
        *
        */
@@ -22782,7 +22888,7 @@ function $RootScopeProvider(){
                                && isNaN(value) && isNaN(last)))) {
                       dirty = true;
                       lastDirtyWatch = watch;
-                      watch.last = watch.eq ? copy(value) : value;
+                      watch.last = watch.eq ? copy(value, null) : value;
                       watch.fn(value, ((last === initWatchVal) ? value : last), current);
                       if (ttl < 5) {
                         logIdx = 4 - ttl;
@@ -22857,7 +22963,7 @@ function $RootScopeProvider(){
       /**
        * @ngdoc method
        * @name $rootScope.Scope#$destroy
-       * @function
+       * @kind function
        *
        * @description
        * Removes the current scope (and all of its children) from the parent scope. Removal implies
@@ -22918,7 +23024,7 @@ function $RootScopeProvider(){
       /**
        * @ngdoc method
        * @name $rootScope.Scope#$eval
-       * @function
+       * @kind function
        *
        * @description
        * Executes the `expression` on the current scope and returns the result. Any exceptions in
@@ -22950,7 +23056,7 @@ function $RootScopeProvider(){
       /**
        * @ngdoc method
        * @name $rootScope.Scope#$evalAsync
-       * @function
+       * @kind function
        *
        * @description
        * Executes the expression on the current scope at a later point in time.
@@ -22997,7 +23103,7 @@ function $RootScopeProvider(){
       /**
        * @ngdoc method
        * @name $rootScope.Scope#$apply
-       * @function
+       * @kind function
        *
        * @description
        * `$apply()` is used to execute an expression in angular from outside of the angular
@@ -23059,7 +23165,7 @@ function $RootScopeProvider(){
       /**
        * @ngdoc method
        * @name $rootScope.Scope#$on
-       * @function
+       * @kind function
        *
        * @description
        * Listens on events of a given type. See {@link ng.$rootScope.Scope#$emit $emit} for
@@ -23108,7 +23214,7 @@ function $RootScopeProvider(){
       /**
        * @ngdoc method
        * @name $rootScope.Scope#$emit
-       * @function
+       * @kind function
        *
        * @description
        * Dispatches an event `name` upwards through the scope hierarchy notifying the
@@ -23176,7 +23282,7 @@ function $RootScopeProvider(){
       /**
        * @ngdoc method
        * @name $rootScope.Scope#$broadcast
-       * @function
+       * @kind function
        *
        * @description
        * Dispatches an event `name` downwards to all child scopes (and their children) notifying the
@@ -23424,7 +23530,7 @@ function adjustMatchers(matchers) {
 /**
  * @ngdoc service
  * @name $sceDelegate
- * @function
+ * @kind function
  *
  * @description
  *
@@ -23496,7 +23602,7 @@ function $SceDelegateProvider() {
   /**
    * @ngdoc method
    * @name $sceDelegateProvider#resourceUrlWhitelist
-   * @function
+   * @kind function
    *
    * @param {Array=} whitelist When provided, replaces the resourceUrlWhitelist with the value
    *     provided.  This must be an array or null.  A snapshot of this array is used so further
@@ -23525,7 +23631,7 @@ function $SceDelegateProvider() {
   /**
    * @ngdoc method
    * @name $sceDelegateProvider#resourceUrlBlacklist
-   * @function
+   * @kind function
    *
    * @param {Array=} blacklist When provided, replaces the resourceUrlBlacklist with the value
    *     provided.  This must be an array or null.  A snapshot of this array is used so further
@@ -23752,7 +23858,7 @@ function $SceDelegateProvider() {
 /**
  * @ngdoc service
  * @name $sce
- * @function
+ * @kind function
  *
  * @description
  *
@@ -23878,7 +23984,7 @@ function $SceDelegateProvider() {
  *
  * | Context             | Notes          |
  * |---------------------|----------------|
- * | `$sce.HTML`         | For HTML that's safe to source into the application.  The {@link ng.directive:ngBindHtml ngBindHtml} directive uses this context for bindings. |
+ * | `$sce.HTML`         | For HTML that's safe to source into the application.  The {@link ng.directive:ngBindHtml ngBindHtml} directive uses this context for bindings. If an unsafe value is encountered and the {@link ngSanitize $sanitize} module is present this will sanitize the value instead of throwing an error. |
  * | `$sce.CSS`          | For CSS that's safe to source into the application.  Currently unused.  Feel free to use it in your own directives. |
  * | `$sce.URL`          | For URLs that are safe to follow as links.  Currently unused (`<a href=` and `<img src=` sanitize their urls and don't constitute an SCE context. |
  * | `$sce.RESOURCE_URL` | For URLs that are not only safe to follow as links, but whose contents are also safe to include in your application.  Examples include `ng-include`, `src` / `ngSrc` bindings for tags other than `IMG` (e.g. `IFRAME`, `OBJECT`, etc.)  <br><br>Note that `$sce.RESOURCE_URL` makes a stronger statement about the URL than `$sce.URL` does and therefore contexts requiring values trusted for `$sce.RESOURCE_URL` can be used anywhere that values trusted for `$sce.URL` are required. |
@@ -23902,7 +24008,7 @@ function $SceDelegateProvider() {
  *    - `**`: matches zero or more occurrences of *any* character.  As such, it's not
  *      not appropriate to use in for a scheme, domain, etc. as it would match too much.  (e.g.
  *      http://**.example.com/ would match http://evil.com/?ignore=.example.com/ and that might
- *      not have been the intention.)  It's usage at the very end of the path is ok.  (e.g.
+ *      not have been the intention.)  Its usage at the very end of the path is ok.  (e.g.
  *      http://foo.example.com/templates/**).
  *  - **RegExp** (*see caveat below*)
  *    - *Caveat*:  While regular expressions are powerful and offer great flexibility,  their syntax
@@ -24023,7 +24129,7 @@ function $SceProvider() {
   /**
    * @ngdoc method
    * @name $sceProvider#enabled
-   * @function
+   * @kind function
    *
    * @param {boolean=} value If provided, then enables/disables SCE.
    * @return {boolean} true if SCE is enabled, false otherwise.
@@ -24096,12 +24202,12 @@ function $SceProvider() {
         'document.  See http://docs.angularjs.org/api/ng.$sce for more information.');
     }
 
-    var sce = copy(SCE_CONTEXTS);
+    var sce = shallowCopy(SCE_CONTEXTS);
 
     /**
      * @ngdoc method
      * @name $sce#isEnabled
-     * @function
+     * @kind function
      *
      * @return {Boolean} true if SCE is enabled, false otherwise.  If you want to set the value, you
      * have to do it at module config time on {@link ng.$sceProvider $sceProvider}.
@@ -24636,7 +24742,7 @@ var originUrl = urlResolve(window.location.href, true);
  *   https://github.com/angular/angular.js/pull/2902
  *   http://james.padolsey.com/javascript/parsing-urls-with-the-dom/
  *
- * @function
+ * @kind function
  * @param {string} url The URL to be parsed.
  * @description Normalizes and parses a URL.
  * @returns {object} Returns the normalized URL as a dictionary.
@@ -24800,7 +24906,7 @@ function $WindowProvider(){
 /**
  * @ngdoc service
  * @name $filter
- * @function
+ * @kind function
  * @description
  * Filters are used for formatting data displayed to the user.
  *
@@ -24810,7 +24916,24 @@ function $WindowProvider(){
  *
  * @param {String} name Name of the filter function to retrieve
  * @return {Function} the filter function
- */
+ * @example
+   <example name="$filter" module="filterExample">
+     <file name="index.html">
+       <div ng-controller="MainCtrl">
+        <h3>{{ originalText }}</h3>
+        <h3>{{ filteredText }}</h3>
+       </div>
+     </file>
+
+     <file name="script.js">
+      angular.module('filterExample', [])
+      .controller('MainCtrl', function($scope, $filter) {
+        $scope.originalText = 'hello';
+        $scope.filteredText = $filter('uppercase')($scope.originalText);
+      });
+     </file>
+   </example>
+  */
 $FilterProvider.$inject = ['$provide'];
 function $FilterProvider($provide) {
   var suffix = 'Filter';
@@ -24870,7 +24993,7 @@ function $FilterProvider($provide) {
 /**
  * @ngdoc filter
  * @name filter
- * @function
+ * @kind function
  *
  * @description
  * Selects a subset of items from `array` and returns it as a new array.
@@ -24902,15 +25025,15 @@ function $FilterProvider($provide) {
  *
  *   Can be one of:
  *
- *     - `function(actual, expected)`:
- *       The function will be given the object value and the predicate value to compare and
- *       should return true if the item should be included in filtered result.
+ *   - `function(actual, expected)`:
+ *     The function will be given the object value and the predicate value to compare and
+ *     should return true if the item should be included in filtered result.
  *
- *     - `true`: A shorthand for `function(actual, expected) { return angular.equals(expected, actual)}`.
- *       this is essentially strict comparison of expected and actual.
+ *   - `true`: A shorthand for `function(actual, expected) { return angular.equals(expected, actual)}`.
+ *     this is essentially strict comparison of expected and actual.
  *
- *     - `false|undefined`: A short hand for a function which will look for a substring match in case
- *       insensitive way.
+ *   - `false|undefined`: A short hand for a function which will look for a substring match in case
+ *     insensitive way.
  *
  * @example
    <example>
@@ -25089,7 +25212,7 @@ function filterFilter() {
 /**
  * @ngdoc filter
  * @name currency
- * @function
+ * @kind function
  *
  * @description
  * Formats a number as a currency (ie $1,234.56). When no currency symbol is provided, default
@@ -25146,7 +25269,7 @@ function currencyFilter($locale) {
 /**
  * @ngdoc filter
  * @name number
- * @function
+ * @kind function
  *
  * @description
  * Formats a number as text.
@@ -25231,8 +25354,8 @@ function formatNumber(number, pattern, groupSep, decimalSep, fractionSize) {
       fractionSize = Math.min(Math.max(pattern.minFrac, fractionLen), pattern.maxFrac);
     }
 
-    var pow = Math.pow(10, fractionSize);
-    number = Math.round(number * pow) / pow;
+    var pow = Math.pow(10, fractionSize + 1);
+    number = Math.floor(number * pow + 5) / pow;
     var fraction = ('' + number).split(DECIMAL_SEP);
     var whole = fraction[0];
     fraction = fraction[1] || '';
@@ -25358,7 +25481,7 @@ var DATE_FORMATS_SPLIT = /((?:[^yMdHhmsaZE']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|d+
 /**
  * @ngdoc filter
  * @name date
- * @function
+ * @kind function
  *
  * @description
  *   Formats `date` to a string based on the requested `format`.
@@ -25515,7 +25638,7 @@ function dateFilter($locale) {
 /**
  * @ngdoc filter
  * @name json
- * @function
+ * @kind function
  *
  * @description
  *   Allows you to convert a JavaScript object into JSON string.
@@ -25550,7 +25673,7 @@ function jsonFilter() {
 /**
  * @ngdoc filter
  * @name lowercase
- * @function
+ * @kind function
  * @description
  * Converts string to lowercase.
  * @see angular.lowercase
@@ -25561,7 +25684,7 @@ var lowercaseFilter = valueFn(lowercase);
 /**
  * @ngdoc filter
  * @name uppercase
- * @function
+ * @kind function
  * @description
  * Converts string to uppercase.
  * @see angular.uppercase
@@ -25571,7 +25694,7 @@ var uppercaseFilter = valueFn(uppercase);
 /**
  * @ngdoc filter
  * @name limitTo
- * @function
+ * @kind function
  *
  * @description
  * Creates a new array or string containing only a specified number of elements. The elements
@@ -25641,7 +25764,11 @@ function limitToFilter(){
   return function(input, limit) {
     if (!isArray(input) && !isString(input)) return input;
 
-    limit = int(limit);
+    if (Math.abs(Number(limit)) === Infinity) {
+      limit = Number(limit);
+    } else {
+      limit = int(limit);
+    }
 
     if (isString(input)) {
       //NaN check on limit
@@ -25680,10 +25807,12 @@ function limitToFilter(){
 /**
  * @ngdoc filter
  * @name orderBy
- * @function
+ * @kind function
  *
  * @description
- * Orders a specified `array` by the `expression` predicate.
+ * Orders a specified `array` by the `expression` predicate. It is ordered alphabetically
+ * for strings and numerically for numbers. Note: if you notice numbers are not being sorted
+ * correctly, make sure they are actually being saved as numbers and not strings.
  *
  * @param {Array} array The array to sort.
  * @param {function(*)|string|Array.<(function(*)|string)>} expression A predicate to be
@@ -25736,6 +25865,51 @@ function limitToFilter(){
        </div>
      </file>
    </example>
+ *
+ * It's also possible to call the orderBy filter manually, by injecting `$filter`, retrieving the
+ * filter routine with `$filter('orderBy')`, and calling the returned filter routine with the
+ * desired parameters.
+ *
+ * Example:
+ *
+ * @example
+  <example>
+    <file name="index.html">
+      <div ng-controller="Ctrl">
+        <table class="friend">
+          <tr>
+            <th><a href="" ng-click="reverse=false;order('name', false)">Name</a>
+              (<a href="" ng-click="order('-name',false)">^</a>)</th>
+            <th><a href="" ng-click="reverse=!reverse;order('phone', reverse)">Phone Number</a></th>
+            <th><a href="" ng-click="reverse=!reverse;order('age',reverse)">Age</a></th>
+          </tr>
+          <tr ng-repeat="friend in friends">
+            <td>{{friend.name}}</td>
+            <td>{{friend.phone}}</td>
+            <td>{{friend.age}}</td>
+          </tr>
+        </table>
+      </div>
+    </file>
+
+    <file name="script.js">
+      function Ctrl($scope, $filter) {
+        var orderBy = $filter('orderBy');
+        $scope.friends = [
+          { name: 'John',    phone: '555-1212',    age: 10 },
+          { name: 'Mary',    phone: '555-9876',    age: 19 },
+          { name: 'Mike',    phone: '555-4321',    age: 21 },
+          { name: 'Adam',    phone: '555-5678',    age: 35 },
+          { name: 'Julie',   phone: '555-8765',    age: 29 }
+        ];
+
+        $scope.order = function(predicate, reverse) {
+          $scope.friends = orderBy($scope.friends, predicate, reverse);
+        };
+        $scope.order('-age',false);
+      }
+    </file>
+</example>
  */
 orderByFilter.$inject = ['$parse'];
 function orderByFilter($parse){
@@ -26287,7 +26461,7 @@ var nullFormCtrl = {
  *  - `url`
  *
  * @description
- * `FormController` keeps track of all its controls and nested forms as well as state of them,
+ * `FormController` keeps track of all its controls and nested forms as well as the state of them,
  * such as being valid/invalid or dirty/pristine.
  *
  * Each {@link ng.directive:form form} directive creates an instance
@@ -27129,6 +27303,8 @@ function addNativeHtml5Validators(ctrl, validatorName, element) {
 
 function textInputType(scope, element, attr, ctrl, $sniffer, $browser) {
   var validity = element.prop('validity');
+  var placeholder = element[0].placeholder, noevent = {};
+
   // In composition mode, users are still inputing intermediate text buffer,
   // hold the listener until composition is done.
   // More about composition events: https://developer.mozilla.org/en-US/docs/Web/API/CompositionEvent
@@ -27145,9 +27321,18 @@ function textInputType(scope, element, attr, ctrl, $sniffer, $browser) {
     });
   }
 
-  var listener = function() {
+  var listener = function(ev) {
     if (composing) return;
     var value = element.val();
+
+    // IE (11 and under) seem to emit an 'input' event if the placeholder value changes.
+    // We don't want to dirty the value when this happens, so we abort here. Unfortunately,
+    // IE also sends input events for other non-input-related things, (such as focusing on a
+    // form control), so this change is not entirely enough to solve this.
+    if (msie && (ev || noevent).type === 'input' && element[0].placeholder !== placeholder) {
+      placeholder = element[0].placeholder;
+      return;
+    }
 
     // By default we will trim the value
     // If the attribute ng-trim exists we will avoid trimming
@@ -27561,14 +27746,14 @@ var VALID_CLASS = 'ng-valid',
  * @property {Array.<Function>} $formatters Array of functions to execute, as a pipeline, whenever
        the model value changes. Each function is called, in turn, passing the value through to the
        next. Used to format / convert values for display in the control and validation.
- *      ```js
- *      function formatter(value) {
- *        if (value) {
- *          return value.toUpperCase();
- *        }
- *      }
- *      ngModel.$formatters.push(formatter);
- *      ```
+ * ```js
+ * function formatter(value) {
+ *   if (value) {
+ *     return value.toUpperCase();
+ *   }
+ * }
+ * ngModel.$formatters.push(formatter);
+ * ```
  *
  * @property {Array.<Function>} $viewChangeListeners Array of functions to execute whenever the
  *     view value has changed. It is called with no arguments, and its return value is ignored.
@@ -27597,7 +27782,12 @@ var VALID_CLASS = 'ng-valid',
  * Note that `contenteditable` is an HTML5 attribute, which tells the browser to let the element
  * contents be edited in place by the user.  This will not work on older browsers.
  *
- * <example name="NgModelController" module="customControl">
+ * We are using the {@link ng.service:$sce $sce} service here and include the {@link ngSanitize $sanitize}
+ * module to automatically remove "bad" content like inline event listener (e.g. `<span onclick="...">`).
+ * However, as we are using `$sce` the model can still decide to to provide unsafe content if it marks
+ * that content using the `$sce` service.
+ *
+ * <example name="NgModelController" module="customControl" deps="angular-sanitize.js">
     <file name="style.css">
       [contenteditable] {
         border: 1px solid black;
@@ -27611,8 +27801,8 @@ var VALID_CLASS = 'ng-valid',
 
     </file>
     <file name="script.js">
-      angular.module('customControl', []).
-        directive('contenteditable', function() {
+      angular.module('customControl', ['ngSanitize']).
+        directive('contenteditable', ['$sce', function($sce) {
           return {
             restrict: 'A', // only activate on element attribute
             require: '?ngModel', // get a hold of NgModelController
@@ -27621,7 +27811,7 @@ var VALID_CLASS = 'ng-valid',
 
               // Specify how UI should be updated
               ngModel.$render = function() {
-                element.html(ngModel.$viewValue || '');
+                element.html($sce.getTrustedHtml(ngModel.$viewValue || ''));
               };
 
               // Listen for change events to enable binding
@@ -27642,7 +27832,7 @@ var VALID_CLASS = 'ng-valid',
               }
             }
           };
-        });
+        }]);
     </file>
     <file name="index.html">
       <form name="myForm">
@@ -28467,7 +28657,7 @@ function classDirective(name, selector) {
           scope.$watch('$index', function($index, old$index) {
             // jshint bitwise: false
             var mod = $index & 1;
-            if (mod !== old$index & 1) {
+            if (mod !== (old$index & 1)) {
               var classes = arrayClasses(scope.$eval(attr[name]));
               mod === selector ?
                 addClasses(classes) :
@@ -28526,7 +28716,7 @@ function classDirective(name, selector) {
               updateClasses(oldClasses, newClasses);
             }
           }
-          oldVal = copy(newVal);
+          oldVal = shallowCopy(newVal);
         }
       }
     };
@@ -28554,7 +28744,7 @@ function classDirective(name, selector) {
         var classes = [], i = 0;
         forEach(classVal, function(v, k) {
           if (v) {
-            classes.push(k);
+            classes = classes.concat(k.split(' '));
           }
         });
         return classes;
@@ -28900,165 +29090,186 @@ var ngCloakDirective = ngDirective({
  * @example
  * Here is a simple form for editing user contact information. Adding, removing, clearing, and
  * greeting are methods declared on the controller (see source tab). These methods can
- * easily be called from the angular markup. Notice that the scope becomes the `this` for the
- * controller's instance. This allows for easy access to the view data from the controller. Also
- * notice that any changes to the data are automatically reflected in the View without the need
- * for a manual update. The example is shown in two different declaration styles you may use
- * according to preference.
-   <example>
-     <file name="index.html">
-      <script>
-        function SettingsController1() {
-          this.name = "John Smith";
-          this.contacts = [
-            {type: 'phone', value: '408 555 1212'},
-            {type: 'email', value: 'john.smith@example.org'} ];
-          };
-
-        SettingsController1.prototype.greet = function() {
-          alert(this.name);
-        };
-
-        SettingsController1.prototype.addContact = function() {
-          this.contacts.push({type: 'email', value: 'yourname@example.org'});
-        };
-
-        SettingsController1.prototype.removeContact = function(contactToRemove) {
-         var index = this.contacts.indexOf(contactToRemove);
-          this.contacts.splice(index, 1);
-        };
-
-        SettingsController1.prototype.clearContact = function(contact) {
-          contact.type = 'phone';
-          contact.value = '';
-        };
-      </script>
-      <div id="ctrl-as-exmpl" ng-controller="SettingsController1 as settings">
-        Name: <input type="text" ng-model="settings.name"/>
-        [ <a href="" ng-click="settings.greet()">greet</a> ]<br/>
-        Contact:
-        <ul>
-          <li ng-repeat="contact in settings.contacts">
-            <select ng-model="contact.type">
-               <option>phone</option>
-               <option>email</option>
-            </select>
-            <input type="text" ng-model="contact.value"/>
-            [ <a href="" ng-click="settings.clearContact(contact)">clear</a>
-            | <a href="" ng-click="settings.removeContact(contact)">X</a> ]
-          </li>
-          <li>[ <a href="" ng-click="settings.addContact()">add</a> ]</li>
-       </ul>
-      </div>
-     </file>
-     <file name="protractor.js" type="protractor">
-       it('should check controller as', function() {
-         var container = element(by.id('ctrl-as-exmpl'));
-
-         expect(container.findElement(by.model('settings.name'))
-             .getAttribute('value')).toBe('John Smith');
-
-         var firstRepeat =
-             container.findElement(by.repeater('contact in settings.contacts').row(0));
-         var secondRepeat =
-             container.findElement(by.repeater('contact in settings.contacts').row(1));
-
-         expect(firstRepeat.findElement(by.model('contact.value')).getAttribute('value'))
-             .toBe('408 555 1212');
-         expect(secondRepeat.findElement(by.model('contact.value')).getAttribute('value'))
-             .toBe('john.smith@example.org');
-
-         firstRepeat.findElement(by.linkText('clear')).click();
-
-         expect(firstRepeat.findElement(by.model('contact.value')).getAttribute('value'))
-             .toBe('');
-
-         container.findElement(by.linkText('add')).click();
-
-         expect(container.findElement(by.repeater('contact in settings.contacts').row(2))
-             .findElement(by.model('contact.value'))
-             .getAttribute('value'))
-             .toBe('yourname@example.org');
-       });
-     </file>
-   </example>
-    <example>
-     <file name="index.html">
-      <script>
-        function SettingsController2($scope) {
-          $scope.name = "John Smith";
-          $scope.contacts = [
-            {type:'phone', value:'408 555 1212'},
-            {type:'email', value:'john.smith@example.org'} ];
-
-          $scope.greet = function() {
-           alert(this.name);
-          };
-
-          $scope.addContact = function() {
-           this.contacts.push({type:'email', value:'yourname@example.org'});
-          };
-
-          $scope.removeContact = function(contactToRemove) {
-           var index = this.contacts.indexOf(contactToRemove);
-           this.contacts.splice(index, 1);
-          };
-
-          $scope.clearContact = function(contact) {
-           contact.type = 'phone';
-           contact.value = '';
-          };
-        }
-      </script>
-      <div id="ctrl-exmpl" ng-controller="SettingsController2">
-        Name: <input type="text" ng-model="name"/>
-        [ <a href="" ng-click="greet()">greet</a> ]<br/>
-        Contact:
-        <ul>
-          <li ng-repeat="contact in contacts">
-            <select ng-model="contact.type">
-               <option>phone</option>
-               <option>email</option>
-            </select>
-            <input type="text" ng-model="contact.value"/>
-            [ <a href="" ng-click="clearContact(contact)">clear</a>
-            | <a href="" ng-click="removeContact(contact)">X</a> ]
-          </li>
-          <li>[ <a href="" ng-click="addContact()">add</a> ]</li>
-       </ul>
-      </div>
-     </file>
-     <file name="protractor.js" type="protractor">
-       it('should check controller', function() {
-         var container = element(by.id('ctrl-exmpl'));
-
-         expect(container.findElement(by.model('name'))
-             .getAttribute('value')).toBe('John Smith');
-
-         var firstRepeat =
-             container.findElement(by.repeater('contact in contacts').row(0));
-         var secondRepeat =
-             container.findElement(by.repeater('contact in contacts').row(1));
-
-         expect(firstRepeat.findElement(by.model('contact.value')).getAttribute('value'))
-             .toBe('408 555 1212');
-         expect(secondRepeat.findElement(by.model('contact.value')).getAttribute('value'))
-             .toBe('john.smith@example.org');
-
-         firstRepeat.findElement(by.linkText('clear')).click();
-
-         expect(firstRepeat.findElement(by.model('contact.value')).getAttribute('value'))
-             .toBe('');
-
-         container.findElement(by.linkText('add')).click();
-
-         expect(container.findElement(by.repeater('contact in contacts').row(2))
-             .findElement(by.model('contact.value'))
-             .getAttribute('value'))
-             .toBe('yourname@example.org');
-       });
-     </file>
-   </example>
+ * easily be called from the angular markup. Any changes to the data are automatically reflected
+ * in the View without the need for a manual update.
+ *
+ * Two different declaration styles are included below:
+ *
+ * * one binds methods and properties directly onto the controller using `this`:
+ * `ng-controller="SettingsController1 as settings"`
+ * * one injects `$scope` into the controller:
+ * `ng-controller="SettingsController2"`
+ *
+ * The second option is more common in the Angular community, and is generally used in boilerplates
+ * and in this guide. However, there are advantages to binding properties directly to the controller
+ * and avoiding scope.
+ *
+ * * Using `controller as` makes it obvious which controller you are accessing in the template when
+ * multiple controllers apply to an element.
+ * * If you are writing your controllers as classes you have easier access to the properties and
+ * methods, which will appear on the scope, from inside the controller code.
+ * * Since there is always a `.` in the bindings, you don't have to worry about prototypal
+ * inheritance masking primitives.
+ *
+ * This example demonstrates the `controller as` syntax.
+ *
+ * <example name="ngControllerAs">
+ *   <file name="index.html">
+ *    <div id="ctrl-as-exmpl" ng-controller="SettingsController1 as settings">
+ *      Name: <input type="text" ng-model="settings.name"/>
+ *      [ <a href="" ng-click="settings.greet()">greet</a> ]<br/>
+ *      Contact:
+ *      <ul>
+ *        <li ng-repeat="contact in settings.contacts">
+ *          <select ng-model="contact.type">
+ *             <option>phone</option>
+ *             <option>email</option>
+ *          </select>
+ *          <input type="text" ng-model="contact.value"/>
+ *          [ <a href="" ng-click="settings.clearContact(contact)">clear</a>
+ *          | <a href="" ng-click="settings.removeContact(contact)">X</a> ]
+ *        </li>
+ *        <li>[ <a href="" ng-click="settings.addContact()">add</a> ]</li>
+ *     </ul>
+ *    </div>
+ *   </file>
+ *   <file name="app.js">
+ *    function SettingsController1() {
+ *      this.name = "John Smith";
+ *      this.contacts = [
+ *        {type: 'phone', value: '408 555 1212'},
+ *        {type: 'email', value: 'john.smith@example.org'} ];
+ *    }
+ *
+ *    SettingsController1.prototype.greet = function() {
+ *      alert(this.name);
+ *    };
+ *
+ *    SettingsController1.prototype.addContact = function() {
+ *      this.contacts.push({type: 'email', value: 'yourname@example.org'});
+ *    };
+ *
+ *    SettingsController1.prototype.removeContact = function(contactToRemove) {
+ *     var index = this.contacts.indexOf(contactToRemove);
+ *      this.contacts.splice(index, 1);
+ *    };
+ *
+ *    SettingsController1.prototype.clearContact = function(contact) {
+ *      contact.type = 'phone';
+ *      contact.value = '';
+ *    };
+ *   </file>
+ *   <file name="protractor.js" type="protractor">
+ *     it('should check controller as', function() {
+ *       var container = element(by.id('ctrl-as-exmpl'));
+ *         expect(container.findElement(by.model('settings.name'))
+ *           .getAttribute('value')).toBe('John Smith');
+ *
+ *       var firstRepeat =
+ *           container.findElement(by.repeater('contact in settings.contacts').row(0));
+ *       var secondRepeat =
+ *           container.findElement(by.repeater('contact in settings.contacts').row(1));
+ *
+ *       expect(firstRepeat.findElement(by.model('contact.value')).getAttribute('value'))
+ *           .toBe('408 555 1212');
+ *
+ *       expect(secondRepeat.findElement(by.model('contact.value')).getAttribute('value'))
+ *           .toBe('john.smith@example.org');
+ *
+ *       firstRepeat.findElement(by.linkText('clear')).click();
+ *
+ *       expect(firstRepeat.findElement(by.model('contact.value')).getAttribute('value'))
+ *           .toBe('');
+ *
+ *       container.findElement(by.linkText('add')).click();
+ *
+ *       expect(container.findElement(by.repeater('contact in settings.contacts').row(2))
+ *           .findElement(by.model('contact.value'))
+ *           .getAttribute('value'))
+ *           .toBe('yourname@example.org');
+ *     });
+ *   </file>
+ * </example>
+ *
+ * This example demonstrates the "attach to `$scope`" style of controller.
+ *
+ * <example name="ngController">
+ *  <file name="index.html">
+ *   <div id="ctrl-exmpl" ng-controller="SettingsController2">
+ *     Name: <input type="text" ng-model="name"/>
+ *     [ <a href="" ng-click="greet()">greet</a> ]<br/>
+ *     Contact:
+ *     <ul>
+ *       <li ng-repeat="contact in contacts">
+ *         <select ng-model="contact.type">
+ *            <option>phone</option>
+ *            <option>email</option>
+ *         </select>
+ *         <input type="text" ng-model="contact.value"/>
+ *         [ <a href="" ng-click="clearContact(contact)">clear</a>
+ *         | <a href="" ng-click="removeContact(contact)">X</a> ]
+ *       </li>
+ *       <li>[ <a href="" ng-click="addContact()">add</a> ]</li>
+ *    </ul>
+ *   </div>
+ *  </file>
+ *  <file name="app.js">
+ *   function SettingsController2($scope) {
+ *     $scope.name = "John Smith";
+ *     $scope.contacts = [
+ *       {type:'phone', value:'408 555 1212'},
+ *       {type:'email', value:'john.smith@example.org'} ];
+ *
+ *     $scope.greet = function() {
+ *       alert($scope.name);
+ *     };
+ *
+ *     $scope.addContact = function() {
+ *       $scope.contacts.push({type:'email', value:'yourname@example.org'});
+ *     };
+ *
+ *     $scope.removeContact = function(contactToRemove) {
+ *       var index = $scope.contacts.indexOf(contactToRemove);
+ *       $scope.contacts.splice(index, 1);
+ *     };
+ *
+ *     $scope.clearContact = function(contact) {
+ *       contact.type = 'phone';
+ *       contact.value = '';
+ *     };
+ *   }
+ *  </file>
+ *  <file name="protractor.js" type="protractor">
+ *    it('should check controller', function() {
+ *      var container = element(by.id('ctrl-exmpl'));
+ *
+ *      expect(container.findElement(by.model('name'))
+ *          .getAttribute('value')).toBe('John Smith');
+ *
+ *      var firstRepeat =
+ *          container.findElement(by.repeater('contact in contacts').row(0));
+ *      var secondRepeat =
+ *          container.findElement(by.repeater('contact in contacts').row(1));
+ *
+ *      expect(firstRepeat.findElement(by.model('contact.value')).getAttribute('value'))
+ *          .toBe('408 555 1212');
+ *      expect(secondRepeat.findElement(by.model('contact.value')).getAttribute('value'))
+ *          .toBe('john.smith@example.org');
+ *
+ *      firstRepeat.findElement(by.linkText('clear')).click();
+ *
+ *      expect(firstRepeat.findElement(by.model('contact.value')).getAttribute('value'))
+ *          .toBe('');
+ *
+ *      container.findElement(by.linkText('add')).click();
+ *
+ *      expect(container.findElement(by.repeater('contact in contacts').row(2))
+ *          .findElement(by.model('contact.value'))
+ *          .getAttribute('value'))
+ *          .toBe('yourname@example.org');
+ *    });
+ *  </file>
+ *</example>
 
  */
 var ngControllerDirective = [function() {
@@ -29373,8 +29584,13 @@ forEach(
  * @example
    <example>
      <file name="index.html">
-      <input ng-keyup="count = count + 1" ng-init="count=0">
-      key up count: {{count}}
+       <p>Typing in the input box below updates the key count</p>
+       <input ng-keyup="count = count + 1" ng-init="count=0"> key up count: {{count}}
+
+       <p>Typing in the input box below updates the keycode</p>
+       <input ng-keyup="event=$event">
+       <p>event keyCode: {{ event.keyCode }}</p>
+       <p>event altKey: {{ event.altKey }}</p>
      </file>
    </example>
  */
@@ -29646,7 +29862,7 @@ var ngIfDirective = ['$animate', function($animate) {
                 clone[clone.length++] = document.createComment(' end ngIf: ' + $attr.ngIf + ' ');
                 // Note: We only need the first/last node of the cloned nodes.
                 // However, we need to keep the reference to the jqlite wrapper as it might be changed later
-                // by a directive with templateUrl when it's template arrives.
+                // by a directive with templateUrl when its template arrives.
                 block = {
                   clone: clone
                 };
@@ -30345,7 +30561,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
  *     mapped to the same DOM element, which is not possible.)  Filters should be applied to the expression,
  *     before specifying a tracking expression.
  *
- *     For example: `item in items` is equivalent to `item in items track by $id(item)'. This implies that the DOM elements
+ *     For example: `item in items` is equivalent to `item in items track by $id(item)`. This implies that the DOM elements
  *     will be associated by item identity in the array.
  *
  *     For example: `item in items track by $id(item)`. A built in `$id()` function can be used to assign a unique
@@ -30623,7 +30839,7 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
                 block.scope = childScope;
                 // Note: We only need the first/last node of the cloned nodes.
                 // However, we need to keep the reference to the jqlite wrapper as it might be changed later
-                // by a directive with templateUrl when it's template arrives.
+                // by a directive with templateUrl when its template arrives.
                 block.clone = clone;
                 nextBlockMap[block.id] = block;
               });
@@ -30666,6 +30882,11 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
  * on the element causing it to become hidden. When true, the ng-hide CSS class is removed
  * from the element causing the element not to appear hidden.
  *
+ * <div class="alert alert-warning">
+ * **Note:** Here is a list of values that ngShow will consider as a falsy value (case insensitive):<br />
+ * "f" / "0" / "false" / "no" / "n" / "[]"
+ * </div>
+ *
  * ## Why is !important used?
  *
  * You may be wondering why !important is used for the .ng-hide CSS class. This is because the `.ng-hide` selector
@@ -30679,26 +30900,21 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
  *
  * ### Overriding .ng-hide
  *
- * If you wish to change the hide behavior with ngShow/ngHide then this can be achieved by
- * restating the styles for the .ng-hide class in CSS:
+ * By default, the `.ng-hide` class will style the element with `display:none!important`. If you wish to change
+ * the hide behavior with ngShow/ngHide then this can be achieved by restating the styles for the `.ng-hide`
+ * class in CSS:
+ *
  * ```css
  * .ng-hide {
- *   //!annotate CSS Specificity|Not to worry, this will override the AngularJS default...
- *   display:block!important;
- *
  *   //this is just another form of hiding an element
+ *   display:block!important;
  *   position:absolute;
  *   top:-9999px;
  *   left:-9999px;
  * }
  * ```
  *
- * Just remember to include the important flag so the CSS override will function.
- *
- * <div class="alert alert-warning">
- * **Note:** Here is a list of values that ngShow will consider as a falsy value (case insensitive):<br />
- * "f" / "0" / "false" / "no" / "n" / "[]"
- * </div>
+ * By default you don't need to override in CSS anything and the animations will work around the display style.
  *
  * ## A note about animations with ngShow
  *
@@ -30713,7 +30929,6 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
  * //
  * .my-element.ng-hide-add, .my-element.ng-hide-remove {
  *   transition:0.5s linear all;
- *   display:block!important;
  * }
  *
  * .my-element.ng-hide-add { ... }
@@ -30721,6 +30936,9 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
  * .my-element.ng-hide-remove { ... }
  * .my-element.ng-hide-remove.ng-hide-remove-active { ... }
  * ```
+ *
+ * Keep in mind that, as of AngularJS version 1.2.17 (and 1.3.0-beta.11), there is no need to change the display
+ * property to block during animation states--ngAnimate will handle the style toggling automatically for you.
  *
  * @animations
  * addClass: .ng-hide - happens after the ngShow expression evaluates to a truthy value and the just before contents are set to visible
@@ -30759,11 +30977,6 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
         padding:10px;
         border:1px solid black;
         background:white;
-      }
-
-      .animate-show.ng-hide-add,
-      .animate-show.ng-hide-remove {
-        display:block!important;
       }
 
       .animate-show.ng-hide {
@@ -30816,15 +31029,20 @@ var ngShowDirective = ['$animate', function($animate) {
  *
  * ```html
  * <!-- when $scope.myValue is truthy (element is hidden) -->
- * <div ng-hide="myValue"></div>
+ * <div ng-hide="myValue" class="ng-hide"></div>
  *
  * <!-- when $scope.myValue is falsy (element is visible) -->
- * <div ng-hide="myValue" class="ng-hide"></div>
+ * <div ng-hide="myValue"></div>
  * ```
  *
  * When the ngHide expression evaluates to true then the .ng-hide CSS class is added to the class attribute
  * on the element causing it to become hidden. When false, the ng-hide CSS class is removed
  * from the element causing the element not to appear hidden.
+ *
+ * <div class="alert alert-warning">
+ * **Note:** Here is a list of values that ngHide will consider as a falsy value (case insensitive):<br />
+ * "f" / "0" / "false" / "no" / "n" / "[]"
+ * </div>
  *
  * ## Why is !important used?
  *
@@ -30839,33 +31057,27 @@ var ngShowDirective = ['$animate', function($animate) {
  *
  * ### Overriding .ng-hide
  *
- * If you wish to change the hide behavior with ngShow/ngHide then this can be achieved by
- * restating the styles for the .ng-hide class in CSS:
+ * By default, the `.ng-hide` class will style the element with `display:none!important`. If you wish to change
+ * the hide behavior with ngShow/ngHide then this can be achieved by restating the styles for the `.ng-hide`
+ * class in CSS:
+ *
  * ```css
  * .ng-hide {
- *   //!annotate CSS Specificity|Not to worry, this will override the AngularJS default...
- *   display:block!important;
- *
  *   //this is just another form of hiding an element
+ *   display:block!important;
  *   position:absolute;
  *   top:-9999px;
  *   left:-9999px;
  * }
  * ```
  *
- * Just remember to include the important flag so the CSS override will function.
- *
- * <div class="alert alert-warning">
- * **Note:** Here is a list of values that ngHide will consider as a falsy value (case insensitive):<br />
- * "f" / "0" / "false" / "no" / "n" / "[]"
- * </div>
+ * By default you don't need to override in CSS anything and the animations will work around the display style.
  *
  * ## A note about animations with ngHide
  *
  * Animations in ngShow/ngHide work with the show and hide events that are triggered when the directive expression
- * is true and false. This system works like the animation system present with ngClass, except that
- * you must also include the !important flag to override the display property so
- * that you can perform an animation when the element is hidden during the time of the animation.
+ * is true and false. This system works like the animation system present with ngClass, except that the `.ng-hide`
+ * CSS class is added and removed for you instead of your own CSS class.
  *
  * ```css
  * //
@@ -30873,7 +31085,6 @@ var ngShowDirective = ['$animate', function($animate) {
  * //
  * .my-element.ng-hide-add, .my-element.ng-hide-remove {
  *   transition:0.5s linear all;
- *   display:block!important;
  * }
  *
  * .my-element.ng-hide-add { ... }
@@ -30881,6 +31092,9 @@ var ngShowDirective = ['$animate', function($animate) {
  * .my-element.ng-hide-remove { ... }
  * .my-element.ng-hide-remove.ng-hide-remove-active { ... }
  * ```
+ *
+ * Keep in mind that, as of AngularJS version 1.2.17 (and 1.3.0-beta.11), there is no need to change the display
+ * property to block during animation states--ngAnimate will handle the style toggling automatically for you.
  *
  * @animations
  * removeClass: .ng-hide - happens after the ngHide expression evaluates to a truthy value and just before the contents are set to hidden
@@ -30919,11 +31133,6 @@ var ngShowDirective = ['$animate', function($animate) {
         padding:10px;
         border:1px solid black;
         background:white;
-      }
-
-      .animate-hide.ng-hide-add,
-      .animate-hide.ng-hide-remove {
-        display:block!important;
       }
 
       .animate-hide.ng-hide {
@@ -30971,14 +31180,20 @@ var ngHideDirective = ['$animate', function($animate) {
  * The `ngStyle` directive allows you to set CSS style on an HTML element conditionally.
  *
  * @element ANY
- * @param {expression} ngStyle {@link guide/expression Expression} which evals to an
- *      object whose keys are CSS style names and values are corresponding values for those CSS
- *      keys.
+ * @param {expression} ngStyle
+ *
+ * {@link guide/expression Expression} which evals to an
+ * object whose keys are CSS style names and values are corresponding values for those CSS
+ * keys.
+ *
+ * Since some CSS style names are not valid keys for an object, they must be quoted.
+ * See the 'background-color' style in the example below.
  *
  * @example
    <example>
      <file name="index.html">
-        <input type="button" value="set" ng-click="myStyle={color:'red'}">
+        <input type="button" value="set color" ng-click="myStyle={color:'red'}">
+        <input type="button" value="set background" ng-click="myStyle={'background-color':'blue'}">
         <input type="button" value="clear" ng-click="myStyle={}">
         <br/>
         <span ng-style="myStyle">Sample Text</span>
@@ -30992,9 +31207,9 @@ var ngHideDirective = ['$animate', function($animate) {
      <file name="protractor.js" type="protractor">
        var colorSpan = element(by.css('span'));
 
-       it('should check ng-style', function() {
+       iit('should check ng-style', function() {
          expect(colorSpan.getCssValue('color')).toBe('rgba(0, 0, 0, 1)');
-         element(by.css('input[value=set]')).click();
+         element(by.css('input[value=\'set color\']')).click();
          expect(colorSpan.getCssValue('color')).toBe('rgba(255, 0, 0, 1)');
          element(by.css('input[value=clear]')).click();
          expect(colorSpan.getCssValue('color')).toBe('rgba(0, 0, 0, 1)');
@@ -31042,11 +31257,14 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
  * leave - happens just after the ngSwitch contents change and just before the former contents are removed from the DOM
  *
  * @usage
+ *
+ * ```
  * <ANY ng-switch="expression">
  *   <ANY ng-switch-when="matchValue1">...</ANY>
  *   <ANY ng-switch-when="matchValue2">...</ANY>
  *   <ANY ng-switch-default>...</ANY>
  * </ANY>
+ * ```
  *
  *
  * @scope
@@ -31146,37 +31364,29 @@ var ngSwitchDirective = ['$animate', function($animate) {
     }],
     link: function(scope, element, attr, ngSwitchController) {
       var watchExpr = attr.ngSwitch || attr.on,
-          selectedTranscludes,
-          selectedElements,
-          previousElements,
+          selectedTranscludes = [],
+          selectedElements = [],
+          previousElements = [],
           selectedScopes = [];
 
       scope.$watch(watchExpr, function ngSwitchWatchAction(value) {
-        var i, ii = selectedScopes.length;
-        if(ii > 0) {
-          if(previousElements) {
-            for (i = 0; i < ii; i++) {
-              previousElements[i].remove();
-            }
-            previousElements = null;
-          }
+        var i, ii;
+        for (i = 0, ii = previousElements.length; i < ii; ++i) {
+          previousElements[i].remove();
+        }
+        previousElements.length = 0;
 
-          previousElements = [];
-          for (i= 0; i<ii; i++) {
-            var selected = selectedElements[i];
-            selectedScopes[i].$destroy();
-            previousElements[i] = selected;
-            $animate.leave(selected, function() {
-              previousElements.splice(i, 1);
-              if(previousElements.length === 0) {
-                previousElements = null;
-              }
-            });
-          }
+        for (i = 0, ii = selectedScopes.length; i < ii; ++i) {
+          var selected = selectedElements[i];
+          selectedScopes[i].$destroy();
+          previousElements[i] = selected;
+          $animate.leave(selected, function() {
+            previousElements.splice(i, 1);
+          });
         }
 
-        selectedElements = [];
-        selectedScopes = [];
+        selectedElements.length = 0;
+        selectedScopes.length = 0;
 
         if ((selectedTranscludes = ngSwitchController.cases['!' + value] || ngSwitchController.cases['?'])) {
           scope.$eval(attr.change);
@@ -31420,7 +31630,7 @@ var ngOptionsMinErr = minErr('ngOptions');
             {name:'blue', shade:'dark'},
             {name:'yellow', shade:'light'}
           ];
-          $scope.color = $scope.colors[2]; // red
+          $scope.myColor = $scope.colors[2]; // red
         }
         </script>
         <div ng-controller="MyCntrl">
@@ -31435,37 +31645,37 @@ var ngOptionsMinErr = minErr('ngOptions');
           </ul>
           <hr/>
           Color (null not allowed):
-          <select ng-model="color" ng-options="c.name for c in colors"></select><br>
+          <select ng-model="myColor" ng-options="color.name for color in colors"></select><br>
 
           Color (null allowed):
           <span  class="nullable">
-            <select ng-model="color" ng-options="c.name for c in colors">
+            <select ng-model="myColor" ng-options="color.name for color in colors">
               <option value="">-- choose color --</option>
             </select>
           </span><br/>
 
           Color grouped by shade:
-          <select ng-model="color" ng-options="c.name group by c.shade for c in colors">
+          <select ng-model="myColor" ng-options="color.name group by color.shade for color in colors">
           </select><br/>
 
 
-          Select <a href ng-click="color={name:'not in list'}">bogus</a>.<br>
+          Select <a href ng-click="myColor = { name:'not in list', shade: 'other' }">bogus</a>.<br>
           <hr/>
-          Currently selected: {{ {selected_color:color}  }}
+          Currently selected: {{ {selected_color:myColor}  }}
           <div style="border:solid 1px black; height:20px"
-               ng-style="{'background-color':color.name}">
+               ng-style="{'background-color':myColor.name}">
           </div>
         </div>
       </file>
       <file name="protractor.js" type="protractor">
          it('should check ng-options', function() {
-           expect(element(by.binding('{selected_color:color}')).getText()).toMatch('red');
-           element.all(by.select('color')).first().click();
-           element.all(by.css('select[ng-model="color"] option')).first().click();
-           expect(element(by.binding('{selected_color:color}')).getText()).toMatch('black');
-           element(by.css('.nullable select[ng-model="color"]')).click();
-           element.all(by.css('.nullable select[ng-model="color"] option')).first().click();
-           expect(element(by.binding('{selected_color:color}')).getText()).toMatch('null');
+           expect(element(by.binding('{selected_color:myColor}')).getText()).toMatch('red');
+           element.all(by.select('myColor')).first().click();
+           element.all(by.css('select[ng-model="myColor"] option')).first().click();
+           expect(element(by.binding('{selected_color:myColor}')).getText()).toMatch('black');
+           element(by.css('.nullable select[ng-model="myColor"]')).click();
+           element.all(by.css('.nullable select[ng-model="myColor"] option')).first().click();
+           expect(element(by.binding('{selected_color:myColor}')).getText()).toMatch('null');
          });
       </file>
     </example>
@@ -31620,7 +31830,7 @@ var selectDirective = ['$compile', '$parse', function($compile,   $parse) {
         // we need to work of an array, so we need to see if anything was inserted/removed
         scope.$watch(function selectMultipleWatch() {
           if (!equals(lastView, ctrl.$viewValue)) {
-            lastView = copy(ctrl.$viewValue);
+            lastView = shallowCopy(ctrl.$viewValue);
             ctrl.$render();
           }
         });
@@ -31996,7 +32206,7 @@ var styleDirective = valueFn({
 
 })(window, document);
 
-!angular.$$csp() && angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>');
+!window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>');
 /*!
  * Bootstrap v3.1.1 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
@@ -35894,7 +36104,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 }(jQuery);
 
 /**
- * @license AngularJS v1.2.16
+ * @license AngularJS v1.2.17
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -35922,7 +36132,7 @@ var ngRouteModule = angular.module('ngRoute', ['ng']).
 /**
  * @ngdoc provider
  * @name $routeProvider
- * @function
+ * @kind function
  *
  * @description
  *
@@ -36527,7 +36737,7 @@ ngRouteModule.provider('$routeParams', $RouteParamsProvider);
  *  // Route: /Chapter/:chapterId/Section/:sectionId
  *  //
  *  // Then
- *  $routeParams ==> {chapterId:1, sectionId:2, search:'moby'}
+ *  $routeParams ==> {chapterId:'1', sectionId:'2', search:'moby'}
  * ```
  */
 function $RouteParamsProvider() {
@@ -36822,7 +37032,7 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 })(window, window.angular);
 
 /**
- * @license AngularJS v1.2.16
+ * @license AngularJS v1.2.17
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -37118,6 +37328,10 @@ angular.module('ngAnimate', ['ng'])
       }
     }
 
+    function prepareElement(element) {
+      return element && angular.element(element);
+    }
+
     function stripCommentsFromElement(element) {
       return angular.element(extractElementNode(element));
     }
@@ -37326,7 +37540,7 @@ angular.module('ngAnimate', ['ng'])
       /**
        * @ngdoc service
        * @name $animate
-       * @function
+       * @kind function
        *
        * @description
        * The `$animate` service provides animation detection support while performing DOM operations (enter, leave and move) as well as during addClass and removeClass operations.
@@ -37346,7 +37560,7 @@ angular.module('ngAnimate', ['ng'])
         /**
          * @ngdoc method
          * @name $animate#enter
-         * @function
+         * @kind function
          *
          * @description
          * Appends the element to the parentElement element that resides in the document and then runs the enter animation. Once
@@ -37373,6 +37587,10 @@ angular.module('ngAnimate', ['ng'])
          * @param {function()=} doneCallback the callback function that will be called once the animation is complete
         */
         enter : function(element, parentElement, afterElement, doneCallback) {
+          element = angular.element(element);
+          parentElement = prepareElement(parentElement);
+          afterElement = prepareElement(afterElement);
+
           this.enabled(false, element);
           $delegate.enter(element, parentElement, afterElement);
           $rootScope.$$postDigest(function() {
@@ -37384,7 +37602,7 @@ angular.module('ngAnimate', ['ng'])
         /**
          * @ngdoc method
          * @name $animate#leave
-         * @function
+         * @kind function
          *
          * @description
          * Runs the leave animation operation and, upon completion, removes the element from the DOM. Once
@@ -37409,6 +37627,7 @@ angular.module('ngAnimate', ['ng'])
          * @param {function()=} doneCallback the callback function that will be called once the animation is complete
         */
         leave : function(element, doneCallback) {
+          element = angular.element(element);
           cancelChildAnimations(element);
           this.enabled(false, element);
           $rootScope.$$postDigest(function() {
@@ -37421,7 +37640,7 @@ angular.module('ngAnimate', ['ng'])
         /**
          * @ngdoc method
          * @name $animate#move
-         * @function
+         * @kind function
          *
          * @description
          * Fires the move DOM operation. Just before the animation starts, the animate service will either append it into the parentElement container or
@@ -37449,6 +37668,10 @@ angular.module('ngAnimate', ['ng'])
          * @param {function()=} doneCallback the callback function that will be called once the animation is complete
         */
         move : function(element, parentElement, afterElement, doneCallback) {
+          element = angular.element(element);
+          parentElement = prepareElement(parentElement);
+          afterElement = prepareElement(afterElement);
+
           cancelChildAnimations(element);
           this.enabled(false, element);
           $delegate.move(element, parentElement, afterElement);
@@ -37488,6 +37711,7 @@ angular.module('ngAnimate', ['ng'])
          * @param {function()=} doneCallback the callback function that will be called once the animation is complete
         */
         addClass : function(element, className, doneCallback) {
+          element = angular.element(element);
           element = stripCommentsFromElement(element);
           performAnimation('addClass', className, element, null, null, function() {
             $delegate.addClass(element, className);
@@ -37524,6 +37748,7 @@ angular.module('ngAnimate', ['ng'])
          * @param {function()=} doneCallback the callback function that will be called once the animation is complete
         */
         removeClass : function(element, className, doneCallback) {
+          element = angular.element(element);
           element = stripCommentsFromElement(element);
           performAnimation('removeClass', className, element, null, null, function() {
             $delegate.removeClass(element, className);
@@ -37537,7 +37762,7 @@ angular.module('ngAnimate', ['ng'])
            * @function
            * @description Adds and/or removes the given CSS classes to and from the element.
            * Once complete, the done() callback will be fired (if provided).
-           * @param {DOMElement} element the element which will it's CSS classes changed
+           * @param {DOMElement} element the element which will its CSS classes changed
            *   removed from it
            * @param {string} add the CSS classes which will be added to the element
            * @param {string} remove the CSS class which will be removed from the element
@@ -37545,6 +37770,7 @@ angular.module('ngAnimate', ['ng'])
            *   CSS classes have been set on the element
            */
         setClass : function(element, add, remove, doneCallback) {
+          element = angular.element(element);
           element = stripCommentsFromElement(element);
           performAnimation('setClass', [add, remove], element, null, null, function() {
             $delegate.setClass(element, add, remove);
@@ -37554,10 +37780,10 @@ angular.module('ngAnimate', ['ng'])
         /**
          * @ngdoc method
          * @name $animate#enabled
-         * @function
+         * @kind function
          *
          * @param {boolean=} value If provided then set the animation on or off.
-         * @param {DOMElement=} element If provided then the element will be used to represent the enable/disable operation
+         * @param {DOMElement} element If provided then the element will be used to represent the enable/disable operation
          * @return {boolean} Current animation state.
          *
          * @description
@@ -37678,6 +37904,7 @@ angular.module('ngAnimate', ['ng'])
         }
 
         if(skipAnimation) {
+          fireDOMOperation();
           fireBeforeCallbackAsync();
           fireAfterCallbackAsync();
           fireDoneCallbackAsync();
@@ -38196,7 +38423,7 @@ angular.module('ngAnimate', ['ng'])
           //the jqLite object, so we're safe to use a single variable to house
           //the styles since there is always only one element being animated
           var oldStyle = node.getAttribute('style') || '';
-          node.setAttribute('style', oldStyle + ' ' + style);
+          node.setAttribute('style', oldStyle + '; ' + style);
         }
 
         element.on(css3AnimationEvents, onAnimationProgress);
@@ -38439,7 +38666,7 @@ angular.module('ngAnimate', ['ng'])
 })(window, window.angular);
 
 /**
- * @license AngularJS v1.2.16
+ * @license AngularJS v1.2.17
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -38539,8 +38766,8 @@ function shallowClearAndCopy(src, dst) {
  *   Given a template `/path/:verb` and parameter `{verb:'greet', salutation:'Hello'}` results in
  *   URL `/path/greet?salutation=Hello`.
  *
- *   If the parameter value is prefixed with `@` then the value of that parameter is extracted from
- *   the data object (useful for non-GET operations).
+ *   If the parameter value is prefixed with `@` then the value of that parameter will be taken
+ *   from the corresponding key on the data object (useful for non-GET operations).
  *
  * @param {Object.<Object>=} actions Hash with declaration of custom action that should extend
  *   the default set of resource actions. The declaration should be created in the format of {@link
@@ -39048,1312 +39275,6 @@ angular.module('ngResource', ['ng']).
 
 
 })(window, window.angular);
-
-/**
- * Restful Resources service for AngularJS apps
- * @version v1.4.0 - 2014-04-25 * @link https://github.com/mgonto/restangular
- * @author Martin Gontovnikas <martin@gon.to>
- * @license MIT License, http://www.opensource.org/licenses/MIT
- */(function() {
-
-var module = angular.module('restangular', []);
-
-module.provider('Restangular', function() {
-        // Configuration
-        var Configurer = {};
-        Configurer.init = function(object, config) {
-            /**
-             * Those are HTTP safe methods for which there is no need to pass any data with the request.
-             */
-
-            object.configuration = config;
-
-            var safeMethods= ["get", "head", "options", "trace", "getlist"];
-            config.isSafe = function(operation) {
-              return _.contains(safeMethods, operation.toLowerCase());
-            };
-
-            var absolutePattern = /^https?:\/\//i;
-            config.isAbsoluteUrl = function(string) {
-              return _.isUndefined(config.absoluteUrl) || _.isNull(config.absoluteUrl) ?
-                      string && absolutePattern.test(string) :
-                      config.absoluteUrl;
-            };
-
-            config.absoluteUrl = _.isUndefined(config.absoluteUrl) ? true : config.absoluteUrl;
-            object.setSelfLinkAbsoluteUrl = function(value) {
-                config.absoluteUrl = value;
-            };
-            /**
-             * This is the BaseURL to be used with Restangular
-             */
-            config.baseUrl = _.isUndefined(config.baseUrl) ? "" : config.baseUrl;
-            object.setBaseUrl = function(newBaseUrl) {
-                config.baseUrl = /\/$/.test(newBaseUrl)
-                  ? newBaseUrl.substring(0, newBaseUrl.length-1)
-                  : newBaseUrl;
-                return this;
-            };
-
-            /**
-             * Sets the extra fields to keep from the parents
-             */
-            config.extraFields = config.extraFields || [];
-            object.setExtraFields = function(newExtraFields) {
-              config.extraFields = newExtraFields;
-              return this;
-            };
-
-            /**
-             * Some default $http parameter to be used in EVERY call
-            **/
-            config.defaultHttpFields = config.defaultHttpFields || {};
-            object.setDefaultHttpFields = function(values) {
-              config.defaultHttpFields = values;
-              return this;
-            };
-
-            config.withHttpValues = function(httpLocalConfig, obj) {
-              return _.defaults(obj, httpLocalConfig, config.defaultHttpFields);
-            };
-
-            config.encodeIds = _.isUndefined(config.encodeIds) ? true : config.encodeIds;
-            object.setEncodeIds = function(encode) {
-                config.encodeIds = encode;
-            };
-
-            config.defaultRequestParams = config.defaultRequestParams || {
-                get: {},
-                post: {},
-                put: {},
-                remove: {},
-                common: {}
-            };
-
-            object.setDefaultRequestParams = function(param1, param2) {
-              var methods = [],
-                  params = param2 || param1;
-              if (!_.isUndefined(param2)) {
-                if (_.isArray(param1)) {
-                  methods = param1;
-                } else {
-                  methods.push(param1);
-                }
-              } else {
-                methods.push('common');
-              }
-
-              _.each(methods, function (method) {
-                config.defaultRequestParams[method] = params;
-              });
-              return this;
-            };
-
-            object.requestParams = config.defaultRequestParams;
-
-
-            config.defaultHeaders = config.defaultHeaders || {};
-            object.setDefaultHeaders = function(headers) {
-              config.defaultHeaders = headers;
-              object.defaultHeaders = config.defaultHeaders;
-              return this;
-            };
-
-            object.defaultHeaders = config.defaultHeaders;
-
-            /**
-             * Method overriders will set which methods are sent via POST with an X-HTTP-Method-Override
-             **/
-            config.methodOverriders = config.methodOverriders || [];
-            object.setMethodOverriders = function(values) {
-              var overriders = _.extend([], values);
-              if (config.isOverridenMethod('delete', overriders)) {
-                overriders.push("remove");
-              }
-              config.methodOverriders = overriders;
-              return this;
-            };
-
-            config.jsonp = _.isUndefined(config.jsonp) ? false : config.jsonp;
-            object.setJsonp = function(active) {
-              config.jsonp = active;
-            };
-
-            config.isOverridenMethod = function(method, values) {
-              var search = values || config.methodOverriders;
-              return !_.isUndefined(_.find(search, function(one) {
-                return one.toLowerCase() === method.toLowerCase();
-              }));
-            };
-
-            /**
-             * Sets the URL creator type. For now, only Path is created. In the future we'll have queryParams
-            **/
-            config.urlCreator = config.urlCreator || "path";
-            object.setUrlCreator = function(name) {
-              if (!_.has(config.urlCreatorFactory, name)) {
-                  throw new Error("URL Path selected isn't valid");
-              }
-
-              config.urlCreator = name;
-              return this;
-            };
-
-            /**
-             * You can set the restangular fields here. The 3 required fields for Restangular are:
-             *
-             * id: Id of the element
-             * route: name of the route of this element
-             * parentResource: the reference to the parent resource
-             *
-             *  All of this fields except for id, are handled (and created) by Restangular. By default,
-             *  the field values will be id, route and parentResource respectively
-             */
-            config.restangularFields = config.restangularFields || {
-                id: "id",
-                route: "route",
-                parentResource: "parentResource",
-                restangularCollection: "restangularCollection",
-                cannonicalId: "__cannonicalId",
-                etag: "restangularEtag",
-                selfLink: "href",
-                get: "get",
-                getList: "getList",
-                put: "put",
-                post: "post",
-                remove: "remove",
-                head: "head",
-                trace: "trace",
-                options: "options",
-                patch: "patch",
-                getRestangularUrl: "getRestangularUrl",
-                getRequestedUrl: "getRequestedUrl",
-                putElement: "putElement",
-                addRestangularMethod: "addRestangularMethod",
-                getParentList: "getParentList",
-                clone: "clone",
-                ids: "ids",
-                httpConfig: '_$httpConfig',
-                reqParams: 'reqParams',
-                one: 'one',
-                all: 'all',
-                several: 'several',
-                oneUrl: 'oneUrl',
-                allUrl: 'allUrl',
-                customPUT: 'customPUT',
-                customPOST: 'customPOST',
-                customDELETE: 'customDELETE',
-                customGET: 'customGET',
-                customGETLIST: 'customGETLIST',
-                customOperation: 'customOperation',
-                doPUT: 'doPUT',
-                doPOST: 'doPOST',
-                doDELETE: 'doDELETE',
-                doGET: 'doGET',
-                doGETLIST: 'doGETLIST',
-                fromServer: 'fromServer',
-                withConfig: 'withConfig',
-                withHttpConfig: 'withHttpConfig',
-                singleOne: 'singleOne',
-                plain: 'plain',
-                save: 'save'
-            };
-            object.setRestangularFields = function(resFields) {
-                config.restangularFields =
-                  _.extend(config.restangularFields, resFields);
-                return this;
-            };
-
-            config.isRestangularized = function(obj) {
-              return !!obj[config.restangularFields.one] || !!obj[config.restangularFields.all];
-            };
-
-            config.setFieldToElem = function(field, elem, value) {
-              var properties = field.split('.');
-              var idValue = elem;
-              _.each(_.initial(properties), function(prop) {
-                idValue[prop] = {};
-                idValue = idValue[prop];
-              });
-              idValue[_.last(properties)] = value;
-              return this;
-            };
-
-            config.getFieldFromElem = function(field, elem) {
-              var properties = field.split('.');
-              var idValue = elem;
-              _.each(properties, function(prop) {
-                if (idValue) {
-                  idValue = idValue[prop];
-                }
-              });
-              return angular.copy(idValue);
-            };
-
-            config.setIdToElem = function(elem, id) {
-              config.setFieldToElem(config.restangularFields.id, elem, id);
-              return this;
-            };
-
-            config.getIdFromElem = function(elem) {
-              return config.getFieldFromElem(config.restangularFields.id, elem);
-            };
-
-            config.isValidId = function(elemId) {
-                return "" !== elemId && !_.isUndefined(elemId) && !_.isNull(elemId);
-            };
-
-            config.setUrlToElem = function(elem, url, route) {
-              config.setFieldToElem(config.restangularFields.selfLink, elem, url);
-              return this;
-            };
-
-            config.getUrlFromElem = function(elem) {
-              return config.getFieldFromElem(config.restangularFields.selfLink, elem);
-            };
-
-            config.useCannonicalId = _.isUndefined(config.useCannonicalId) ? false : config.useCannonicalId;
-            object.setUseCannonicalId = function(value) {
-                config.useCannonicalId = value;
-                return this;
-            };
-
-            config.getCannonicalIdFromElem = function(elem) {
-              var cannonicalId = elem[config.restangularFields.cannonicalId];
-              var actualId = config.isValidId(cannonicalId) ?
-                  cannonicalId : config.getIdFromElem(elem);
-              return actualId;
-            };
-
-            /**
-             * Sets the Response parser. This is used in case your response isn't directly the data.
-             * For example if you have a response like {meta: {'meta'}, data: {name: 'Gonto'}}
-             * you can extract this data which is the one that needs wrapping
-             *
-             * The ResponseExtractor is a function that receives the response and the method executed.
-             */
-
-            config.responseInterceptors = config.responseInterceptors || [];
-
-            config.defaultResponseInterceptor = function(data, operation,
-                    what, url, response, deferred) {
-                return data;
-            };
-
-            config.responseExtractor = function(data, operation,
-                    what, url, response, deferred) {
-                var interceptors = angular.copy(config.responseInterceptors);
-                interceptors.push(config.defaultResponseInterceptor);
-                var theData = data;
-                _.each(interceptors, function(interceptor) {
-                  theData = interceptor(theData, operation,
-                    what, url, response, deferred);
-                });
-                return theData;
-            };
-
-            object.addResponseInterceptor = function(extractor) {
-              config.responseInterceptors.push(extractor);
-              return this;
-            };
-
-            object.setResponseInterceptor = object.addResponseInterceptor;
-            object.setResponseExtractor = object.addResponseInterceptor;
-
-            /**
-             * Response interceptor is called just before resolving promises.
-             */
-
-
-            /**
-             * Request interceptor is called before sending an object to the server.
-             */
-             config.requestInterceptors = config.requestInterceptors || [];
-
-             config.defaultInterceptor = function(element, operation,
-              path, url, headers, params, httpConfig) {
-                return {
-                  element: element,
-                  headers: headers,
-                  params: params,
-                  httpConfig: httpConfig
-                };
-              };
-
-            config.fullRequestInterceptor = function(element, operation,
-              path, url, headers, params, httpConfig) {
-                var interceptors = angular.copy(config.requestInterceptors);
-                var defaultRequest = config.defaultInterceptor(element, operation, path, url, headers, params, httpConfig);
-                return _.reduce(interceptors, function(request, interceptor) {
-                  return _.extend(request, interceptor(request.element, operation,
-                    path, url, request.headers, request.params, request.httpConfig));
-                }, defaultRequest);
-            };
-
-            object.addRequestInterceptor = function(interceptor) {
-              config.requestInterceptors.push(function(elem, operation, path, url, headers, params, httpConfig) {
-                return {
-                  headers: headers,
-                  params: params,
-                  element: interceptor(elem, operation, path, url),
-                  httpConfig: httpConfig
-                };
-              });
-              return this;
-            };
-
-            object.setRequestInterceptor = object.addRequestInterceptor;
-
-            object.addFullRequestInterceptor = function(interceptor) {
-              config.requestInterceptors.push(interceptor);
-              return this;
-            };
-
-            object.setFullRequestInterceptor = object.addFullRequestInterceptor;
-
-            config.errorInterceptor = config.errorInterceptor || function() {};
-
-            object.setErrorInterceptor = function(interceptor) {
-              config.errorInterceptor = interceptor;
-              return this;
-            };
-
-            config.onBeforeElemRestangularized = config.onBeforeElemRestangularized || function(elem) {
-              return elem;
-            };
-            object.setOnBeforeElemRestangularized = function(post) {
-              config.onBeforeElemRestangularized = post;
-              return this;
-            };
-
-            /**
-             * This method is called after an element has been "Restangularized".
-             *
-             * It receives the element, a boolean indicating if it's an element or a collection
-             * and the name of the model
-             *
-             */
-            config.onElemRestangularized = config.onElemRestangularized || function(elem) {
-              return elem;
-            };
-            object.setOnElemRestangularized = function(post) {
-              config.onElemRestangularized = post;
-              return this;
-            };
-
-            config.shouldSaveParent = config.shouldSaveParent || function() {
-                return true;
-            };
-            object.setParentless = function(values) {
-                if (_.isArray(values)) {
-                    config.shouldSaveParent = function(route) {
-                        return !_.contains(values, route);
-                    };
-                } else if (_.isBoolean(values)) {
-                    config.shouldSaveParent = function() {
-                        return !values;
-                    };
-                }
-                return this;
-            };
-
-            /**
-             * This lets you set a suffix to every request.
-             *
-             * For example, if your api requires that for JSon requests you do /users/123.json, you can set that
-             * in here.
-             *
-             *
-             * By default, the suffix is null
-             */
-            config.suffix = _.isUndefined(config.suffix) ? null : config.suffix;
-            object.setRequestSuffix = function(newSuffix) {
-                config.suffix = newSuffix;
-                return this;
-            };
-
-            /**
-             * Add element transformers for certain routes.
-             */
-            config.transformers = config.transformers || {};
-            object.addElementTransformer = function(type, secondArg, thirdArg) {
-                var isCollection = null;
-                var transformer = null;
-                if (arguments.length === 2) {
-                    transformer = secondArg;
-                } else {
-                    transformer = thirdArg;
-                    isCollection = secondArg;
-                }
-
-                var typeTransformers = config.transformers[type];
-                if (!typeTransformers) {
-                    typeTransformers = config.transformers[type] = [];
-                }
-
-                typeTransformers.push(function(coll, elem) {
-                    if (_.isNull(isCollection) || (coll == isCollection)) {
-                        return transformer(elem);
-                    }
-                    return elem;
-                });
-
-                return object;
-            };
-
-            object.extendCollection = function(route, fn) {
-              return object.addElementTransformer(route, true, fn);
-            };
-
-            object.extendModel = function(route, fn) {
-              return object.addElementTransformer(route, false, fn);
-            };
-
-            config.transformElem = function(elem, isCollection, route, Restangular, force) {
-                if (!force && !config.transformLocalElements && !elem[config.restangularFields.fromServer]) {
-                  return elem;
-                }
-                var typeTransformers = config.transformers[route];
-                var changedElem = elem;
-                if (typeTransformers) {
-                    _.each(typeTransformers, function(transformer) {
-                       changedElem = transformer(isCollection, changedElem);
-                    });
-                }
-                return config.onElemRestangularized(changedElem,
-                  isCollection, route, Restangular);
-            };
-
-            config.transformLocalElements = _.isUndefined(config.transformLocalElements) ? false : config.transformLocalElements;
-            object.setTransformOnlyServerElements = function(active) {
-              config.transformLocalElements = !active;
-            }
-
-            config.fullResponse = _.isUndefined(config.fullResponse) ? false : config.fullResponse;
-            object.setFullResponse = function(full) {
-                config.fullResponse = full;
-                return this;
-            };
-
-
-
-
-
-            //Internal values and functions
-            config.urlCreatorFactory = {};
-
-            /**
-             * Base URL Creator. Base prototype for everything related to it
-             **/
-
-             var BaseCreator = function() {
-             };
-
-             BaseCreator.prototype.setConfig = function(config) {
-                 this.config = config;
-                 return this;
-             };
-
-             BaseCreator.prototype.parentsArray = function(current) {
-                var parents = [];
-                while(current) {
-                    parents.push(current);
-                    current = current[this.config.restangularFields.parentResource];
-                }
-                return parents.reverse();
-            };
-
-            function RestangularResource(config, $http, url, configurer) {
-              var resource = {};
-              _.each(_.keys(configurer), function(key) {
-                  var value = configurer[key];
-
-                  // Add default parameters
-                  value.params = _.extend({}, value.params,
-                          config.defaultRequestParams[value.method.toLowerCase()]);
-                  // We don't want the ? if no params are there
-                  if (_.isEmpty(value.params)) {
-                    delete value.params;
-                  }
-
-                  if (config.isSafe(value.method)) {
-
-                      resource[key] = function() {
-                          return $http(_.extend(value, {
-                              url: url
-                          }));
-                      };
-
-                  } else {
-
-                      resource[key] = function(data) {
-                          return $http(_.extend(value, {
-                              url: url,
-                              data: data
-                          }));
-                      };
-
-                  }
-              });
-
-              return resource;
-            }
-
-            BaseCreator.prototype.resource = function(current, $http, localHttpConfig, callHeaders, callParams, what, etag, operation) {
-
-                var params = _.defaults(callParams || {}, this.config.defaultRequestParams.common);
-                var headers = _.defaults(callHeaders || {}, this.config.defaultHeaders);
-
-                if (etag) {
-                    if (!config.isSafe(operation)) {
-                      headers['If-Match'] = etag;
-                    } else {
-                      headers['If-None-Match'] = etag;
-                    }
-                }
-
-                var url = this.base(current);
-
-                if (what) {
-                  var add = '';
-                  if (!/\/$/.test(url)) {
-                    add += '/';
-                  }
-                  add += what;
-                  url += add;
-                }
-
-                if (this.config.suffix
-                  && url.indexOf(this.config.suffix, url.length - this.config.suffix.length) === -1
-                  && !this.config.getUrlFromElem(current)) {
-                    url += this.config.suffix;
-                }
-
-                current[this.config.restangularFields.httpConfig] = undefined;
-
-
-                return RestangularResource(this.config, $http, url, {
-                    getList: this.config.withHttpValues(localHttpConfig,
-                      {method: 'GET',
-                      params: params,
-                      headers: headers}),
-
-                    get: this.config.withHttpValues(localHttpConfig,
-                      {method: 'GET',
-                      params: params,
-                      headers: headers}),
-
-                    jsonp: this.config.withHttpValues(localHttpConfig,
-                      {method: 'jsonp',
-                      params: params,
-                      headers: headers}),
-
-                    put: this.config.withHttpValues(localHttpConfig,
-                      {method: 'PUT',
-                      params: params,
-                      headers: headers}),
-
-                    post: this.config.withHttpValues(localHttpConfig,
-                      {method: 'POST',
-                      params: params,
-                      headers: headers}),
-
-                    remove: this.config.withHttpValues(localHttpConfig,
-                      {method: 'DELETE',
-                      params: params,
-                      headers: headers}),
-
-                    head: this.config.withHttpValues(localHttpConfig,
-                      {method: 'HEAD',
-                      params: params,
-                      headers: headers}),
-
-                    trace: this.config.withHttpValues(localHttpConfig,
-                      {method: 'TRACE',
-                      params: params,
-                      headers: headers}),
-
-                    options: this.config.withHttpValues(localHttpConfig,
-                      {method: 'OPTIONS',
-                      params: params,
-                      headers: headers}),
-
-                    patch: this.config.withHttpValues(localHttpConfig,
-                      {method: 'PATCH',
-                      params: params,
-                      headers: headers})
-                });
-            };
-
-            /**
-             * This is the Path URL creator. It uses Path to show Hierarchy in the Rest API.
-             * This means that if you have an Account that then has a set of Buildings, a URL to a building
-             * would be /accounts/123/buildings/456
-            **/
-            var Path = function() {
-            };
-
-            Path.prototype = new BaseCreator();
-
-            Path.prototype.base = function(current) {
-                var __this = this;
-                return  _.reduce(this.parentsArray(current), function(acum, elem) {
-                    var elemUrl;
-                    var elemSelfLink = __this.config.getUrlFromElem(elem);
-                    if (elemSelfLink) {
-                      if (__this.config.isAbsoluteUrl(elemSelfLink)) {
-                        return elemSelfLink;
-                      } else {
-                        elemUrl = elemSelfLink;
-                      }
-                    } else {
-                      elemUrl = elem[__this.config.restangularFields.route];
-
-                      if (elem[__this.config.restangularFields.restangularCollection]) {
-                        var ids = elem[__this.config.restangularFields.ids];
-                        if (ids) {
-                          elemUrl += "/" + ids.join(",");
-                        }
-                      } else {
-                          var elemId;
-                          if (__this.config.useCannonicalId) {
-                              elemId = __this.config.getCannonicalIdFromElem(elem);
-                          } else {
-                              elemId = __this.config.getIdFromElem(elem);
-                          }
-
-                          if (config.isValidId(elemId) && !elem.singleOne) {
-                              elemUrl += "/" + (__this.config.encodeIds ? encodeURIComponent(elemId) : elemId);
-                          }
-                      }
-                    }
-
-                    return acum.replace(/\/$/, "") + "/" + elemUrl;
-
-                }, this.config.baseUrl);
-            };
-
-
-
-            Path.prototype.fetchUrl = function(current, what) {
-                var baseUrl = this.base(current);
-                if (what) {
-                    baseUrl += "/" + what;
-                }
-                return baseUrl;
-            };
-
-            Path.prototype.fetchRequestedUrl = function(current, what) {
-                var url = this.fetchUrl(current, what);
-                var params = current[config.restangularFields.reqParams];
-
-                // From here on and until the end of fetchRequestedUrl,
-                // the code has been kindly borrowed from angular.js
-                // The reason for such code bloating is coherence:
-                //   If the user were to use this for cache management, the
-                //   serialization of parameters would need to be identical
-                //   to the one done by angular for cache keys to match.
-                function sortedKeys(obj) {
-                  var keys = [];
-                  for (var key in obj) {
-                    if (obj.hasOwnProperty(key)) {
-                      keys.push(key);
-                    }
-                  }
-                  return keys.sort();
-                }
-
-                function forEachSorted(obj, iterator, context) {
-                  var keys = sortedKeys(obj);
-                  for ( var i = 0; i < keys.length; i++) {
-                    iterator.call(context, obj[keys[i]], keys[i]);
-                  }
-                  return keys;
-                }
-
-                function encodeUriQuery(val, pctEncodeSpaces) {
-                  return encodeURIComponent(val).
-                             replace(/%40/gi, '@').
-                             replace(/%3A/gi, ':').
-                             replace(/%24/g, '$').
-                             replace(/%2C/gi, ',').
-                             replace(/%20/g, (pctEncodeSpaces ? '%20' : '+'));
-                }
-
-                if (!params) return url;
-                var parts = [];
-                forEachSorted(params, function(value, key) {
-                  if (value == null || value == undefined) return;
-                  if (!angular.isArray(value)) value = [value];
-
-                  angular.forEach(value, function(v) {
-                    if (angular.isObject(v)) {
-                      v = angular.toJson(v);
-                    }
-                    parts.push(encodeUriQuery(key) + '=' +
-                               encodeUriQuery(v));
-                  });
-                });
-                return url + (this.config.suffix || '') + ((url.indexOf('?') === -1) ? '?' : '&') + parts.join('&');
-            };
-
-
-
-            config.urlCreatorFactory.path = Path;
-
-        };
-
-        var globalConfiguration = {};
-
-        Configurer.init(this, globalConfiguration);
-
-
-
-
-       this.$get = ['$http', '$q', function($http, $q) {
-
-          function createServiceForConfiguration(config) {
-              var service = {};
-
-              var urlHandler = new config.urlCreatorFactory[config.urlCreator]();
-              urlHandler.setConfig(config);
-
-              function restangularizeBase(parent, elem, route, reqParams, fromServer) {
-                  elem[config.restangularFields.route] = route;
-                  elem[config.restangularFields.getRestangularUrl] = _.bind(urlHandler.fetchUrl, urlHandler, elem);
-                  elem[config.restangularFields.getRequestedUrl] = _.bind(urlHandler.fetchRequestedUrl, urlHandler, elem);
-                  elem[config.restangularFields.addRestangularMethod] = _.bind(addRestangularMethodFunction, elem);
-                  elem[config.restangularFields.clone] = _.bind(copyRestangularizedElement, elem, elem);
-                  elem[config.restangularFields.reqParams] = _.isEmpty(reqParams) ? null : reqParams;
-                  elem[config.restangularFields.withHttpConfig] = _.bind(withHttpConfig, elem);
-                  elem[config.restangularFields.plain] = _.bind(stripRestangular, elem, elem);
-
-                  // RequestLess connection
-                  elem[config.restangularFields.one] = _.bind(one, elem, elem);
-                  elem[config.restangularFields.all] = _.bind(all, elem, elem);
-                  elem[config.restangularFields.several] = _.bind(several, elem, elem);
-                  elem[config.restangularFields.oneUrl] = _.bind(oneUrl, elem, elem);
-                  elem[config.restangularFields.allUrl] = _.bind(allUrl, elem, elem);
-
-                  elem[config.restangularFields.fromServer] = !!fromServer;
-
-                  if (parent && config.shouldSaveParent(route)) {
-                      var parentId = config.getIdFromElem(parent);
-                      var parentUrl = config.getUrlFromElem(parent);
-
-                      var restangularFieldsForParent = _.union(
-                        _.values( _.pick(config.restangularFields, ['route', 'singleOne', 'parentResource']) ),
-                        config.extraFields
-                      );
-                      var parentResource = _.pick(parent, restangularFieldsForParent);
-
-                      if (config.isValidId(parentId)) {
-                          config.setIdToElem(parentResource, parentId);
-                      }
-                      if (config.isValidId(parentUrl)) {
-                          config.setUrlToElem(parentResource, parentUrl);
-                      }
-
-                      elem[config.restangularFields.parentResource] = parentResource;
-                  } else {
-                    elem[config.restangularFields.parentResource] = null;
-                  }
-                  return elem;
-              }
-
-
-
-              function one(parent, route, id, singleOne) {
-                  if (_.isNumber(route) || _.isNumber(parent)) {
-                    var error = "You're creating a Restangular entity with the number "
-                    error += "instead of the route or the parent. You can't call .one(12)";
-                    throw new Error(error);
-                  }
-                  var elem = {};
-                  config.setIdToElem(elem, id);
-                  config.setFieldToElem(config.restangularFields.singleOne, elem, singleOne);
-                  return restangularizeElem(parent, elem , route, false);
-              }
-
-
-              function all(parent, route) {
-                  return restangularizeCollection(parent, [] , route, false);
-              }
-
-              function several(parent, route, ids) {
-                var collection = [];
-                collection[config.restangularFields.ids] =
-                  Array.prototype.splice.call(arguments, 2);
-                return restangularizeCollection(parent, collection , route, false);
-              }
-
-              function oneUrl(parent, route, url) {
-                  if (!route) {
-                    throw new Error("Route is mandatory when creating new Restangular objects.");
-                  }
-                  var elem = {};
-                  config.setUrlToElem(elem, url, route);
-                  return restangularizeElem(parent, elem , route, false);
-              }
-
-
-              function allUrl(parent, route, url) {
-                  if (!route) {
-                    throw new Error("Route is mandatory when creating new Restangular objects.");
-                  }
-                  var elem = {};
-                  config.setUrlToElem(elem, url, route);
-                  return restangularizeCollection(parent, elem , route, false);
-              }
-              // Promises
-              function restangularizePromise(promise, isCollection, valueToFill) {
-                  promise.call = _.bind(promiseCall, promise);
-                  promise.get = _.bind(promiseGet, promise);
-                  promise[config.restangularFields.restangularCollection] = isCollection;
-                  if (isCollection) {
-                      promise.push = _.bind(promiseCall, promise, "push");
-                  }
-                  promise.$object = valueToFill;
-                  return promise;
-              }
-
-              function promiseCall(method) {
-                  var deferred = $q.defer();
-                  var callArgs = arguments;
-                  var filledValue = {};
-                  this.then(function(val) {
-                      var params = Array.prototype.slice.call(callArgs, 1);
-                      var func = val[method];
-                      func.apply(val, params);
-                      filledValue = val;
-                      deferred.resolve(val);
-                  });
-                  return restangularizePromise(deferred.promise, this[config.restangularFields.restangularCollection], filledValue);
-              }
-
-              function promiseGet(what) {
-                  var deferred = $q.defer();
-                  var filledValue = {};
-                  this.then(function(val) {
-                      filledValue = val[what];
-                      deferred.resolve(filledValue);
-                  });
-                  return restangularizePromise(deferred.promise, this[config.restangularFields.restangularCollection], filledValue);
-              }
-
-              function resolvePromise(deferred, response, data, filledValue) {
-
-                _.extend(filledValue, data);
-
-                // Trigger the full response interceptor.
-                if (config.fullResponse) {
-                  return deferred.resolve(_.extend(response, {
-                    data: data
-                  }));
-                } else {
-                  deferred.resolve(data);
-                }
-              }
-
-
-              // Elements
-
-              function stripRestangular(elem) {
-                if (_.isArray(elem)) {
-                    var array = [];
-                    _.each(elem, function(value) {
-                        array.push(stripRestangular(value));
-                    });
-                    return array;
-                } else {
-                    return _.omit(elem, _.values(_.omit(config.restangularFields, 'id')));
-                }
-
-
-              }
-
-              function addCustomOperation(elem) {
-                  elem[config.restangularFields.customOperation] = _.bind(customFunction, elem);
-                  _.each(["put", "post", "get", "delete"], function(oper) {
-                      _.each(["do", "custom"], function(alias) {
-                          var callOperation = oper === 'delete' ? 'remove' : oper;
-                          var name = alias + oper.toUpperCase();
-                          var callFunction;
-
-                          if (callOperation !== 'put' && callOperation !== 'post') {
-                              callFunction = customFunction;
-                          } else {
-                              callFunction = function(operation, elem, path, params, headers) {
-                                return _.bind(customFunction, this)(operation, path, params, headers, elem);
-                              };
-                          }
-                          elem[name] = _.bind(callFunction, elem, callOperation);
-                      });
-                  });
-                  elem[config.restangularFields.customGETLIST] = _.bind(fetchFunction, elem);
-                  elem[config.restangularFields.doGETLIST] = elem[config.restangularFields.customGETLIST];
-              }
-
-              function copyRestangularizedElement(fromElement, toElement) {
-                  var copiedElement = angular.copy(fromElement, toElement);
-                  return restangularizeElem(copiedElement[config.restangularFields.parentResource],
-                          copiedElement, copiedElement[config.restangularFields.route], true);
-              }
-
-              function restangularizeElem(parent, element, route, fromServer, collection, reqParams) {
-                  var elem = config.onBeforeElemRestangularized(element, false, route);
-
-                  var localElem = restangularizeBase(parent, elem, route, reqParams, fromServer);
-
-                  if (config.useCannonicalId) {
-                      localElem[config.restangularFields.cannonicalId] = config.getIdFromElem(localElem);
-                  }
-
-                  if (collection) {
-                      localElem[config.restangularFields.getParentList] = function() {
-                          return collection;
-                      };
-                  }
-
-                  localElem[config.restangularFields.restangularCollection] = false;
-                  localElem[config.restangularFields.get] = _.bind(getFunction, localElem);
-                  localElem[config.restangularFields.getList] = _.bind(fetchFunction, localElem);
-                  localElem[config.restangularFields.put] = _.bind(putFunction, localElem);
-                  localElem[config.restangularFields.post] = _.bind(postFunction, localElem);
-                  localElem[config.restangularFields.remove] = _.bind(deleteFunction, localElem);
-                  localElem[config.restangularFields.head] = _.bind(headFunction, localElem);
-                  localElem[config.restangularFields.trace] = _.bind(traceFunction, localElem);
-                  localElem[config.restangularFields.options] = _.bind(optionsFunction, localElem);
-                  localElem[config.restangularFields.patch] = _.bind(patchFunction, localElem);
-                  localElem[config.restangularFields.save] = _.bind(save, localElem);
-
-                  addCustomOperation(localElem);
-                  return config.transformElem(localElem, false, route, service, true);
-              }
-
-              function restangularizeCollection(parent, element, route, fromServer, reqParams) {
-                  var elem = config.onBeforeElemRestangularized(element, true, route);
-
-                  var localElem = restangularizeBase(parent, elem, route, reqParams, fromServer);
-                  localElem[config.restangularFields.restangularCollection] = true;
-                  localElem[config.restangularFields.post] = _.bind(postFunction, localElem, null);
-                  localElem[config.restangularFields.remove] = _.bind(deleteFunction, localElem);
-                  localElem[config.restangularFields.head] = _.bind(headFunction, localElem);
-                  localElem[config.restangularFields.trace] = _.bind(traceFunction, localElem);
-                  localElem[config.restangularFields.putElement] = _.bind(putElementFunction, localElem);
-                  localElem[config.restangularFields.options] = _.bind(optionsFunction, localElem);
-                  localElem[config.restangularFields.patch] = _.bind(patchFunction, localElem);
-                  localElem[config.restangularFields.get] = _.bind(getById, localElem);
-                  localElem[config.restangularFields.getList] = _.bind(fetchFunction, localElem, null);
-
-                  addCustomOperation(localElem);
-                  return config.transformElem(localElem, true, route, service, true);
-              }
-
-              function restangularizeCollectionAndElements(parent, element, route) {
-                var collection = restangularizeCollection(parent, element, route, false);
-                _.each(collection, function(elem) {
-                  restangularizeElem(parent, elem, route, false);
-                });
-                return collection;
-              }
-
-              function getById(id, reqParams, headers){
-                  return this.customGET(id.toString(), reqParams, headers);
-              }
-
-              function putElementFunction(idx, params, headers) {
-                  var __this = this;
-                  var elemToPut = this[idx];
-                  var deferred = $q.defer();
-                  var filledArray = [];
-                  filledArray = config.transformElem(filledArray, true, elemToPut[config.restangularFields.route], service)
-                  elemToPut.put(params, headers).then(function(serverElem) {
-                      var newArray = copyRestangularizedElement(__this);
-                      newArray[idx] = serverElem;
-                      filledArray = newArray;
-                      deferred.resolve(newArray);
-                  }, function(response) {
-                      deferred.reject(response);
-                  });
-
-                  return restangularizePromise(deferred.promise, true, filledArray);
-              }
-
-              function parseResponse(resData, operation, route, fetchUrl, response, deferred) {
-                  var data = config.responseExtractor(resData, operation, route, fetchUrl, response, deferred);
-                  var etag = response.headers("ETag");
-                  if (data && etag) {
-                      data[config.restangularFields.etag] = etag;
-                  }
-                  return data;
-              }
-
-
-              function fetchFunction(what, reqParams, headers) {
-                  var __this = this;
-                  var deferred = $q.defer();
-                  var operation = 'getList';
-                  var url = urlHandler.fetchUrl(this, what);
-                  var whatFetched = what || __this[config.restangularFields.route];
-
-                  var request = config.fullRequestInterceptor(null, operation,
-                      whatFetched, url, headers || {}, reqParams || {}, this[config.restangularFields.httpConfig] || {});
-
-                  var filledArray = [];
-                  filledArray = config.transformElem(filledArray, true, whatFetched, service)
-
-                  var method = "getList";
-
-                  if (config.jsonp) {
-                    method = "jsonp";
-                  }
-
-                  urlHandler.resource(this, $http, request.httpConfig, request.headers, request.params, what,
-                          this[config.restangularFields.etag], operation)[method]().then(function(response) {
-                      var resData = response.data;
-                      var fullParams = response.config.params;
-                      var data = parseResponse(resData, operation, whatFetched, url, response, deferred);
-
-                      // support empty response for getList() calls (some APIs respond with 204 and empty body)
-                      if (_.isUndefined(data) || "" === data) {
-                          data = []
-                      }
-                      if (!_.isArray(data)) {
-                        throw new Error("Response for getList SHOULD be an array and not an object or something else");
-                      }
-                      var processedData = _.map(data, function(elem) {
-                          if (!__this[config.restangularFields.restangularCollection]) {
-                              return restangularizeElem(__this, elem, what, true, data);
-                          } else {
-                              return restangularizeElem(__this[config.restangularFields.parentResource],
-                                elem, __this[config.restangularFields.route], true, data);
-                          }
-
-                      });
-
-                      processedData = _.extend(data, processedData);
-
-                      if (!__this[config.restangularFields.restangularCollection]) {
-                          resolvePromise(deferred, response, restangularizeCollection(__this, processedData, what, true, fullParams), filledArray);
-                      } else {
-                          resolvePromise(deferred, response, restangularizeCollection(__this[config.restangularFields.parentResource], processedData, __this[config.restangularFields.route], true, fullParams), filledArray);
-                      }
-                  }, function error(response) {
-                      if (response.status === 304 && __this[config.restangularFields.restangularCollection]) {
-                        resolvePromise(deferred, response, __this, filledArray);
-                      } else if ( config.errorInterceptor(response, deferred) !== false ) {
-                          deferred.reject(response);
-                      }
-                  });
-
-                  return restangularizePromise(deferred.promise, true, filledArray);
-              }
-
-              function withHttpConfig(httpConfig) {
-                 this[config.restangularFields.httpConfig] = httpConfig;
-                 return this;
-              }
-
-              function save(params, headers) {
-                if (this[config.restangularFields.fromServer]) {
-                  return this[config.restangularFields.put](params, headers);
-                } else {
-                  return _.bind(elemFunction, this)("post", undefined, params, undefined, headers);
-                }
-              }
-
-              function elemFunction(operation, what, params, obj, headers) {
-                  var __this = this;
-                  var deferred = $q.defer();
-                  var resParams = params || {};
-                  var route = what || this[config.restangularFields.route];
-                  var fetchUrl = urlHandler.fetchUrl(this, what);
-
-                  var callObj = obj || this;
-                  // fallback to etag on restangular object (since for custom methods we probably don't explicitly specify the etag field)
-                  var etag = callObj[config.restangularFields.etag] || (operation != "post" ? this[config.restangularFields.etag] : null);
-
-                  if (_.isObject(callObj) && config.isRestangularized(callObj)) {
-                      callObj = stripRestangular(callObj);
-                  }
-                  var request = config.fullRequestInterceptor(callObj, operation, route, fetchUrl,
-                    headers || {}, resParams || {}, this[config.restangularFields.httpConfig] || {});
-
-                  var filledObject = {};
-                  filledObject = config.transformElem(filledObject, false, route, service);
-
-                  var okCallback = function(response) {
-                      var resData = response.data;
-                      var fullParams = response.config.params;
-                      var elem = parseResponse(resData, operation, route, fetchUrl, response, deferred);
-                      if (elem) {
-
-                        if (operation === "post" && !__this[config.restangularFields.restangularCollection]) {
-                          resolvePromise(deferred, response, restangularizeElem(__this, elem, what, true, null, fullParams), filledObject);
-                        } else {
-                          data = restangularizeElem(__this[config.restangularFields.parentResource], elem, __this[config.restangularFields.route], true, null, fullParams)
-                          data[config.restangularFields.singleOne] = __this[config.restangularFields.singleOne]
-                          resolvePromise(deferred, response, data, filledObject);
-                        }
-
-                      } else {
-                        resolvePromise(deferred, response, undefined, filledObject);
-                      }
-                  };
-
-                  var errorCallback = function(response) {
-                      if (response.status === 304 && config.isSafe(operation)) {
-                        resolvePromise(deferred, response, __this, filledObject);
-                      } else if ( config.errorInterceptor(response, deferred) !== false ) {
-                          deferred.reject(response);
-                      }
-                  };
-                  // Overring HTTP Method
-                  var callOperation = operation;
-                  var callHeaders = _.extend({}, request.headers);
-                  var isOverrideOperation = config.isOverridenMethod(operation);
-                  if (isOverrideOperation) {
-                    callOperation = 'post';
-                    callHeaders = _.extend(callHeaders, {'X-HTTP-Method-Override': operation === 'remove' ? 'DELETE' : operation});
-                  } else if (config.jsonp && callOperation === 'get') {
-                    callOperation = 'jsonp';
-                  }
-
-                  if (config.isSafe(operation)) {
-                    if (isOverrideOperation) {
-                      urlHandler.resource(this, $http, request.httpConfig, callHeaders, request.params,
-                        what, etag, callOperation)[callOperation]({}).then(okCallback, errorCallback);
-                    } else {
-                      urlHandler.resource(this, $http, request.httpConfig, callHeaders, request.params,
-                        what, etag, callOperation)[callOperation]().then(okCallback, errorCallback);
-                    }
-                  } else {
-                      urlHandler.resource(this, $http, request.httpConfig, callHeaders, request.params,
-                        what, etag, callOperation)[callOperation](request.element).then(okCallback, errorCallback);
-                  }
-
-                  return restangularizePromise(deferred.promise, false, filledObject);
-              }
-
-              function getFunction(params, headers) {
-                  return _.bind(elemFunction, this)("get", undefined, params, undefined, headers);
-              }
-
-              function deleteFunction(params, headers) {
-                  return _.bind(elemFunction, this)("remove", undefined, params, undefined, headers);
-              }
-
-              function putFunction(params, headers) {
-                  return _.bind(elemFunction, this)("put", undefined, params, undefined, headers);
-              }
-
-              function postFunction(what, elem, params, headers) {
-                  return _.bind(elemFunction, this)("post", what, params, elem, headers);
-              }
-
-             function headFunction(params, headers) {
-               return _.bind(elemFunction, this)("head", undefined, params, undefined, headers);
-             }
-
-             function traceFunction(params, headers) {
-               return _.bind(elemFunction, this)("trace", undefined, params, undefined, headers);
-             }
-
-             function optionsFunction(params, headers) {
-               return _.bind(elemFunction, this)("options", undefined, params, undefined, headers);
-             }
-
-             function patchFunction(elem, params, headers) {
-               return _.bind(elemFunction, this)("patch", undefined, params, elem, headers);
-             }
-
-             function customFunction(operation, path, params, headers, elem) {
-                 return _.bind(elemFunction, this)(operation, path, params, elem, headers);
-             }
-
-             function addRestangularMethodFunction(name, operation, path, defaultParams, defaultHeaders, defaultElem) {
-                 var bindedFunction;
-                 if (operation === 'getList') {
-                     bindedFunction = _.bind(fetchFunction, this, path);
-                 } else {
-                     bindedFunction = _.bind(customFunction, this, operation, path);
-                 }
-
-                 var createdFunction = function(params, headers, elem) {
-                     var callParams = _.defaults({
-                         params: params,
-                         headers: headers,
-                         elem: elem
-                     }, {
-                         params: defaultParams,
-                         headers: defaultHeaders,
-                         elem: defaultElem
-                     });
-                     return bindedFunction(callParams.params, callParams.headers, callParams.elem);
-                 };
-
-                 if (config.isSafe(operation)) {
-                     this[name] = createdFunction;
-                 } else {
-                     this[name] = function(elem, params, headers) {
-                         return createdFunction(params, headers, elem);
-                     };
-                 }
-
-             }
-
-             function withConfigurationFunction(configurer) {
-                 var newConfig = angular.copy(_.omit(config, 'configuration'));
-                 Configurer.init(newConfig, newConfig);
-                 configurer(newConfig);
-                 return createServiceForConfiguration(newConfig);
-             }
-
-             function toService(route, parent) {
-                 var serv = {};
-                 var collection = (parent || service).all(route);
-                 serv.one = _.bind(one, (parent || service), parent, route);
-                 serv.post = _.bind(collection.post, collection);
-                 serv.getList = _.bind(collection.getList, collection);
-                 return serv;
-             }
-
-
-              Configurer.init(service, config);
-
-              service.copy = _.bind(copyRestangularizedElement, service);
-
-              service.service = _.bind(toService, service);
-
-              service.withConfig = _.bind(withConfigurationFunction, service);
-
-              service.one = _.bind(one, service, null);
-
-              service.all = _.bind(all, service, null);
-
-              service.several = _.bind(several, service, null);
-
-              service.oneUrl = _.bind(oneUrl, service, null);
-
-              service.allUrl = _.bind(allUrl, service, null);
-
-              service.stripRestangular = _.bind(stripRestangular, service);
-
-              service.restangularizeElement = _.bind(restangularizeElem, service);
-
-              service.restangularizeCollection = _.bind(restangularizeCollectionAndElements, service);
-
-              return service;
-          }
-
-          return createServiceForConfiguration(globalConfiguration);
-
-        }];
-    }
-);
-
-})();
 
 /*
  * angular-ui-bootstrap
@@ -48271,6 +47192,2307 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
       return query ? ('' + matchItem).replace(new RegExp(escapeRegexp(query), 'gi'), '<strong>$&</strong>') : matchItem;
     };
   });
+
+/**
+ * Isotope v1.5.26
+ * An exquisite jQuery plugin for magical layouts
+ * http://isotope.metafizzy.co
+ *
+ * Commercial use requires one-time purchase of a commercial license
+ * http://isotope.metafizzy.co/docs/license.html
+ *
+ * Non-commercial use is licensed under the MIT License
+ *
+ * Copyright 2014 Metafizzy
+ */
+
+/*jshint asi: true, browser: true, curly: true, eqeqeq: true, forin: false, immed: false, newcap: true, noempty: true, strict: true, undef: true */
+/*global jQuery: false */
+
+(function( window, $, undefined ){
+
+  'use strict';
+
+  // get global vars
+  var document = window.document;
+  var docElem = document.documentElement;
+  var Modernizr = window.Modernizr;
+
+  // helper function
+  var capitalize = function( str ) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
+  // ========================= getStyleProperty by kangax ===============================
+  // http://perfectionkills.com/feature-testing-css-properties/
+
+  var prefixes = 'Moz Webkit O Ms'.split(' ');
+
+  var getStyleProperty = function( propName ) {
+    var style = docElem.style,
+        prefixed;
+
+    // test standard property first
+    if ( typeof style[propName] === 'string' ) {
+      return propName;
+    }
+
+    // capitalize
+    propName = capitalize( propName );
+
+    // test vendor specific properties
+    for ( var i=0, len = prefixes.length; i < len; i++ ) {
+      prefixed = prefixes[i] + propName;
+      if ( typeof style[ prefixed ] === 'string' ) {
+        return prefixed;
+      }
+    }
+  };
+
+  var transformProp = getStyleProperty('transform'),
+      transitionProp = getStyleProperty('transitionProperty');
+
+
+  // ========================= miniModernizr ===============================
+  // <3<3<3 and thanks to Faruk and Paul for doing the heavy lifting
+
+  /*!
+   * Modernizr v1.6ish: miniModernizr for Isotope
+   * http://www.modernizr.com
+   *
+   * Developed by:
+   * - Faruk Ates  http://farukat.es/
+   * - Paul Irish  http://paulirish.com/
+   *
+   * Copyright (c) 2009-2010
+   * Dual-licensed under the BSD or MIT licenses.
+   * http://www.modernizr.com/license/
+   */
+
+  /*
+   * This version whittles down the script just to check support for
+   * CSS transitions, transforms, and 3D transforms.
+  */
+
+  var tests = {
+    csstransforms: function() {
+      return !!transformProp;
+    },
+
+    csstransforms3d: function() {
+      var test = !!getStyleProperty('perspective');
+      // double check for Chrome's false positive
+      if ( test && 'webkitPerspective' in docElem.style ) {
+        var $style = $('<style>@media (transform-3d),(-webkit-transform-3d)' +
+              '{#modernizr{height:3px}}</style>').appendTo('head'),
+            $div = $('<div id="modernizr" />').appendTo('html');
+
+        test = $div.height() === 3;
+
+        $div.remove();
+        $style.remove();
+      }
+      return test;
+    },
+
+    csstransitions: function() {
+      return !!transitionProp;
+    }
+  };
+
+  var testName;
+
+  if ( Modernizr ) {
+    // if there's a previous Modernzir, check if there are necessary tests
+    for ( testName in tests) {
+      if ( !Modernizr.hasOwnProperty( testName ) ) {
+        // if test hasn't been run, use addTest to run it
+        Modernizr.addTest( testName, tests[ testName ] );
+      }
+    }
+  } else {
+    // or create new mini Modernizr that just has the 3 tests
+    Modernizr = window.Modernizr = {
+      _version : '1.6ish: miniModernizr for Isotope'
+    };
+
+    var classes = ' ';
+    var result;
+
+    // Run through tests
+    for ( testName in tests) {
+      result = tests[ testName ]();
+      Modernizr[ testName ] = result;
+      classes += ' ' + ( result ?  '' : 'no-' ) + testName;
+    }
+
+    // Add the new classes to the <html> element.
+    $('html').addClass( classes );
+  }
+
+
+  // ========================= isoTransform ===============================
+
+  /**
+   *  provides hooks for .css({ scale: value, translate: [x, y] })
+   *  Progressively enhanced CSS transforms
+   *  Uses hardware accelerated 3D transforms for Safari
+   *  or falls back to 2D transforms.
+   */
+
+  if ( Modernizr.csstransforms ) {
+
+        // i.e. transformFnNotations.scale(0.5) >> 'scale3d( 0.5, 0.5, 1)'
+    var transformFnNotations = Modernizr.csstransforms3d ?
+      { // 3D transform functions
+        translate : function ( position ) {
+          return 'translate3d(' + position[0] + 'px, ' + position[1] + 'px, 0) ';
+        },
+        scale : function ( scale ) {
+          return 'scale3d(' + scale + ', ' + scale + ', 1) ';
+        }
+      } :
+      { // 2D transform functions
+        translate : function ( position ) {
+          return 'translate(' + position[0] + 'px, ' + position[1] + 'px) ';
+        },
+        scale : function ( scale ) {
+          return 'scale(' + scale + ') ';
+        }
+      }
+    ;
+
+    var setIsoTransform = function ( elem, name, value ) {
+          // unpack current transform data
+      var data =  $.data( elem, 'isoTransform' ) || {},
+          newData = {},
+          fnName,
+          transformObj = {},
+          transformValue;
+
+      // i.e. newData.scale = 0.5
+      newData[ name ] = value;
+      // extend new value over current data
+      $.extend( data, newData );
+
+      for ( fnName in data ) {
+        transformValue = data[ fnName ];
+        transformObj[ fnName ] = transformFnNotations[ fnName ]( transformValue );
+      }
+
+      // get proper order
+      // ideally, we could loop through this give an array, but since we only have
+      // a couple transforms we're keeping track of, we'll do it like so
+      var translateFn = transformObj.translate || '',
+          scaleFn = transformObj.scale || '',
+          // sorting so translate always comes first
+          valueFns = translateFn + scaleFn;
+
+      // set data back in elem
+      $.data( elem, 'isoTransform', data );
+
+      // set name to vendor specific property
+      elem.style[ transformProp ] = valueFns;
+    };
+
+    // ==================== scale ===================
+
+    $.cssNumber.scale = true;
+
+    $.cssHooks.scale = {
+      set: function( elem, value ) {
+        // uncomment this bit if you want to properly parse strings
+        // if ( typeof value === 'string' ) {
+        //   value = parseFloat( value );
+        // }
+        setIsoTransform( elem, 'scale', value );
+      },
+      get: function( elem, computed ) {
+        var transform = $.data( elem, 'isoTransform' );
+        return transform && transform.scale ? transform.scale : 1;
+      }
+    };
+
+    $.fx.step.scale = function( fx ) {
+      $.cssHooks.scale.set( fx.elem, fx.now+fx.unit );
+    };
+
+
+    // ==================== translate ===================
+
+    $.cssNumber.translate = true;
+
+    $.cssHooks.translate = {
+      set: function( elem, value ) {
+
+        // uncomment this bit if you want to properly parse strings
+        // if ( typeof value === 'string' ) {
+        //   value = value.split(' ');
+        // }
+        //
+        // var i, val;
+        // for ( i = 0; i < 2; i++ ) {
+        //   val = value[i];
+        //   if ( typeof val === 'string' ) {
+        //     val = parseInt( val );
+        //   }
+        // }
+
+        setIsoTransform( elem, 'translate', value );
+      },
+
+      get: function( elem, computed ) {
+        var transform = $.data( elem, 'isoTransform' );
+        return transform && transform.translate ? transform.translate : [ 0, 0 ];
+      }
+    };
+
+  }
+
+  // ========================= get transition-end event ===============================
+  var transitionEndEvent, transitionDurProp;
+
+  if ( Modernizr.csstransitions ) {
+    transitionEndEvent = {
+      WebkitTransitionProperty: 'webkitTransitionEnd',  // webkit
+      MozTransitionProperty: 'transitionend',
+      OTransitionProperty: 'oTransitionEnd otransitionend',
+      transitionProperty: 'transitionend'
+    }[ transitionProp ];
+
+    transitionDurProp = getStyleProperty('transitionDuration');
+  }
+
+  // ========================= smartresize ===============================
+
+  /*
+   * smartresize: debounced resize event for jQuery
+   *
+   * latest version and complete README available on Github:
+   * https://github.com/louisremi/jquery.smartresize.js
+   *
+   * Copyright 2011 @louis_remi
+   * Licensed under the MIT license.
+   */
+
+  var $event = $.event,
+      dispatchMethod = $.event.handle ? 'handle' : 'dispatch',
+      resizeTimeout;
+
+  $event.special.smartresize = {
+    setup: function() {
+      $(this).bind( "resize", $event.special.smartresize.handler );
+    },
+    teardown: function() {
+      $(this).unbind( "resize", $event.special.smartresize.handler );
+    },
+    handler: function( event, execAsap ) {
+      // Save the context
+      var context = this,
+          args = arguments;
+
+      // set correct event type
+      event.type = "smartresize";
+
+      if ( resizeTimeout ) { clearTimeout( resizeTimeout ); }
+      resizeTimeout = setTimeout(function() {
+        $event[ dispatchMethod ].apply( context, args );
+      }, execAsap === "execAsap"? 0 : 100 );
+    }
+  };
+
+  $.fn.smartresize = function( fn ) {
+    return fn ? this.bind( "smartresize", fn ) : this.trigger( "smartresize", ["execAsap"] );
+  };
+
+
+
+// ========================= Isotope ===============================
+
+
+  // our "Widget" object constructor
+  $.Isotope = function( options, element, callback ){
+    this.element = $( element );
+
+    this._create( options );
+    this._init( callback );
+  };
+
+  // styles of container element we want to keep track of
+  var isoContainerStyles = [ 'width', 'height' ];
+
+  var $window = $(window);
+
+  $.Isotope.settings = {
+    resizable: true,
+    layoutMode : 'masonry',
+    containerClass : 'isotope',
+    itemClass : 'isotope-item',
+    hiddenClass : 'isotope-hidden',
+    hiddenStyle: { opacity: 0, scale: 0.001 },
+    visibleStyle: { opacity: 1, scale: 1 },
+    containerStyle: {
+      position: 'relative',
+      overflow: 'hidden'
+    },
+    animationEngine: 'best-available',
+    animationOptions: {
+      queue: false,
+      duration: 800
+    },
+    sortBy : 'original-order',
+    sortAscending : true,
+    resizesContainer : true,
+    transformsEnabled: true,
+    itemPositionDataEnabled: false
+  };
+
+  $.Isotope.prototype = {
+
+    // sets up widget
+    _create : function( options ) {
+
+      this.options = $.extend( {}, $.Isotope.settings, options );
+
+      this.styleQueue = [];
+      this.elemCount = 0;
+
+      // get original styles in case we re-apply them in .destroy()
+      var elemStyle = this.element[0].style;
+      this.originalStyle = {};
+      // keep track of container styles
+      var containerStyles = isoContainerStyles.slice(0);
+      for ( var prop in this.options.containerStyle ) {
+        containerStyles.push( prop );
+      }
+      for ( var i=0, len = containerStyles.length; i < len; i++ ) {
+        prop = containerStyles[i];
+        this.originalStyle[ prop ] = elemStyle[ prop ] || '';
+      }
+      // apply container style from options
+      this.element.css( this.options.containerStyle );
+
+      this._updateAnimationEngine();
+      this._updateUsingTransforms();
+
+      // sorting
+      var originalOrderSorter = {
+        'original-order' : function( $elem, instance ) {
+          instance.elemCount ++;
+          return instance.elemCount;
+        },
+        random : function() {
+          return Math.random();
+        }
+      };
+
+      this.options.getSortData = $.extend( this.options.getSortData, originalOrderSorter );
+
+      // need to get atoms
+      this.reloadItems();
+
+      // get top left position of where the bricks should be
+      this.offset = {
+        left: parseInt( ( this.element.css('padding-left') || 0 ), 10 ),
+        top: parseInt( ( this.element.css('padding-top') || 0 ), 10 )
+      };
+
+      // add isotope class first time around
+      var instance = this;
+      setTimeout( function() {
+        instance.element.addClass( instance.options.containerClass );
+      }, 0 );
+
+      // bind resize method
+      if ( this.options.resizable ) {
+        $window.bind( 'smartresize.isotope', function() {
+          instance.resize();
+        });
+      }
+
+      // dismiss all click events from hidden events
+      this.element.delegate( '.' + this.options.hiddenClass, 'click', function(){
+        return false;
+      });
+
+    },
+
+    _getAtoms : function( $elems ) {
+      var selector = this.options.itemSelector,
+          // filter & find
+          $atoms = selector ? $elems.filter( selector ).add( $elems.find( selector ) ) : $elems,
+          // base style for atoms
+          atomStyle = { position: 'absolute' };
+
+      // filter out text nodes
+      $atoms = $atoms.filter( function( i, atom ) {
+        return atom.nodeType === 1;
+      });
+
+      if ( this.usingTransforms ) {
+        atomStyle.left = 0;
+        atomStyle.top = 0;
+      }
+
+      $atoms.css( atomStyle ).addClass( this.options.itemClass );
+
+      this.updateSortData( $atoms, true );
+
+      return $atoms;
+    },
+
+    // _init fires when your instance is first created
+    // (from the constructor above), and when you
+    // attempt to initialize the widget again (by the bridge)
+    // after it has already been initialized.
+    _init : function( callback ) {
+
+      this.$filteredAtoms = this._filter( this.$allAtoms );
+      this._sort();
+      this.reLayout( callback );
+
+    },
+
+    option : function( opts ){
+      // change options AFTER initialization:
+      // signature: $('#foo').bar({ cool:false });
+      if ( $.isPlainObject( opts ) ){
+        this.options = $.extend( true, this.options, opts );
+
+        // trigger _updateOptionName if it exists
+        var updateOptionFn;
+        for ( var optionName in opts ) {
+          updateOptionFn = '_update' + capitalize( optionName );
+          if ( this[ updateOptionFn ] ) {
+            this[ updateOptionFn ]();
+          }
+        }
+      }
+    },
+
+    // ====================== updaters ====================== //
+    // kind of like setters
+
+    _updateAnimationEngine : function() {
+      var animationEngine = this.options.animationEngine.toLowerCase().replace( /[ _\-]/g, '');
+      var isUsingJQueryAnimation;
+      // set applyStyleFnName
+      switch ( animationEngine ) {
+        case 'css' :
+        case 'none' :
+          isUsingJQueryAnimation = false;
+          break;
+        case 'jquery' :
+          isUsingJQueryAnimation = true;
+          break;
+        default : // best available
+          isUsingJQueryAnimation = !Modernizr.csstransitions;
+      }
+      this.isUsingJQueryAnimation = isUsingJQueryAnimation;
+      this._updateUsingTransforms();
+    },
+
+    _updateTransformsEnabled : function() {
+      this._updateUsingTransforms();
+    },
+
+    _updateUsingTransforms : function() {
+      var usingTransforms = this.usingTransforms = this.options.transformsEnabled &&
+        Modernizr.csstransforms && Modernizr.csstransitions && !this.isUsingJQueryAnimation;
+
+      // prevent scales when transforms are disabled
+      if ( !usingTransforms ) {
+        delete this.options.hiddenStyle.scale;
+        delete this.options.visibleStyle.scale;
+      }
+
+      this.getPositionStyles = usingTransforms ? this._translate : this._positionAbs;
+    },
+
+
+    // ====================== Filtering ======================
+
+    _filter : function( $atoms ) {
+      var filter = this.options.filter === '' ? '*' : this.options.filter;
+
+      if ( !filter ) {
+        return $atoms;
+      }
+
+      var hiddenClass    = this.options.hiddenClass,
+          hiddenSelector = '.' + hiddenClass,
+          $hiddenAtoms   = $atoms.filter( hiddenSelector ),
+          $atomsToShow   = $hiddenAtoms;
+
+      if ( filter !== '*' ) {
+        $atomsToShow = $hiddenAtoms.filter( filter );
+        var $atomsToHide = $atoms.not( hiddenSelector ).not( filter ).addClass( hiddenClass );
+        this.styleQueue.push({ $el: $atomsToHide, style: this.options.hiddenStyle });
+      }
+
+      this.styleQueue.push({ $el: $atomsToShow, style: this.options.visibleStyle });
+      $atomsToShow.removeClass( hiddenClass );
+
+      return $atoms.filter( filter );
+    },
+
+    // ====================== Sorting ======================
+
+    updateSortData : function( $atoms, isIncrementingElemCount ) {
+      var instance = this,
+          getSortData = this.options.getSortData,
+          $this, sortData;
+      $atoms.each(function(){
+        $this = $(this);
+        sortData = {};
+        // get value for sort data based on fn( $elem ) passed in
+        for ( var key in getSortData ) {
+          if ( !isIncrementingElemCount && key === 'original-order' ) {
+            // keep original order original
+            sortData[ key ] = $.data( this, 'isotope-sort-data' )[ key ];
+          } else {
+            sortData[ key ] = getSortData[ key ]( $this, instance );
+          }
+        }
+        // apply sort data to element
+        $.data( this, 'isotope-sort-data', sortData );
+      });
+    },
+
+    // used on all the filtered atoms
+    _sort : function() {
+
+      var sortBy = this.options.sortBy,
+          getSorter = this._getSorter,
+          sortDir = this.options.sortAscending ? 1 : -1,
+          sortFn = function( alpha, beta ) {
+            var a = getSorter( alpha, sortBy ),
+                b = getSorter( beta, sortBy );
+            // fall back to original order if data matches
+            if ( a === b && sortBy !== 'original-order') {
+              a = getSorter( alpha, 'original-order' );
+              b = getSorter( beta, 'original-order' );
+            }
+            return ( ( a > b ) ? 1 : ( a < b ) ? -1 : 0 ) * sortDir;
+          };
+
+      this.$filteredAtoms.sort( sortFn );
+    },
+
+    _getSorter : function( elem, sortBy ) {
+      return $.data( elem, 'isotope-sort-data' )[ sortBy ];
+    },
+
+    // ====================== Layout Helpers ======================
+
+    _translate : function( x, y ) {
+      return { translate : [ x, y ] };
+    },
+
+    _positionAbs : function( x, y ) {
+      return { left: x, top: y };
+    },
+
+    _pushPosition : function( $elem, x, y ) {
+      x = Math.round( x + this.offset.left );
+      y = Math.round( y + this.offset.top );
+      var position = this.getPositionStyles( x, y );
+      this.styleQueue.push({ $el: $elem, style: position });
+      if ( this.options.itemPositionDataEnabled ) {
+        $elem.data('isotope-item-position', {x: x, y: y} );
+      }
+    },
+
+
+    // ====================== General Layout ======================
+
+    // used on collection of atoms (should be filtered, and sorted before )
+    // accepts atoms-to-be-laid-out to start with
+    layout : function( $elems, callback ) {
+
+      var layoutMode = this.options.layoutMode;
+
+      // layout logic
+      this[ '_' +  layoutMode + 'Layout' ]( $elems );
+
+      // set the size of the container
+      if ( this.options.resizesContainer ) {
+        var containerStyle = this[ '_' +  layoutMode + 'GetContainerSize' ]();
+        this.styleQueue.push({ $el: this.element, style: containerStyle });
+      }
+
+      this._processStyleQueue( $elems, callback );
+
+      this.isLaidOut = true;
+    },
+
+    _processStyleQueue : function( $elems, callback ) {
+      // are we animating the layout arrangement?
+      // use plugin-ish syntax for css or animate
+      var styleFn = !this.isLaidOut ? 'css' : (
+            this.isUsingJQueryAnimation ? 'animate' : 'css'
+          ),
+          animOpts = this.options.animationOptions,
+          onLayout = this.options.onLayout,
+          objStyleFn, processor,
+          triggerCallbackNow, callbackFn;
+
+      // default styleQueue processor, may be overwritten down below
+      processor = function( i, obj ) {
+        obj.$el[ styleFn ]( obj.style, animOpts );
+      };
+
+      if ( this._isInserting && this.isUsingJQueryAnimation ) {
+        // if using styleQueue to insert items
+        processor = function( i, obj ) {
+          // only animate if it not being inserted
+          objStyleFn = obj.$el.hasClass('no-transition') ? 'css' : styleFn;
+          obj.$el[ objStyleFn ]( obj.style, animOpts );
+        };
+
+      } else if ( callback || onLayout || animOpts.complete ) {
+        // has callback
+        var isCallbackTriggered = false,
+            // array of possible callbacks to trigger
+            callbacks = [ callback, onLayout, animOpts.complete ],
+            instance = this;
+        triggerCallbackNow = true;
+        // trigger callback only once
+        callbackFn = function() {
+          if ( isCallbackTriggered ) {
+            return;
+          }
+          var hollaback;
+          for (var i=0, len = callbacks.length; i < len; i++) {
+            hollaback = callbacks[i];
+            if ( typeof hollaback === 'function' ) {
+              hollaback.call( instance.element, $elems, instance );
+            }
+          }
+          isCallbackTriggered = true;
+        };
+
+        if ( this.isUsingJQueryAnimation && styleFn === 'animate' ) {
+          // add callback to animation options
+          animOpts.complete = callbackFn;
+          triggerCallbackNow = false;
+
+        } else if ( Modernizr.csstransitions ) {
+          // detect if first item has transition
+          var i = 0,
+              firstItem = this.styleQueue[0],
+              testElem = firstItem && firstItem.$el,
+              styleObj;
+          // get first non-empty jQ object
+          while ( !testElem || !testElem.length ) {
+            styleObj = this.styleQueue[ i++ ];
+            // HACK: sometimes styleQueue[i] is undefined
+            if ( !styleObj ) {
+              return;
+            }
+            testElem = styleObj.$el;
+          }
+          // get transition duration of the first element in that object
+          // yeah, this is inexact
+          var duration = parseFloat( getComputedStyle( testElem[0] )[ transitionDurProp ] );
+          if ( duration > 0 ) {
+            processor = function( i, obj ) {
+              obj.$el[ styleFn ]( obj.style, animOpts )
+                // trigger callback at transition end
+                .one( transitionEndEvent, callbackFn );
+            };
+            triggerCallbackNow = false;
+          }
+        }
+      }
+
+      // process styleQueue
+      $.each( this.styleQueue, processor );
+
+      if ( triggerCallbackNow ) {
+        callbackFn();
+      }
+
+      // clear out queue for next time
+      this.styleQueue = [];
+    },
+
+
+    resize : function() {
+      if ( this[ '_' + this.options.layoutMode + 'ResizeChanged' ]() ) {
+        this.reLayout();
+      }
+    },
+
+
+    reLayout : function( callback ) {
+
+      this[ '_' +  this.options.layoutMode + 'Reset' ]();
+      this.layout( this.$filteredAtoms, callback );
+
+    },
+
+    // ====================== Convenience methods ======================
+
+    // ====================== Adding items ======================
+
+    // adds a jQuery object of items to a isotope container
+    addItems : function( $content, callback ) {
+      var $newAtoms = this._getAtoms( $content );
+      // add new atoms to atoms pools
+      this.$allAtoms = this.$allAtoms.add( $newAtoms );
+
+      if ( callback ) {
+        callback( $newAtoms );
+      }
+    },
+
+    // convienence method for adding elements properly to any layout
+    // positions items, hides them, then animates them back in <--- very sezzy
+    insert : function( $content, callback ) {
+      // position items
+      this.element.append( $content );
+
+      var instance = this;
+      this.addItems( $content, function( $newAtoms ) {
+        var $newFilteredAtoms = instance._filter( $newAtoms );
+        instance._addHideAppended( $newFilteredAtoms );
+        instance._sort();
+        instance.reLayout();
+        instance._revealAppended( $newFilteredAtoms, callback );
+      });
+
+    },
+
+    // convienence method for working with Infinite Scroll
+    appended : function( $content, callback ) {
+      var instance = this;
+      this.addItems( $content, function( $newAtoms ) {
+        instance._addHideAppended( $newAtoms );
+        instance.layout( $newAtoms );
+        instance._revealAppended( $newAtoms, callback );
+      });
+    },
+
+    // adds new atoms, then hides them before positioning
+    _addHideAppended : function( $newAtoms ) {
+      this.$filteredAtoms = this.$filteredAtoms.add( $newAtoms );
+      $newAtoms.addClass('no-transition');
+
+      this._isInserting = true;
+
+      // apply hidden styles
+      this.styleQueue.push({ $el: $newAtoms, style: this.options.hiddenStyle });
+    },
+
+    // sets visible style on new atoms
+    _revealAppended : function( $newAtoms, callback ) {
+      var instance = this;
+      // apply visible style after a sec
+      setTimeout( function() {
+        // enable animation
+        $newAtoms.removeClass('no-transition');
+        // reveal newly inserted filtered elements
+        instance.styleQueue.push({ $el: $newAtoms, style: instance.options.visibleStyle });
+        instance._isInserting = false;
+        instance._processStyleQueue( $newAtoms, callback );
+      }, 10 );
+    },
+
+    // gathers all atoms
+    reloadItems : function() {
+      this.$allAtoms = this._getAtoms( this.element.children() );
+    },
+
+    // removes elements from Isotope widget
+    remove: function( $content, callback ) {
+      // remove elements immediately from Isotope instance
+      this.$allAtoms = this.$allAtoms.not( $content );
+      this.$filteredAtoms = this.$filteredAtoms.not( $content );
+      // remove() as a callback, for after transition / animation
+      var instance = this;
+      var removeContent = function() {
+        $content.remove();
+        if ( callback ) {
+          callback.call( instance.element );
+        }
+      };
+
+      if ( $content.filter( ':not(.' + this.options.hiddenClass + ')' ).length ) {
+        // if any non-hidden content needs to be removed
+        this.styleQueue.push({ $el: $content, style: this.options.hiddenStyle });
+        this._sort();
+        this.reLayout( removeContent );
+      } else {
+        // remove it now
+        removeContent();
+      }
+
+    },
+
+    shuffle : function( callback ) {
+      this.updateSortData( this.$allAtoms );
+      this.options.sortBy = 'random';
+      this._sort();
+      this.reLayout( callback );
+    },
+
+    // destroys widget, returns elements and container back (close) to original style
+    destroy : function() {
+
+      var usingTransforms = this.usingTransforms;
+      var options = this.options;
+
+      this.$allAtoms
+        .removeClass( options.hiddenClass + ' ' + options.itemClass )
+        .each(function(){
+          var style = this.style;
+          style.position = '';
+          style.top = '';
+          style.left = '';
+          style.opacity = '';
+          if ( usingTransforms ) {
+            style[ transformProp ] = '';
+          }
+        });
+
+      // re-apply saved container styles
+      var elemStyle = this.element[0].style;
+      for ( var prop in this.originalStyle ) {
+        elemStyle[ prop ] = this.originalStyle[ prop ];
+      }
+
+      this.element
+        .unbind('.isotope')
+        .undelegate( '.' + options.hiddenClass, 'click' )
+        .removeClass( options.containerClass )
+        .removeData('isotope');
+
+      $window.unbind('.isotope');
+
+    },
+
+
+    // ====================== LAYOUTS ======================
+
+    // calculates number of rows or columns
+    // requires columnWidth or rowHeight to be set on namespaced object
+    // i.e. this.masonry.columnWidth = 200
+    _getSegments : function( isRows ) {
+      var namespace = this.options.layoutMode,
+          measure  = isRows ? 'rowHeight' : 'columnWidth',
+          size     = isRows ? 'height' : 'width',
+          segmentsName = isRows ? 'rows' : 'cols',
+          containerSize = this.element[ size ](),
+          segments,
+                    // i.e. options.masonry && options.masonry.columnWidth
+          segmentSize = this.options[ namespace ] && this.options[ namespace ][ measure ] ||
+                    // or use the size of the first item, i.e. outerWidth
+                    this.$filteredAtoms[ 'outer' + capitalize(size) ](true) ||
+                    // if there's no items, use size of container
+                    containerSize;
+
+      segments = Math.floor( containerSize / segmentSize );
+      segments = Math.max( segments, 1 );
+
+      // i.e. this.masonry.cols = ....
+      this[ namespace ][ segmentsName ] = segments;
+      // i.e. this.masonry.columnWidth = ...
+      this[ namespace ][ measure ] = segmentSize;
+
+    },
+
+    _checkIfSegmentsChanged : function( isRows ) {
+      var namespace = this.options.layoutMode,
+          segmentsName = isRows ? 'rows' : 'cols',
+          prevSegments = this[ namespace ][ segmentsName ];
+      // update cols/rows
+      this._getSegments( isRows );
+      // return if updated cols/rows is not equal to previous
+      return ( this[ namespace ][ segmentsName ] !== prevSegments );
+    },
+
+    // ====================== Masonry ======================
+
+    _masonryReset : function() {
+      // layout-specific props
+      this.masonry = {};
+      // FIXME shouldn't have to call this again
+      this._getSegments();
+      var i = this.masonry.cols;
+      this.masonry.colYs = [];
+      while (i--) {
+        this.masonry.colYs.push( 0 );
+      }
+    },
+
+    _masonryLayout : function( $elems ) {
+      var instance = this,
+          props = instance.masonry;
+      $elems.each(function(){
+        var $this  = $(this),
+            //how many columns does this brick span
+            colSpan = Math.ceil( $this.outerWidth(true) / props.columnWidth );
+        colSpan = Math.min( colSpan, props.cols );
+
+        if ( colSpan === 1 ) {
+          // if brick spans only one column, just like singleMode
+          instance._masonryPlaceBrick( $this, props.colYs );
+        } else {
+          // brick spans more than one column
+          // how many different places could this brick fit horizontally
+          var groupCount = props.cols + 1 - colSpan,
+              groupY = [],
+              groupColY,
+              i;
+
+          // for each group potential horizontal position
+          for ( i=0; i < groupCount; i++ ) {
+            // make an array of colY values for that one group
+            groupColY = props.colYs.slice( i, i+colSpan );
+            // and get the max value of the array
+            groupY[i] = Math.max.apply( Math, groupColY );
+          }
+
+          instance._masonryPlaceBrick( $this, groupY );
+        }
+      });
+    },
+
+    // worker method that places brick in the columnSet
+    //   with the the minY
+    _masonryPlaceBrick : function( $brick, setY ) {
+      // get the minimum Y value from the columns
+      var minimumY = Math.min.apply( Math, setY ),
+          shortCol = 0;
+
+      // Find index of short column, the first from the left
+      for (var i=0, len = setY.length; i < len; i++) {
+        if ( setY[i] === minimumY ) {
+          shortCol = i;
+          break;
+        }
+      }
+
+      // position the brick
+      var x = this.masonry.columnWidth * shortCol,
+          y = minimumY;
+      this._pushPosition( $brick, x, y );
+
+      // apply setHeight to necessary columns
+      var setHeight = minimumY + $brick.outerHeight(true),
+          setSpan = this.masonry.cols + 1 - len;
+      for ( i=0; i < setSpan; i++ ) {
+        this.masonry.colYs[ shortCol + i ] = setHeight;
+      }
+
+    },
+
+    _masonryGetContainerSize : function() {
+      var containerHeight = Math.max.apply( Math, this.masonry.colYs );
+      return { height: containerHeight };
+    },
+
+    _masonryResizeChanged : function() {
+      return this._checkIfSegmentsChanged();
+    },
+
+    // ====================== fitRows ======================
+
+    _fitRowsReset : function() {
+      this.fitRows = {
+        x : 0,
+        y : 0,
+        height : 0
+      };
+    },
+
+    _fitRowsLayout : function( $elems ) {
+      var instance = this,
+          containerWidth = this.element.width(),
+          props = this.fitRows;
+
+      $elems.each( function() {
+        var $this = $(this),
+            atomW = $this.outerWidth(true),
+            atomH = $this.outerHeight(true);
+
+        if ( props.x !== 0 && atomW + props.x > containerWidth ) {
+          // if this element cannot fit in the current row
+          props.x = 0;
+          props.y = props.height;
+        }
+
+        // position the atom
+        instance._pushPosition( $this, props.x, props.y );
+
+        props.height = Math.max( props.y + atomH, props.height );
+        props.x += atomW;
+
+      });
+    },
+
+    _fitRowsGetContainerSize : function () {
+      return { height : this.fitRows.height };
+    },
+
+    _fitRowsResizeChanged : function() {
+      return true;
+    },
+
+
+    // ====================== cellsByRow ======================
+
+    _cellsByRowReset : function() {
+      this.cellsByRow = {
+        index : 0
+      };
+      // get this.cellsByRow.columnWidth
+      this._getSegments();
+      // get this.cellsByRow.rowHeight
+      this._getSegments(true);
+    },
+
+    _cellsByRowLayout : function( $elems ) {
+      var instance = this,
+          props = this.cellsByRow;
+      $elems.each( function(){
+        var $this = $(this),
+            col = props.index % props.cols,
+            row = Math.floor( props.index / props.cols ),
+            x = ( col + 0.5 ) * props.columnWidth - $this.outerWidth(true) / 2,
+            y = ( row + 0.5 ) * props.rowHeight - $this.outerHeight(true) / 2;
+        instance._pushPosition( $this, x, y );
+        props.index ++;
+      });
+    },
+
+    _cellsByRowGetContainerSize : function() {
+      return { height : Math.ceil( this.$filteredAtoms.length / this.cellsByRow.cols ) * this.cellsByRow.rowHeight + this.offset.top };
+    },
+
+    _cellsByRowResizeChanged : function() {
+      return this._checkIfSegmentsChanged();
+    },
+
+
+    // ====================== straightDown ======================
+
+    _straightDownReset : function() {
+      this.straightDown = {
+        y : 0
+      };
+    },
+
+    _straightDownLayout : function( $elems ) {
+      var instance = this;
+      $elems.each( function( i ){
+        var $this = $(this);
+        instance._pushPosition( $this, 0, instance.straightDown.y );
+        instance.straightDown.y += $this.outerHeight(true);
+      });
+    },
+
+    _straightDownGetContainerSize : function() {
+      return { height : this.straightDown.y };
+    },
+
+    _straightDownResizeChanged : function() {
+      return true;
+    },
+
+
+    // ====================== masonryHorizontal ======================
+
+    _masonryHorizontalReset : function() {
+      // layout-specific props
+      this.masonryHorizontal = {};
+      // FIXME shouldn't have to call this again
+      this._getSegments( true );
+      var i = this.masonryHorizontal.rows;
+      this.masonryHorizontal.rowXs = [];
+      while (i--) {
+        this.masonryHorizontal.rowXs.push( 0 );
+      }
+    },
+
+    _masonryHorizontalLayout : function( $elems ) {
+      var instance = this,
+          props = instance.masonryHorizontal;
+      $elems.each(function(){
+        var $this  = $(this),
+            //how many rows does this brick span
+            rowSpan = Math.ceil( $this.outerHeight(true) / props.rowHeight );
+        rowSpan = Math.min( rowSpan, props.rows );
+
+        if ( rowSpan === 1 ) {
+          // if brick spans only one column, just like singleMode
+          instance._masonryHorizontalPlaceBrick( $this, props.rowXs );
+        } else {
+          // brick spans more than one row
+          // how many different places could this brick fit horizontally
+          var groupCount = props.rows + 1 - rowSpan,
+              groupX = [],
+              groupRowX, i;
+
+          // for each group potential horizontal position
+          for ( i=0; i < groupCount; i++ ) {
+            // make an array of colY values for that one group
+            groupRowX = props.rowXs.slice( i, i+rowSpan );
+            // and get the max value of the array
+            groupX[i] = Math.max.apply( Math, groupRowX );
+          }
+
+          instance._masonryHorizontalPlaceBrick( $this, groupX );
+        }
+      });
+    },
+
+    _masonryHorizontalPlaceBrick : function( $brick, setX ) {
+      // get the minimum Y value from the columns
+      var minimumX  = Math.min.apply( Math, setX ),
+          smallRow  = 0;
+      // Find index of smallest row, the first from the top
+      for (var i=0, len = setX.length; i < len; i++) {
+        if ( setX[i] === minimumX ) {
+          smallRow = i;
+          break;
+        }
+      }
+
+      // position the brick
+      var x = minimumX,
+          y = this.masonryHorizontal.rowHeight * smallRow;
+      this._pushPosition( $brick, x, y );
+
+      // apply setHeight to necessary columns
+      var setWidth = minimumX + $brick.outerWidth(true),
+          setSpan = this.masonryHorizontal.rows + 1 - len;
+      for ( i=0; i < setSpan; i++ ) {
+        this.masonryHorizontal.rowXs[ smallRow + i ] = setWidth;
+      }
+    },
+
+    _masonryHorizontalGetContainerSize : function() {
+      var containerWidth = Math.max.apply( Math, this.masonryHorizontal.rowXs );
+      return { width: containerWidth };
+    },
+
+    _masonryHorizontalResizeChanged : function() {
+      return this._checkIfSegmentsChanged(true);
+    },
+
+
+    // ====================== fitColumns ======================
+
+    _fitColumnsReset : function() {
+      this.fitColumns = {
+        x : 0,
+        y : 0,
+        width : 0
+      };
+    },
+
+    _fitColumnsLayout : function( $elems ) {
+      var instance = this,
+          containerHeight = this.element.height(),
+          props = this.fitColumns;
+      $elems.each( function() {
+        var $this = $(this),
+            atomW = $this.outerWidth(true),
+            atomH = $this.outerHeight(true);
+
+        if ( props.y !== 0 && atomH + props.y > containerHeight ) {
+          // if this element cannot fit in the current column
+          props.x = props.width;
+          props.y = 0;
+        }
+
+        // position the atom
+        instance._pushPosition( $this, props.x, props.y );
+
+        props.width = Math.max( props.x + atomW, props.width );
+        props.y += atomH;
+
+      });
+    },
+
+    _fitColumnsGetContainerSize : function () {
+      return { width : this.fitColumns.width };
+    },
+
+    _fitColumnsResizeChanged : function() {
+      return true;
+    },
+
+
+
+    // ====================== cellsByColumn ======================
+
+    _cellsByColumnReset : function() {
+      this.cellsByColumn = {
+        index : 0
+      };
+      // get this.cellsByColumn.columnWidth
+      this._getSegments();
+      // get this.cellsByColumn.rowHeight
+      this._getSegments(true);
+    },
+
+    _cellsByColumnLayout : function( $elems ) {
+      var instance = this,
+          props = this.cellsByColumn;
+      $elems.each( function(){
+        var $this = $(this),
+            col = Math.floor( props.index / props.rows ),
+            row = props.index % props.rows,
+            x = ( col + 0.5 ) * props.columnWidth - $this.outerWidth(true) / 2,
+            y = ( row + 0.5 ) * props.rowHeight - $this.outerHeight(true) / 2;
+        instance._pushPosition( $this, x, y );
+        props.index ++;
+      });
+    },
+
+    _cellsByColumnGetContainerSize : function() {
+      return { width : Math.ceil( this.$filteredAtoms.length / this.cellsByColumn.rows ) * this.cellsByColumn.columnWidth };
+    },
+
+    _cellsByColumnResizeChanged : function() {
+      return this._checkIfSegmentsChanged(true);
+    },
+
+    // ====================== straightAcross ======================
+
+    _straightAcrossReset : function() {
+      this.straightAcross = {
+        x : 0
+      };
+    },
+
+    _straightAcrossLayout : function( $elems ) {
+      var instance = this;
+      $elems.each( function( i ){
+        var $this = $(this);
+        instance._pushPosition( $this, instance.straightAcross.x, 0 );
+        instance.straightAcross.x += $this.outerWidth(true);
+      });
+    },
+
+    _straightAcrossGetContainerSize : function() {
+      return { width : this.straightAcross.x };
+    },
+
+    _straightAcrossResizeChanged : function() {
+      return true;
+    }
+
+  };
+
+
+  // ======================= imagesLoaded Plugin ===============================
+  /*!
+   * jQuery imagesLoaded plugin v1.1.0
+   * http://github.com/desandro/imagesloaded
+   *
+   * MIT License. by Paul Irish et al.
+   */
+
+
+  // $('#my-container').imagesLoaded(myFunction)
+  // or
+  // $('img').imagesLoaded(myFunction)
+
+  // execute a callback when all images have loaded.
+  // needed because .load() doesn't work on cached images
+
+  // callback function gets image collection as argument
+  //  `this` is the container
+
+  $.fn.imagesLoaded = function( callback ) {
+    var $this = this,
+        $images = $this.find('img').add( $this.filter('img') ),
+        len = $images.length,
+        blank = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==',
+        loaded = [];
+
+    function triggerCallback() {
+      callback.call( $this, $images );
+    }
+
+    function imgLoaded( event ) {
+      var img = event.target;
+      if ( img.src !== blank && $.inArray( img, loaded ) === -1 ){
+        loaded.push( img );
+        if ( --len <= 0 ){
+          setTimeout( triggerCallback );
+          $images.unbind( '.imagesLoaded', imgLoaded );
+        }
+      }
+    }
+
+    // if no images, trigger immediately
+    if ( !len ) {
+      triggerCallback();
+    }
+
+    $images.bind( 'load.imagesLoaded error.imagesLoaded',  imgLoaded ).each( function() {
+      // cached images don't fire load sometimes, so we reset src.
+      var src = this.src;
+      // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
+      // data uri bypasses webkit log warning (thx doug jones)
+      this.src = blank;
+      this.src = src;
+    });
+
+    return $this;
+  };
+
+
+  // helper function for logging errors
+  // $.error breaks jQuery chaining
+  var logError = function( message ) {
+    if ( window.console ) {
+      window.console.error( message );
+    }
+  };
+
+  // =======================  Plugin bridge  ===============================
+  // leverages data method to either create or return $.Isotope constructor
+  // A bit from jQuery UI
+  //   https://github.com/jquery/jquery-ui/blob/master/ui/jquery.ui.widget.js
+  // A bit from jcarousel
+  //   https://github.com/jsor/jcarousel/blob/master/lib/jquery.jcarousel.js
+
+  $.fn.isotope = function( options, callback ) {
+    if ( typeof options === 'string' ) {
+      // call method
+      var args = Array.prototype.slice.call( arguments, 1 );
+
+      this.each(function(){
+        var instance = $.data( this, 'isotope' );
+        if ( !instance ) {
+          logError( "cannot call methods on isotope prior to initialization; " +
+              "attempted to call method '" + options + "'" );
+          return;
+        }
+        if ( !$.isFunction( instance[options] ) || options.charAt(0) === "_" ) {
+          logError( "no such method '" + options + "' for isotope instance" );
+          return;
+        }
+        // apply method
+        instance[ options ].apply( instance, args );
+      });
+    } else {
+      this.each(function() {
+        var instance = $.data( this, 'isotope' );
+        if ( instance ) {
+          // apply options & init
+          instance.option( options );
+          instance._init( callback );
+        } else {
+          // initialize new instance
+          $.data( this, 'isotope', new $.Isotope( options, this, callback ) );
+        }
+      });
+    }
+    // return jQuery object
+    // so plugin methods do not have to
+    return this;
+  };
+
+})( window, jQuery );
+/*!
+ * imagesLoaded PACKAGED v3.1.5
+ * JavaScript is all like "You images are done yet or what?"
+ * MIT License
+ */
+
+
+/*!
+ * EventEmitter v4.2.6 - git.io/ee
+ * Oliver Caldwell
+ * MIT license
+ * @preserve
+ */
+
+(function () {
+	
+
+	/**
+	 * Class for managing events.
+	 * Can be extended to provide event functionality in other classes.
+	 *
+	 * @class EventEmitter Manages event registering and emitting.
+	 */
+	function EventEmitter() {}
+
+	// Shortcuts to improve speed and size
+	var proto = EventEmitter.prototype;
+	var exports = this;
+	var originalGlobalValue = exports.EventEmitter;
+
+	/**
+	 * Finds the index of the listener for the event in it's storage array.
+	 *
+	 * @param {Function[]} listeners Array of listeners to search through.
+	 * @param {Function} listener Method to look for.
+	 * @return {Number} Index of the specified listener, -1 if not found
+	 * @api private
+	 */
+	function indexOfListener(listeners, listener) {
+		var i = listeners.length;
+		while (i--) {
+			if (listeners[i].listener === listener) {
+				return i;
+			}
+		}
+
+		return -1;
+	}
+
+	/**
+	 * Alias a method while keeping the context correct, to allow for overwriting of target method.
+	 *
+	 * @param {String} name The name of the target method.
+	 * @return {Function} The aliased method
+	 * @api private
+	 */
+	function alias(name) {
+		return function aliasClosure() {
+			return this[name].apply(this, arguments);
+		};
+	}
+
+	/**
+	 * Returns the listener array for the specified event.
+	 * Will initialise the event object and listener arrays if required.
+	 * Will return an object if you use a regex search. The object contains keys for each matched event. So /ba[rz]/ might return an object containing bar and baz. But only if you have either defined them with defineEvent or added some listeners to them.
+	 * Each property in the object response is an array of listener functions.
+	 *
+	 * @param {String|RegExp} evt Name of the event to return the listeners from.
+	 * @return {Function[]|Object} All listener functions for the event.
+	 */
+	proto.getListeners = function getListeners(evt) {
+		var events = this._getEvents();
+		var response;
+		var key;
+
+		// Return a concatenated array of all matching events if
+		// the selector is a regular expression.
+		if (typeof evt === 'object') {
+			response = {};
+			for (key in events) {
+				if (events.hasOwnProperty(key) && evt.test(key)) {
+					response[key] = events[key];
+				}
+			}
+		}
+		else {
+			response = events[evt] || (events[evt] = []);
+		}
+
+		return response;
+	};
+
+	/**
+	 * Takes a list of listener objects and flattens it into a list of listener functions.
+	 *
+	 * @param {Object[]} listeners Raw listener objects.
+	 * @return {Function[]} Just the listener functions.
+	 */
+	proto.flattenListeners = function flattenListeners(listeners) {
+		var flatListeners = [];
+		var i;
+
+		for (i = 0; i < listeners.length; i += 1) {
+			flatListeners.push(listeners[i].listener);
+		}
+
+		return flatListeners;
+	};
+
+	/**
+	 * Fetches the requested listeners via getListeners but will always return the results inside an object. This is mainly for internal use but others may find it useful.
+	 *
+	 * @param {String|RegExp} evt Name of the event to return the listeners from.
+	 * @return {Object} All listener functions for an event in an object.
+	 */
+	proto.getListenersAsObject = function getListenersAsObject(evt) {
+		var listeners = this.getListeners(evt);
+		var response;
+
+		if (listeners instanceof Array) {
+			response = {};
+			response[evt] = listeners;
+		}
+
+		return response || listeners;
+	};
+
+	/**
+	 * Adds a listener function to the specified event.
+	 * The listener will not be added if it is a duplicate.
+	 * If the listener returns true then it will be removed after it is called.
+	 * If you pass a regular expression as the event name then the listener will be added to all events that match it.
+	 *
+	 * @param {String|RegExp} evt Name of the event to attach the listener to.
+	 * @param {Function} listener Method to be called when the event is emitted. If the function returns true then it will be removed after calling.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.addListener = function addListener(evt, listener) {
+		var listeners = this.getListenersAsObject(evt);
+		var listenerIsWrapped = typeof listener === 'object';
+		var key;
+
+		for (key in listeners) {
+			if (listeners.hasOwnProperty(key) && indexOfListener(listeners[key], listener) === -1) {
+				listeners[key].push(listenerIsWrapped ? listener : {
+					listener: listener,
+					once: false
+				});
+			}
+		}
+
+		return this;
+	};
+
+	/**
+	 * Alias of addListener
+	 */
+	proto.on = alias('addListener');
+
+	/**
+	 * Semi-alias of addListener. It will add a listener that will be
+	 * automatically removed after it's first execution.
+	 *
+	 * @param {String|RegExp} evt Name of the event to attach the listener to.
+	 * @param {Function} listener Method to be called when the event is emitted. If the function returns true then it will be removed after calling.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.addOnceListener = function addOnceListener(evt, listener) {
+		return this.addListener(evt, {
+			listener: listener,
+			once: true
+		});
+	};
+
+	/**
+	 * Alias of addOnceListener.
+	 */
+	proto.once = alias('addOnceListener');
+
+	/**
+	 * Defines an event name. This is required if you want to use a regex to add a listener to multiple events at once. If you don't do this then how do you expect it to know what event to add to? Should it just add to every possible match for a regex? No. That is scary and bad.
+	 * You need to tell it what event names should be matched by a regex.
+	 *
+	 * @param {String} evt Name of the event to create.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.defineEvent = function defineEvent(evt) {
+		this.getListeners(evt);
+		return this;
+	};
+
+	/**
+	 * Uses defineEvent to define multiple events.
+	 *
+	 * @param {String[]} evts An array of event names to define.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.defineEvents = function defineEvents(evts) {
+		for (var i = 0; i < evts.length; i += 1) {
+			this.defineEvent(evts[i]);
+		}
+		return this;
+	};
+
+	/**
+	 * Removes a listener function from the specified event.
+	 * When passed a regular expression as the event name, it will remove the listener from all events that match it.
+	 *
+	 * @param {String|RegExp} evt Name of the event to remove the listener from.
+	 * @param {Function} listener Method to remove from the event.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.removeListener = function removeListener(evt, listener) {
+		var listeners = this.getListenersAsObject(evt);
+		var index;
+		var key;
+
+		for (key in listeners) {
+			if (listeners.hasOwnProperty(key)) {
+				index = indexOfListener(listeners[key], listener);
+
+				if (index !== -1) {
+					listeners[key].splice(index, 1);
+				}
+			}
+		}
+
+		return this;
+	};
+
+	/**
+	 * Alias of removeListener
+	 */
+	proto.off = alias('removeListener');
+
+	/**
+	 * Adds listeners in bulk using the manipulateListeners method.
+	 * If you pass an object as the second argument you can add to multiple events at once. The object should contain key value pairs of events and listeners or listener arrays. You can also pass it an event name and an array of listeners to be added.
+	 * You can also pass it a regular expression to add the array of listeners to all events that match it.
+	 * Yeah, this function does quite a bit. That's probably a bad thing.
+	 *
+	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to add to multiple events at once.
+	 * @param {Function[]} [listeners] An optional array of listener functions to add.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.addListeners = function addListeners(evt, listeners) {
+		// Pass through to manipulateListeners
+		return this.manipulateListeners(false, evt, listeners);
+	};
+
+	/**
+	 * Removes listeners in bulk using the manipulateListeners method.
+	 * If you pass an object as the second argument you can remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.
+	 * You can also pass it an event name and an array of listeners to be removed.
+	 * You can also pass it a regular expression to remove the listeners from all events that match it.
+	 *
+	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to remove from multiple events at once.
+	 * @param {Function[]} [listeners] An optional array of listener functions to remove.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.removeListeners = function removeListeners(evt, listeners) {
+		// Pass through to manipulateListeners
+		return this.manipulateListeners(true, evt, listeners);
+	};
+
+	/**
+	 * Edits listeners in bulk. The addListeners and removeListeners methods both use this to do their job. You should really use those instead, this is a little lower level.
+	 * The first argument will determine if the listeners are removed (true) or added (false).
+	 * If you pass an object as the second argument you can add/remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.
+	 * You can also pass it an event name and an array of listeners to be added/removed.
+	 * You can also pass it a regular expression to manipulate the listeners of all events that match it.
+	 *
+	 * @param {Boolean} remove True if you want to remove listeners, false if you want to add.
+	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to add/remove from multiple events at once.
+	 * @param {Function[]} [listeners] An optional array of listener functions to add/remove.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.manipulateListeners = function manipulateListeners(remove, evt, listeners) {
+		var i;
+		var value;
+		var single = remove ? this.removeListener : this.addListener;
+		var multiple = remove ? this.removeListeners : this.addListeners;
+
+		// If evt is an object then pass each of it's properties to this method
+		if (typeof evt === 'object' && !(evt instanceof RegExp)) {
+			for (i in evt) {
+				if (evt.hasOwnProperty(i) && (value = evt[i])) {
+					// Pass the single listener straight through to the singular method
+					if (typeof value === 'function') {
+						single.call(this, i, value);
+					}
+					else {
+						// Otherwise pass back to the multiple function
+						multiple.call(this, i, value);
+					}
+				}
+			}
+		}
+		else {
+			// So evt must be a string
+			// And listeners must be an array of listeners
+			// Loop over it and pass each one to the multiple method
+			i = listeners.length;
+			while (i--) {
+				single.call(this, evt, listeners[i]);
+			}
+		}
+
+		return this;
+	};
+
+	/**
+	 * Removes all listeners from a specified event.
+	 * If you do not specify an event then all listeners will be removed.
+	 * That means every event will be emptied.
+	 * You can also pass a regex to remove all events that match it.
+	 *
+	 * @param {String|RegExp} [evt] Optional name of the event to remove all listeners for. Will remove from every event if not passed.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.removeEvent = function removeEvent(evt) {
+		var type = typeof evt;
+		var events = this._getEvents();
+		var key;
+
+		// Remove different things depending on the state of evt
+		if (type === 'string') {
+			// Remove all listeners for the specified event
+			delete events[evt];
+		}
+		else if (type === 'object') {
+			// Remove all events matching the regex.
+			for (key in events) {
+				if (events.hasOwnProperty(key) && evt.test(key)) {
+					delete events[key];
+				}
+			}
+		}
+		else {
+			// Remove all listeners in all events
+			delete this._events;
+		}
+
+		return this;
+	};
+
+	/**
+	 * Alias of removeEvent.
+	 *
+	 * Added to mirror the node API.
+	 */
+	proto.removeAllListeners = alias('removeEvent');
+
+	/**
+	 * Emits an event of your choice.
+	 * When emitted, every listener attached to that event will be executed.
+	 * If you pass the optional argument array then those arguments will be passed to every listener upon execution.
+	 * Because it uses `apply`, your array of arguments will be passed as if you wrote them out separately.
+	 * So they will not arrive within the array on the other side, they will be separate.
+	 * You can also pass a regular expression to emit to all events that match it.
+	 *
+	 * @param {String|RegExp} evt Name of the event to emit and execute listeners for.
+	 * @param {Array} [args] Optional array of arguments to be passed to each listener.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.emitEvent = function emitEvent(evt, args) {
+		var listeners = this.getListenersAsObject(evt);
+		var listener;
+		var i;
+		var key;
+		var response;
+
+		for (key in listeners) {
+			if (listeners.hasOwnProperty(key)) {
+				i = listeners[key].length;
+
+				while (i--) {
+					// If the listener returns true then it shall be removed from the event
+					// The function is executed either with a basic call or an apply if there is an args array
+					listener = listeners[key][i];
+
+					if (listener.once === true) {
+						this.removeListener(evt, listener.listener);
+					}
+
+					response = listener.listener.apply(this, args || []);
+
+					if (response === this._getOnceReturnValue()) {
+						this.removeListener(evt, listener.listener);
+					}
+				}
+			}
+		}
+
+		return this;
+	};
+
+	/**
+	 * Alias of emitEvent
+	 */
+	proto.trigger = alias('emitEvent');
+
+	/**
+	 * Subtly different from emitEvent in that it will pass its arguments on to the listeners, as opposed to taking a single array of arguments to pass on.
+	 * As with emitEvent, you can pass a regex in place of the event name to emit to all events that match it.
+	 *
+	 * @param {String|RegExp} evt Name of the event to emit and execute listeners for.
+	 * @param {...*} Optional additional arguments to be passed to each listener.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.emit = function emit(evt) {
+		var args = Array.prototype.slice.call(arguments, 1);
+		return this.emitEvent(evt, args);
+	};
+
+	/**
+	 * Sets the current value to check against when executing listeners. If a
+	 * listeners return value matches the one set here then it will be removed
+	 * after execution. This value defaults to true.
+	 *
+	 * @param {*} value The new value to check for when executing listeners.
+	 * @return {Object} Current instance of EventEmitter for chaining.
+	 */
+	proto.setOnceReturnValue = function setOnceReturnValue(value) {
+		this._onceReturnValue = value;
+		return this;
+	};
+
+	/**
+	 * Fetches the current value to check against when executing listeners. If
+	 * the listeners return value matches this one then it should be removed
+	 * automatically. It will return true by default.
+	 *
+	 * @return {*|Boolean} The current value to check for or the default, true.
+	 * @api private
+	 */
+	proto._getOnceReturnValue = function _getOnceReturnValue() {
+		if (this.hasOwnProperty('_onceReturnValue')) {
+			return this._onceReturnValue;
+		}
+		else {
+			return true;
+		}
+	};
+
+	/**
+	 * Fetches the events object and creates one if required.
+	 *
+	 * @return {Object} The events storage object.
+	 * @api private
+	 */
+	proto._getEvents = function _getEvents() {
+		return this._events || (this._events = {});
+	};
+
+	/**
+	 * Reverts the global {@link EventEmitter} to its previous value and returns a reference to this version.
+	 *
+	 * @return {Function} Non conflicting EventEmitter class.
+	 */
+	EventEmitter.noConflict = function noConflict() {
+		exports.EventEmitter = originalGlobalValue;
+		return EventEmitter;
+	};
+
+	// Expose the class either via AMD, CommonJS or the global object
+	if (typeof define === 'function' && define.amd) {
+		define('eventEmitter/EventEmitter',[],function () {
+			return EventEmitter;
+		});
+	}
+	else if (typeof module === 'object' && module.exports){
+		module.exports = EventEmitter;
+	}
+	else {
+		this.EventEmitter = EventEmitter;
+	}
+}.call(this));
+
+/*!
+ * eventie v1.0.4
+ * event binding helper
+ *   eventie.bind( elem, 'click', myFn )
+ *   eventie.unbind( elem, 'click', myFn )
+ */
+
+/*jshint browser: true, undef: true, unused: true */
+/*global define: false */
+
+( function( window ) {
+
+
+
+var docElem = document.documentElement;
+
+var bind = function() {};
+
+function getIEEvent( obj ) {
+  var event = window.event;
+  // add event.target
+  event.target = event.target || event.srcElement || obj;
+  return event;
+}
+
+if ( docElem.addEventListener ) {
+  bind = function( obj, type, fn ) {
+    obj.addEventListener( type, fn, false );
+  };
+} else if ( docElem.attachEvent ) {
+  bind = function( obj, type, fn ) {
+    obj[ type + fn ] = fn.handleEvent ?
+      function() {
+        var event = getIEEvent( obj );
+        fn.handleEvent.call( fn, event );
+      } :
+      function() {
+        var event = getIEEvent( obj );
+        fn.call( obj, event );
+      };
+    obj.attachEvent( "on" + type, obj[ type + fn ] );
+  };
+}
+
+var unbind = function() {};
+
+if ( docElem.removeEventListener ) {
+  unbind = function( obj, type, fn ) {
+    obj.removeEventListener( type, fn, false );
+  };
+} else if ( docElem.detachEvent ) {
+  unbind = function( obj, type, fn ) {
+    obj.detachEvent( "on" + type, obj[ type + fn ] );
+    try {
+      delete obj[ type + fn ];
+    } catch ( err ) {
+      // can't delete window object properties
+      obj[ type + fn ] = undefined;
+    }
+  };
+}
+
+var eventie = {
+  bind: bind,
+  unbind: unbind
+};
+
+// transport
+if ( typeof define === 'function' && define.amd ) {
+  // AMD
+  define( 'eventie/eventie',eventie );
+} else {
+  // browser global
+  window.eventie = eventie;
+}
+
+})( this );
+
+/*!
+ * imagesLoaded v3.1.5
+ * JavaScript is all like "You images are done yet or what?"
+ * MIT License
+ */
+
+( function( window, factory ) { 
+  // universal module definition
+
+  /*global define: false, module: false, require: false */
+
+  if ( typeof define === 'function' && define.amd ) {
+    // AMD
+    define( [
+      'eventEmitter/EventEmitter',
+      'eventie/eventie'
+    ], function( EventEmitter, eventie ) {
+      return factory( window, EventEmitter, eventie );
+    });
+  } else if ( typeof exports === 'object' ) {
+    // CommonJS
+    module.exports = factory(
+      window,
+      require('eventEmitter'),
+      require('eventie')
+    );
+  } else {
+    // browser global
+    window.imagesLoaded = factory(
+      window,
+      window.EventEmitter,
+      window.eventie
+    );
+  }
+
+})( this,
+
+// --------------------------  factory -------------------------- //
+
+function factory( window, EventEmitter, eventie ) {
+
+
+
+var $ = window.jQuery;
+var console = window.console;
+var hasConsole = typeof console !== 'undefined';
+
+// -------------------------- helpers -------------------------- //
+
+// extend objects
+function extend( a, b ) {
+  for ( var prop in b ) {
+    a[ prop ] = b[ prop ];
+  }
+  return a;
+}
+
+var objToString = Object.prototype.toString;
+function isArray( obj ) {
+  return objToString.call( obj ) === '[object Array]';
+}
+
+// turn element or nodeList into an array
+function makeArray( obj ) {
+  var ary = [];
+  if ( isArray( obj ) ) {
+    // use object if already an array
+    ary = obj;
+  } else if ( typeof obj.length === 'number' ) {
+    // convert nodeList to array
+    for ( var i=0, len = obj.length; i < len; i++ ) {
+      ary.push( obj[i] );
+    }
+  } else {
+    // array of single index
+    ary.push( obj );
+  }
+  return ary;
+}
+
+  // -------------------------- imagesLoaded -------------------------- //
+
+  /**
+   * @param {Array, Element, NodeList, String} elem
+   * @param {Object or Function} options - if function, use as callback
+   * @param {Function} onAlways - callback function
+   */
+  function ImagesLoaded( elem, options, onAlways ) {
+    // coerce ImagesLoaded() without new, to be new ImagesLoaded()
+    if ( !( this instanceof ImagesLoaded ) ) {
+      return new ImagesLoaded( elem, options );
+    }
+    // use elem as selector string
+    if ( typeof elem === 'string' ) {
+      elem = document.querySelectorAll( elem );
+    }
+
+    this.elements = makeArray( elem );
+    this.options = extend( {}, this.options );
+
+    if ( typeof options === 'function' ) {
+      onAlways = options;
+    } else {
+      extend( this.options, options );
+    }
+
+    if ( onAlways ) {
+      this.on( 'always', onAlways );
+    }
+
+    this.getImages();
+
+    if ( $ ) {
+      // add jQuery Deferred object
+      this.jqDeferred = new $.Deferred();
+    }
+
+    // HACK check async to allow time to bind listeners
+    var _this = this;
+    setTimeout( function() {
+      _this.check();
+    });
+  }
+
+  ImagesLoaded.prototype = new EventEmitter();
+
+  ImagesLoaded.prototype.options = {};
+
+  ImagesLoaded.prototype.getImages = function() {
+    this.images = [];
+
+    // filter & find items if we have an item selector
+    for ( var i=0, len = this.elements.length; i < len; i++ ) {
+      var elem = this.elements[i];
+      // filter siblings
+      if ( elem.nodeName === 'IMG' ) {
+        this.addImage( elem );
+      }
+      // find children
+      // no non-element nodes, #143
+      if ( !elem.nodeType || !( elem.nodeType === 1 || elem.nodeType === 9 ) ) {
+        continue;
+      }
+      var childElems = elem.querySelectorAll('img');
+      // concat childElems to filterFound array
+      for ( var j=0, jLen = childElems.length; j < jLen; j++ ) {
+        var img = childElems[j];
+        this.addImage( img );
+      }
+    }
+  };
+
+  /**
+   * @param {Image} img
+   */
+  ImagesLoaded.prototype.addImage = function( img ) {
+    var loadingImage = new LoadingImage( img );
+    this.images.push( loadingImage );
+  };
+
+  ImagesLoaded.prototype.check = function() {
+    var _this = this;
+    var checkedCount = 0;
+    var length = this.images.length;
+    this.hasAnyBroken = false;
+    // complete if no images
+    if ( !length ) {
+      this.complete();
+      return;
+    }
+
+    function onConfirm( image, message ) {
+      if ( _this.options.debug && hasConsole ) {
+        console.log( 'confirm', image, message );
+      }
+
+      _this.progress( image );
+      checkedCount++;
+      if ( checkedCount === length ) {
+        _this.complete();
+      }
+      return true; // bind once
+    }
+
+    for ( var i=0; i < length; i++ ) {
+      var loadingImage = this.images[i];
+      loadingImage.on( 'confirm', onConfirm );
+      loadingImage.check();
+    }
+  };
+
+  ImagesLoaded.prototype.progress = function( image ) {
+    this.hasAnyBroken = this.hasAnyBroken || !image.isLoaded;
+    // HACK - Chrome triggers event before object properties have changed. #83
+    var _this = this;
+    setTimeout( function() {
+      _this.emit( 'progress', _this, image );
+      if ( _this.jqDeferred && _this.jqDeferred.notify ) {
+        _this.jqDeferred.notify( _this, image );
+      }
+    });
+  };
+
+  ImagesLoaded.prototype.complete = function() {
+    var eventName = this.hasAnyBroken ? 'fail' : 'done';
+    this.isComplete = true;
+    var _this = this;
+    // HACK - another setTimeout so that confirm happens after progress
+    setTimeout( function() {
+      _this.emit( eventName, _this );
+      _this.emit( 'always', _this );
+      if ( _this.jqDeferred ) {
+        var jqMethod = _this.hasAnyBroken ? 'reject' : 'resolve';
+        _this.jqDeferred[ jqMethod ]( _this );
+      }
+    });
+  };
+
+  // -------------------------- jquery -------------------------- //
+
+  if ( $ ) {
+    $.fn.imagesLoaded = function( options, callback ) {
+      var instance = new ImagesLoaded( this, options, callback );
+      return instance.jqDeferred.promise( $(this) );
+    };
+  }
+
+
+  // --------------------------  -------------------------- //
+
+  function LoadingImage( img ) {
+    this.img = img;
+  }
+
+  LoadingImage.prototype = new EventEmitter();
+
+  LoadingImage.prototype.check = function() {
+    // first check cached any previous images that have same src
+    var resource = cache[ this.img.src ] || new Resource( this.img.src );
+    if ( resource.isConfirmed ) {
+      this.confirm( resource.isLoaded, 'cached was confirmed' );
+      return;
+    }
+
+    // If complete is true and browser supports natural sizes,
+    // try to check for image status manually.
+    if ( this.img.complete && this.img.naturalWidth !== undefined ) {
+      // report based on naturalWidth
+      this.confirm( this.img.naturalWidth !== 0, 'naturalWidth' );
+      return;
+    }
+
+    // If none of the checks above matched, simulate loading on detached element.
+    var _this = this;
+    resource.on( 'confirm', function( resrc, message ) {
+      _this.confirm( resrc.isLoaded, message );
+      return true;
+    });
+
+    resource.check();
+  };
+
+  LoadingImage.prototype.confirm = function( isLoaded, message ) {
+    this.isLoaded = isLoaded;
+    this.emit( 'confirm', this, message );
+  };
+
+  // -------------------------- Resource -------------------------- //
+
+  // Resource checks each src, only once
+  // separate class from LoadingImage to prevent memory leaks. See #115
+
+  var cache = {};
+
+  function Resource( src ) {
+    this.src = src;
+    // add to cache
+    cache[ src ] = this;
+  }
+
+  Resource.prototype = new EventEmitter();
+
+  Resource.prototype.check = function() {
+    // only trigger checking once
+    if ( this.isChecked ) {
+      return;
+    }
+    // simulate loading on detached element
+    var proxyImage = new Image();
+    eventie.bind( proxyImage, 'load', this );
+    eventie.bind( proxyImage, 'error', this );
+    proxyImage.src = this.src;
+    // set flag
+    this.isChecked = true;
+  };
+
+  // ----- events ----- //
+
+  // trigger specified handler for event type
+  Resource.prototype.handleEvent = function( event ) {
+    var method = 'on' + event.type;
+    if ( this[ method ] ) {
+      this[ method ]( event );
+    }
+  };
+
+  Resource.prototype.onload = function( event ) {
+    this.confirm( true, 'onload' );
+    this.unbindProxyEvents( event );
+  };
+
+  Resource.prototype.onerror = function( event ) {
+    this.confirm( false, 'onerror' );
+    this.unbindProxyEvents( event );
+  };
+
+  // ----- confirm ----- //
+
+  Resource.prototype.confirm = function( isLoaded, message ) {
+    this.isConfirmed = true;
+    this.isLoaded = isLoaded;
+    this.emit( 'confirm', this, message );
+  };
+
+  Resource.prototype.unbindProxyEvents = function( event ) {
+    eventie.unbind( event.target, 'load', this );
+    eventie.unbind( event.target, 'error', this );
+  };
+
+  // -----  ----- //
+
+  return ImagesLoaded;
+
+});
 
 /*! Picturefill - Responsive Images that work today. (and mimic the proposed Picture element with span elements). Author: Scott Jehl, Filament Group, 2012 | License: MIT/GPLv2 */
 

@@ -1,46 +1,92 @@
-h1 {
-    font-size: 2em;
+@font-face {
+    font-family: 'Open Sans Condensed';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url(http://themes.googleusercontent.com/static/fonts/opensanscondensed/v7/gk5FxslNkTTHtojXrkp-xF1YPouZEKgzpqZW9wN-3Ek.woff) format('woff');
 }
-
-main {
-    position: relative;
-    margin: 0 1em;
-}
-
-main.ng-enter {
-    -webkit-transition:0.5s ease-out all;
-    transition:0.25s ease-out all;
-    position: relative;
-    opacity: 0;
-    top: 25px;
-}
-
-main.ng-enter.ng-enter-active {
-    top: 0;
-    opacity: 1;
-}
-
-main.ng-leave  {
-    -webkit-transition:0.5s ease-out all;
-    transition:0.25s ease-out all;
-    position: relative;
-    opacity: 1;
-    top: 0;
-}
-
-main.ng-leave.ng-leave-active {
-    top: -25px;
-    opacity: 0;
-}
-
 html {
-    font-size: 24px;
+    font-size: 16px;
 }
-
-footer p{
-    font-size: .8rem;
-}
-
-html, body, h1, h2, h3, h4, h5, h6 {
+body {
     font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.168rem;
+    background-color: #eee;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #232B2B;
+}
+h2 {
+    font-size: 3rem;
+}
+h3 {
+    font-size: 1.86rem;
+}
+h4 {
+    font-size: 1.3624rem;
+}
+.art-container {
+    width: 100%;
+}
+.content .container {
+    width: 100%;
+}
+@media (min-width: 1200px) {
+    .content .container {
+        width: 1170px;
+    }
+}
+.dark-side {
+    background-color: #FCC770; /* light brown */
+    background-color: #DC3D24; /* red */
+    background-color: #2A3232; /* dark grey */
+}
+.dark-side h2 {
+    color: #FFFFFF;
+}
+.thumbnail {
+    background: inherit;
+    border: 0;
+}
+.dark-side a.thumbnail, .dark-side h3 {
+    color: #FCC770;
+}
+.dark-side a.thumbnail:hover {
+    text-decoration: none;
+}
+.sketch {
+    width: 25%;
+}
+.fancy-heading {
+    display: inline-block;
+    padding: 0 .25em;
+    letter-spacing: 3px;
+}
+.dark-side .fancy-heading {
+    background-color: #000;
+    color: #FCC770;
+}
+.content .fancy-heading {
+    background-color: #232B2B;
+    color: #FCC770;
+}
+nav.affix {
+    width: 100%;
+    z-index: 10;
+}
+.navbar-inverse .navbar-brand {
+    color: #FCC770;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #BBB;
+}
+.featured img {
+    border: 1px solid #FCC770;
+    padding: 3px;
+    background-color: #333;
 }

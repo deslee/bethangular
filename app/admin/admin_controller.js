@@ -11,7 +11,7 @@ angular.module('beth-gulp-ng-admin', [
             templateUrl: 'admin/admin.html',
             controller: 'AdminCtrl'
         })
-}).controller('AdminCtrl', function ($scope, $modal, Image) {
+}).controller('AdminCtrl', function ($scope, $modal, Entry) {
     $scope.selected = {};
     $scope.$on('imageSaved', function (e, image) {
         if (!_.find(images, function (i) {
@@ -21,7 +21,7 @@ angular.module('beth-gulp-ng-admin', [
         }
     });
 
-    var images = $scope.images = Image.query();
+    var images = $scope.images = Entry.find();
     $scope.newImage = function () {
         $scope.editImage = new Image();
     };

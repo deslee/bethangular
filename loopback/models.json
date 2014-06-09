@@ -1,0 +1,219 @@
+{
+  "email": {
+    "options": {
+      "base": "Email",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "dataSource": "mail",
+    "public": false
+  },
+  "user": {
+    "options": {
+      "base": "User",
+      "relations": {
+        "accessTokens": {
+          "model": "accessToken",
+          "type": "hasMany",
+          "foreignKey": "userId"
+        }
+      },
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "dataSource": "db",
+    "public": true
+  },
+  "accessToken": {
+    "options": {
+      "base": "AccessToken",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "dataSource": "db",
+    "public": true
+  },
+  "application": {
+    "options": {
+      "base": "Application",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "dataSource": "db",
+    "public": true
+  },
+  "acl": {
+    "options": {
+      "base": "ACL",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "dataSource": "db",
+    "public": false
+  },
+  "roleMapping": {
+    "options": {
+      "base": "RoleMapping",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "dataSource": "db",
+    "public": false
+  },
+  "role": {
+    "options": {
+      "base": "Role",
+      "relations": {
+        "principals": {
+          "type": "hasMany",
+          "model": "roleMapping",
+          "foreignKey": "roleId"
+        }
+      },
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "dataSource": "db",
+    "public": false
+  },
+  "scope": {
+    "options": {
+      "base": "Scope",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "dataSource": "db",
+    "public": false
+  },
+  "push": {
+    "options": {
+      "base": "Push",
+      "plural": "push",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "dataSource": "push"
+  },
+  "installation": {
+    "options": {
+      "base": "Installation",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "dataSource": "db",
+    "public": true
+  },
+  "notification": {
+    "options": {
+      "base": "Notification",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "dataSource": "db",
+    "public": true
+  },
+  "entry": {
+    "options": {
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "DENY",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "READ",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "WRITE",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$authenticated"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$firstUser"
+        }
+      ]
+    },
+    "properties": {
+      "entry": {
+        "type": "string"
+      }
+    },
+    "public": true,
+    "dataSource": "db",
+    "plural": "entries"
+  }
+}

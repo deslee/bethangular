@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,42 +17,202 @@
     <![endif]-->
 </head>
 <body>
+<div class="dark-side">
+    <nav class="navbar navbar-inverse" role="navigation" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span>  <span class="icon-bar"></span>  <span class="icon-bar"></span>  <span class="icon-bar"></span>
+                </button> <a class="navbar-brand" href="#">Elizabeth Del Rosario</a>
+            </div>
 
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span
-                    class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Elizabeth Del Rosario</a>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Featured</a>
+                    </li>
+                    <li><a href="#">Sketchbook</a>
+                    </li>
+                    <li><a href="#">About me</a>
+                    </li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Administration<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Log in</a>
+                            </li>
+                            <li><a href="#">Featured Items</a>
+                            </li>
+                            <li><a href="#">Scrapbook</a><a href="#">About me</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Email</a>
+                            </li>
+                            <li class="divider"></li>
+
+                            <li><a href="#">LinkedIn</a>
+                            </li>
+                            <li><a href="#">Facebook</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="#">Featured</a>
-                </li>
-                <li><a href="#admin">Admin</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact<b
-                        class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Message me</a>
-                        </li>
-                        <li></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Facebook</a>
-                        </li>
-                        <li><a href="#">LinkedIn</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+    </nav>
+    <div data-ng-view="artcontainer"></div>
+</div>
+
+<hr />
+<div class="content">
+    <div class="container">
+        <h2 class="fancy-heading">Sketches</h2>
+        <div class="sketch-container">
+            <div class="sketch">
+                <a href="#" class="thumbnail">
+                    <img src="img/farm.jpg" alt="">
+                    <h4>Title goes here</h4>
+                </a>
+            </div>
+            <div class="sketch">
+                <a href="#" class="thumbnail">
+                    <img src="img/dean.jpg" alt="">
+                    <h4>Title goes here</h4>
+                </a>
+            </div>
+            <div class="sketch">
+                <a href="#" class="thumbnail">
+                    <img src="img/sate.jpg" alt="">
+                    <h4>Title goes here</h4>
+                </a>
+            </div>
+            <div class="sketch">
+                <a href="#" class="thumbnail">
+                    <img src="img/me.jpg" alt="">
+                    <h4>Title goes here</h4>
+                </a>
+            </div>
+            <div class="sketch">
+                <a href="#" class="thumbnail">
+                    <img src="img/chicken.jpg" alt="">
+                    <h4>Title goes here</h4>
+                </a>
+            </div>
+            <div class="sketch">
+                <a href="#" class="thumbnail">
+                    <img src="img/envir.jpg" alt="">
+                    <h4>Title goes here</h4>
+                </a>
+            </div>
+            <div class="sketch">
+                <a href="#" class="thumbnail">
+                    <img src="img/bang.png" alt="">
+                    <h4>Title goes here</h4>
+                </a>
+            </div>
+            <div class="sketch">
+                <a href="#" class="thumbnail">
+                    <img src="img/familiar.png" alt="">
+                    <h4>Title goes here</h4>
+                </a>
+            </div>
         </div>
     </div>
-</nav>
-<main ng-view></main>
+    <div class="container">
+        <h2 class="fancy-heading">About me</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <div>
+                    <h3>Artistic Interests</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </div>
+                <div>
+                    <h3>Work Experience</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <ul class="media-list">
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="img/captured.png" width="100">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">Captured Dimensions</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                                Donec lacinia congue felis in faucibus.</div>
+                        </li>
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="img/acc.gif" width="100">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">American Campus Communities</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                                Donec lacinia congue felis in faucibus.</div>
+                        </li>
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="img/platos.jpg" width="100">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">Plato's Closet</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                                Donec lacinia congue felis in faucibus.</div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Projects and Organizations</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <ul class="media-list">
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="img/olaf.jpg" width="100">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">Comrade Quest</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                                Donec lacinia congue felis in faucibus.</div>
+                        </li>
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="img/animationguild.jpg" width="100">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">Animation Guild Officer</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                                Donec lacinia congue felis in faucibus.</div>
+                        </li>
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="img/100x100.gif" width="100">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">Knights</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                                Donec lacinia congue felis in faucibus.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    <img src="img/bethlinked.jpg" width="200">
+                </p>
+                <p>
+                    <img src="img/beth3.jpg" width="200">
+                </p>
+                <p>
+                    <img src="img/beth1.jpg" width="200">
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel-footer"><span>© 2014 Elizabeth Del Rosario</span><span class="pull-right">Created by Desmond Lee</span>
+</div>
+
 <script src="lib.js"></script>
 <script src="app.js"></script>
 <script src="templates.js"></script>
@@ -65,6 +224,17 @@
     catch (e) {
         console.error(e.stack || e.message || e);
     }
+</script>
+
+<script>
+    var container = $('.sketch-container');
+    container.imagesLoaded(function() {
+        container.isotope({
+            layoutMode: "masonry",
+            itemSelector: ".sketch",
+            columnWidth: '200'
+        })
+    })
 </script>
 </body>
 </html>

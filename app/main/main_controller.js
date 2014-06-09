@@ -3,25 +3,16 @@
 (function () {
     angular.module('beth-gulp-ng-main', [
         'ngRoute', 'ngAnimate', 'beth-gulp-ng-admin',
-        'templates',
-        'ng.picturefill', 'ui.bootstrap'])
+        'templates', 'lbServices', 'ui.bootstrap'])
         .config(function ($routeProvider) {
-            $routeProvider
-                .when('/', {
-                    templateUrl: 'main/main.html',
-                    controller: 'MainCtrl'
-                })
-                .when('/entry/:slug', {
-                    templateUrl: 'main/entry.html',
-                    controller: 'EntryCtrl'
-                });
         })
-        .controller('MainCtrl', ['$scope', 'Image', function ($scope, Image) {
-            $scope.featuredImages = Image.getList().$object;
+        .controller('MainCtrl', ['$scope', 'Entry', function ($scope, Entry) {
+            $scope.featuredImages = Entry.find(function(response) {
+            });
         }])
-        .controller('EntryCtrl', function ($scope, $routeParams, Image) {
+        .controller('EntryCtrl', function ($scope, $routeParams, Entry) {
             var slug = $routeParams.slug;
-            Image.query({slug: slug}, function (result) {
+            Entry.find({slug: slug}, function (result) {
                 $scope.image = result[0];
             });
         });

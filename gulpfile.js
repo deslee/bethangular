@@ -40,6 +40,8 @@ gulp.task('vendorJS', function(){
         './bower_components/angular-resource/*.js',
         './bower_components/restangular/dist/*.js',
         './bower_components/angular-bootstrap/*.js',
+        './bower_components/isotope/jquery.isotope.js',
+        './bower_components/imagesloaded/imagesloaded.pkgd.js',
         './bower_components/picturefill/*.js',
         './bower_components/angular-picturefill/*.js'])
         .pipe(plugins.concat('lib.js'))
@@ -48,8 +50,8 @@ gulp.task('vendorJS', function(){
 
 gulp.task('vendorCSS', function(){
     //concatenate vendor CSS files
-    gulp.src(['!./bower_components/**/*.min.css',
-        './bower_components/**/*.css'])
+    gulp.src([
+        './bower_components/bootstrap/dist/css/*.min.css'])
         .pipe(plugins.concat('lib.css'))
         .pipe(gulp.dest('./build'));
 });
@@ -57,6 +59,11 @@ gulp.task('vendorCSS', function(){
 gulp.task('copy-index', function() {
     gulp.src('./app/index.html')
         .pipe(gulp.dest('./build'));
+});
+
+gulp.task('copy-imgs', function() {
+    gulp.src('./app/img/*')
+        .pipe(gulp.dest('./build/img'));
 });
 
 gulp.task('copy-bootstrap-fonts', function() {
@@ -86,4 +93,4 @@ gulp.task('connect', plugins.connect.server({
     livereload: true
 }));
 
-gulp.task('default',['connect','scripts','templates','css','copy-index','copy-bootstrap-fonts','vendorJS','vendorCSS','watch']);
+gulp.task('default',['connect','scripts','templates','css','copy-index','copy-imgs','copy-bootstrap-fonts','vendorJS','vendorCSS','watch']);
